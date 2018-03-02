@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="activesoftswitch_portaone_apiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="account_id" />
+    </Key>
+    <Property Name="account_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IAccount" Type="int" Nullable="false" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="BillingModel" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ISO4217" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Balance" Type="int" Nullable="false" />
+    <Property Name="UILogin" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UIPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VoipPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Blocked" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UMEnabled" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BillStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Servicefeatures" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FollowMeEnabled" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="IRoutingPlan" Type="int" Nullable="false" />
+    <Property Name="IProduct" Type="int" Nullable="false" />
+    <Property Name="Note" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IEnv" Type="int" Nullable="false" />
+    <Property Name="Salutation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ISubscriber" Type="int" Nullable="false" />
+    <Property Name="RecKey" Type="varchar" MaxLength="5000" />
+    <Property Name="RecStatus" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'activesoftswitch_portaone_api.dbo.App' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="App">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Secret" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ApplicationType" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="RefreshTokenLifeTime" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Secret" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ApplicationType" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="RefreshTokenLifeTime" Type="int" Nullable="false" />
+    <Property Name="AllowedOrigin" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'activesoftswitch_portaone_api.dbo.Calls' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Calls">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="CallTypeId" />
+      <PropertyRef Name="ICustomer" />
+      <PropertyRef Name="PeriodId" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CallTypeId" Type="int" Nullable="false" />
+    <Property Name="TalkTime" Type="int" />
+    <Property Name="RingTime" Type="int" />
+    <Property Name="SetupTime" Type="int" />
+    <Property Name="AnswerTime" Type="int" />
+    <Property Name="TotalTime" Type="int" />
+    <Property Name="ConnectTime" Type="datetime" />
+    <Property Name="MissedCall" Type="bit" />
+    <Property Name="DID" Type="varchar" MaxLength="250" />
+    <Property Name="CLI" Type="int" />
+    <Property Name="ReceivedBy" Type="int" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="PeriodId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CallType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CallTypeName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CDR_Call">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CDR_Id" Type="int" Nullable="false" />
+    <Property Name="Call_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CostCentre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CostCentreName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="cron_joblog">
+    <Key>
+      <PropertyRef Name="CronJobLogID" />
+    </Key>
+    <Property Name="CronJobLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CronJobID" Type="int" />
+    <Property Name="CronJobStatus" Type="smallint" />
+    <Property Name="Message" Type="varchar" MaxLength="500" />
+    <Property Name="created_at" Type="datetime2" Precision="0" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_at" Type="datetime2" Precision="0" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cronjob">
+    <Key>
+      <PropertyRef Name="CronJobID" />
+    </Key>
+    <Property Name="CronJobID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CronJobCommandID" Type="int" />
+    <Property Name="Settings" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LastRunTime" Type="datetime2" Precision="0" />
+    <Property Name="NextRunTime" Type="datetime2" Precision="0" />
+    <Property Name="created_at" Type="datetime2" Precision="0" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_at" Type="datetime2" Precision="0" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cronjob_command">
+    <Key>
+      <PropertyRef Name="CronJobCommandID" />
+    </Key>
+    <Property Name="CronJobCommandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Command" Type="varchar" MaxLength="200" />
+    <Property Name="Settings" Type="varchar" MaxLength="200" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="created_at" Type="datetime2" Precision="0" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_at" Type="datetime2" Precision="0" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="RecKey" Type="varchar" MaxLength="1000" />
+    <Property Name="RecStatus" Type="tinyint" />
+    <Property Name="CreationDate" Type="datetime2" Precision="0" />
+    <Property Name="IsImport" Type="bit" />
+  </EntityType>
+  <EntityType Name="customer_hunt_group">
+    <Key>
+      <PropertyRef Name="customer_hunt_groups_id" />
+    </Key>
+    <Property Name="customer_hunt_groups_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="i_c_group" Type="int" Nullable="false" />
+    <Property Name="i_customer" Type="int" Nullable="false" />
+    <Property Name="i_customerSpecified" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="hunt_sequence" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="hunt_keep_original_cli" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="i_c_ext" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="assigned_extensions" Type="int" Nullable="false" />
+    <Property Name="RecKey" Type="varchar" MaxLength="1000" />
+    <Property Name="RecStatus" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DepartmentName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DivisionName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="extension">
+    <Key>
+      <PropertyRef Name="ExtensionID" />
+    </Key>
+    <Property Name="ExtensionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="i_c_group" Type="int" Nullable="false" />
+    <Property Name="i_c_ext" Type="int" Nullable="false" />
+    <Property Name="i_cg_ext" Type="int" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="i_cg_extSpecified" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="i_c_extSpecified" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="i_account" Type="int" Nullable="false" />
+    <Property Name="account_id" Type="int" Nullable="false" />
+    <Property Name="RecKey" Type="varchar" MaxLength="1000" />
+    <Property Name="RecStatus" Type="tinyint" />
+    <Property Name="DivisionId" Type="int" />
+    <Property Name="DeptId" Type="int" />
+    <Property Name="CostCentreId" Type="int" />
+  </EntityType>
+  <EntityType Name="hourlycdr">
+    <Key>
+      <PropertyRef Name="hourly_cdr_id" />
+    </Key>
+    <Property Name="hourly_cdr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="IEnv" Type="int" Nullable="false" />
+    <Property Name="CLI" Type="int" Nullable="false" />
+    <Property Name="CLD" Type="int" Nullable="false" />
+    <Property Name="AccountID" Type="int" Nullable="false" />
+    <Property Name="Connect_time" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="Disconnect_time" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="Bill_time" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="IDest" Type="int" Nullable="false" />
+    <Property Name="Charged_Quantity" Type="int" Nullable="false" />
+    <Property Name="Charged_Amount" Type="float" Nullable="false" />
+    <Property Name="CallId" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="IAccount" Type="int" Nullable="false" />
+    <Property Name="ServiceName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BitFlags" Type="int" Nullable="false" />
+    <Property Name="DisconnectCause" Type="int" Nullable="false" />
+    <Property Name="ServiceFlags" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="History" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IService" Type="int" Nullable="false" />
+    <Property Name="CallType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RatingPattern" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Used_Quantity" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="created_at" Type="datetime2" Precision="0" />
+    <Property Name="updated_at" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="hourlycdr__old-3-4-2015">
+    <Key>
+      <PropertyRef Name="hourly_cdr_id" />
+    </Key>
+    <Property Name="hourly_cdr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="IEnv" Type="int" Nullable="false" />
+    <Property Name="CLI" Type="int" Nullable="false" />
+    <Property Name="CLD" Type="int" Nullable="false" />
+    <Property Name="AccountID" Type="int" Nullable="false" />
+    <Property Name="Connect_time" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="Disconnect_time" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="Bill_time" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="IDest" Type="int" Nullable="false" />
+    <Property Name="Charged_Quantity" Type="int" Nullable="false" />
+    <Property Name="Charged_Amount" Type="float" Nullable="false" />
+    <Property Name="CallId" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="IAccount" Type="int" Nullable="false" />
+    <Property Name="ServiceName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BitFlags" Type="int" Nullable="false" />
+    <Property Name="DisconnectCause" Type="int" Nullable="false" />
+    <Property Name="ServiceFlags" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="History" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IService" Type="int" Nullable="false" />
+    <Property Name="CallType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RatingPattern" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Used_Quantity" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="created_at" Type="datetime2" Precision="0" />
+    <Property Name="updated_at" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="ImportLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TableName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ImportTime" Type="datetime" Nullable="false" />
+    <Property Name="ImportStatus" Type="varchar" MaxLength="250" />
+    <Property Name="InsertedRecordIDs" Type="varchar" MaxLength="5000" />
+    <Property Name="UpdatedRecordIDs" Type="varchar" MaxLength="5000" />
+    <Property Name="DeletedRecordIDs" Type="varchar" MaxLength="5000" />
+  </EntityType>
+  <EntityType Name="Period">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PeriodName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PermName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" />
+    <Property Name="IProduct" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaintanenceFee" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="RecKey" Type="varchar" MaxLength="1000" />
+    <Property Name="RecStatus" Type="tinyint" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Product_ProductType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="ProductTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ProductTypeName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="PermId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="temp_usage_download_log">
+    <Key>
+      <PropertyRef Name="TempUsageDownloadLogID" />
+    </Key>
+    <Property Name="TempUsageDownloadLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="start_time" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="end_time" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="created_at" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginId" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsLocked" Type="bit" Nullable="false" />
+    <Property Name="IsSuspended" Type="bit" Nullable="false" />
+    <Property Name="InvalidPasswordAttempt" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="30" />
+    <Property Name="Successful" Type="bit" Nullable="false" />
+    <Property Name="TokenId" Type="nvarchar" MaxLength="128" />
+    <Property Name="AppId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateUtc" Type="datetime" Nullable="false" />
+    <Property Name="ProtectedTicket" Type="nvarchar(max)" />
+    <Property Name="IsLoggedIn" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ComputedCalls_CallType">
+    <End Role="CallType" Type="Self.CallType" Multiplicity="1" />
+    <End Role="Calls" Type="Self.Calls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CallType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calls">
+        <PropertyRef Name="CallTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_ComputedCalls_customer' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_ComputedCalls_customer" />-->
+  <Association Name="FK_ComputedCalls_Period">
+    <End Role="Period" Type="Self.Period" Multiplicity="1" />
+    <End Role="Calls" Type="Self.Calls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Period">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calls">
+        <PropertyRef Name="PeriodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePermission_Permission">
+    <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+    <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="PermId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePermission_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogin_SystemUser">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="activesoftswitch_portaone_apiModelStoreContainer">
+    <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CallType" EntityType="Self.CallType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CDR_Call" EntityType="Self.CDR_Call" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CostCentre" EntityType="Self.CostCentre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cron_joblog" EntityType="Self.cron_joblog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cronjob" EntityType="Self.cronjob" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cronjob_command" EntityType="Self.cronjob_command" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer_hunt_group" EntityType="Self.customer_hunt_group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="extension" EntityType="Self.extension" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hourlycdr" EntityType="Self.hourlycdr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hourlycdr__old-3-4-2015" EntityType="Self.hourlycdr__old-3-4-2015" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImportLog" EntityType="Self.ImportLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Period" EntityType="Self.Period" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_ProductType" EntityType="Self.Product_ProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="temp_usage_download_log" EntityType="Self.temp_usage_download_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="App" EntityType="Self.App" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [App].[Id] AS [Id], 
+    [App].[Secret] AS [Secret], 
+    [App].[Name] AS [Name], 
+    [App].[ApplicationType] AS [ApplicationType], 
+    [App].[Active] AS [Active], 
+    [App].[RefreshTokenLifeTime] AS [RefreshTokenLifeTime], 
+    [App].[AllowedOrigin] AS [AllowedOrigin]
+    FROM [dbo].[App] AS [App]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Calls" EntityType="Self.Calls" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Calls].[Id] AS [Id], 
+    [Calls].[CallTypeId] AS [CallTypeId], 
+    [Calls].[TalkTime] AS [TalkTime], 
+    [Calls].[RingTime] AS [RingTime], 
+    [Calls].[SetupTime] AS [SetupTime], 
+    [Calls].[AnswerTime] AS [AnswerTime], 
+    [Calls].[TotalTime] AS [TotalTime], 
+    [Calls].[ConnectTime] AS [ConnectTime], 
+    [Calls].[MissedCall] AS [MissedCall], 
+    [Calls].[DID] AS [DID], 
+    [Calls].[CLI] AS [CLI], 
+    [Calls].[ReceivedBy] AS [ReceivedBy], 
+    [Calls].[ICustomer] AS [ICustomer], 
+    [Calls].[PeriodId] AS [PeriodId]
+    FROM [dbo].[Calls] AS [Calls]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ComputedCalls_CallType" Association="Self.FK_ComputedCalls_CallType">
+      <End Role="CallType" EntitySet="CallType" />
+      <End Role="Calls" EntitySet="Calls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComputedCalls_Period" Association="Self.FK_ComputedCalls_Period">
+      <End Role="Period" EntitySet="Period" />
+      <End Role="Calls" EntitySet="Calls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermission_Permission" Association="Self.FK_RolePermission_Permission">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="RolePermission" EntitySet="RolePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermission_Role" Association="Self.FK_RolePermission_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="RolePermission" EntitySet="RolePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_Role" Association="Self.FK_SystemUsers_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogin_SystemUser" Association="Self.FK_UserLogin_SystemUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserLogin" EntitySet="UserLogin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

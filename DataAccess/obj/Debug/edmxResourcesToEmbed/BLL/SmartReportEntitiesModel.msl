@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="activesoftswitch_portaone_apiModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="account">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="ISubscriber" ColumnName="ISubscriber" />
+          <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+          <ScalarProperty Name="IEnv" ColumnName="IEnv" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="IProduct" ColumnName="IProduct" />
+          <ScalarProperty Name="IRoutingPlan" ColumnName="IRoutingPlan" />
+          <ScalarProperty Name="FollowMeEnabled" ColumnName="FollowMeEnabled" />
+          <ScalarProperty Name="Servicefeatures" ColumnName="Servicefeatures" />
+          <ScalarProperty Name="BillStatus" ColumnName="BillStatus" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UMEnabled" ColumnName="UMEnabled" />
+          <ScalarProperty Name="Blocked" ColumnName="Blocked" />
+          <ScalarProperty Name="VoipPassword" ColumnName="VoipPassword" />
+          <ScalarProperty Name="UIPassword" ColumnName="UIPassword" />
+          <ScalarProperty Name="UILogin" ColumnName="UILogin" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="ISO4217" ColumnName="ISO4217" />
+          <ScalarProperty Name="BillingModel" ColumnName="BillingModel" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="IAccount" ColumnName="IAccount" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Action">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Action">
+        <MappingFragment StoreEntitySet="Action">
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="ActionCategoryId" ColumnName="ActionCategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionCategory">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.ActionCategory">
+        <MappingFragment StoreEntitySet="ActionCategory">
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CallType">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.CallType">
+        <MappingFragment StoreEntitySet="CallType">
+          <ScalarProperty Name="CallTypeName" ColumnName="CallTypeName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cdr_cronjob_log">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.cdr_cronjob_log">
+        <MappingFragment StoreEntitySet="cdr_cronjob_log">
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="CDRLogID" ColumnName="CDRLogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CostCentre">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.CostCentre">
+        <MappingFragment StoreEntitySet="CostCentre">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="CostCentreName" ColumnName="CostCentreName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cron_joblog">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.cron_joblog">
+        <MappingFragment StoreEntitySet="cron_joblog">
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CronJobStatus" ColumnName="CronJobStatus" />
+          <ScalarProperty Name="CronJobID" ColumnName="CronJobID" />
+          <ScalarProperty Name="CronJobLogID" ColumnName="CronJobLogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cronjob">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.cronjob">
+        <MappingFragment StoreEntitySet="cronjob">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NextRunTime" ColumnName="NextRunTime" />
+          <ScalarProperty Name="LastRunTime" ColumnName="LastRunTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Settings" ColumnName="Settings" />
+          <ScalarProperty Name="CronJobCommandID" ColumnName="CronJobCommandID" />
+          <ScalarProperty Name="CronJobID" ColumnName="CronJobID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cronjob_command">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.cronjob_command">
+        <MappingFragment StoreEntitySet="cronjob_command">
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Settings" ColumnName="Settings" />
+          <ScalarProperty Name="Command" ColumnName="Command" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CronJobCommandID" ColumnName="CronJobCommandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_hunt_group">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.customer_hunt_group">
+        <MappingFragment StoreEntitySet="customer_hunt_group">
+          <ScalarProperty Name="assigned_extensions" ColumnName="assigned_extensions" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="i_c_ext" ColumnName="i_c_ext" />
+          <ScalarProperty Name="hunt_keep_original_cli" ColumnName="hunt_keep_original_cli" />
+          <ScalarProperty Name="hunt_sequence" ColumnName="hunt_sequence" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="i_customerSpecified" ColumnName="i_customerSpecified" />
+          <ScalarProperty Name="i_customer" ColumnName="i_customer" />
+          <ScalarProperty Name="i_c_group" ColumnName="i_c_group" />
+          <ScalarProperty Name="customer_hunt_groups_id" ColumnName="customer_hunt_groups_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerJob">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.CustomerJob">
+        <MappingFragment StoreEntitySet="CustomerJob">
+          <ScalarProperty Name="ReportTo" ColumnName="ReportTo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RecordsFetched" ColumnName="RecordsFetched" />
+          <ScalarProperty Name="NextRunTime" ColumnName="NextRunTime" />
+          <ScalarProperty Name="LastRunTime" ColumnName="LastRunTime" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerJobLog">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.CustomerJobLog">
+        <MappingFragment StoreEntitySet="CustomerJobLog">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="JobTime" ColumnName="JobTime" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Division">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ext_Dept_Dev_CC">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Ext_Dept_Dev_CC">
+        <MappingFragment StoreEntitySet="Ext_Dept_Dev_CC">
+          <ScalarProperty Name="CostCentreId" ColumnName="CostCentreId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="ExtensionId" ColumnName="ExtensionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="extension">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.extension">
+        <MappingFragment StoreEntitySet="extension">
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="CostCentreId" ColumnName="CostCentreId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="i_account" ColumnName="i_account" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="i_c_extSpecified" ColumnName="i_c_extSpecified" />
+          <ScalarProperty Name="i_cg_extSpecified" ColumnName="i_cg_extSpecified" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="i_cg_ext" ColumnName="i_cg_ext" />
+          <ScalarProperty Name="i_c_ext" ColumnName="i_c_ext" />
+          <ScalarProperty Name="i_c_group" ColumnName="i_c_group" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="ExtensionID" ColumnName="ExtensionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hourlycdr">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.hourlycdr">
+        <MappingFragment StoreEntitySet="hourlycdr">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="CallIdentity" ColumnName="CallIdentity" />
+          <ScalarProperty Name="IsProcessed" ColumnName="IsProcessed" />
+          <ScalarProperty Name="Used_Quantity" ColumnName="Used_Quantity" />
+          <ScalarProperty Name="RatingPattern" ColumnName="RatingPattern" />
+          <ScalarProperty Name="CallType" ColumnName="CallType" />
+          <ScalarProperty Name="IService" ColumnName="IService" />
+          <ScalarProperty Name="History" ColumnName="History" />
+          <ScalarProperty Name="ServiceFlags" ColumnName="ServiceFlags" />
+          <ScalarProperty Name="DisconnectCause" ColumnName="DisconnectCause" />
+          <ScalarProperty Name="BitFlags" ColumnName="BitFlags" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="IAccount" ColumnName="IAccount" />
+          <ScalarProperty Name="CallId" ColumnName="CallId" />
+          <ScalarProperty Name="Charged_Amount" ColumnName="Charged_Amount" />
+          <ScalarProperty Name="Charged_Quantity" ColumnName="Charged_Quantity" />
+          <ScalarProperty Name="IDest" ColumnName="IDest" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="Bill_time" ColumnName="Bill_time" />
+          <ScalarProperty Name="Disconnect_time" ColumnName="Disconnect_time" />
+          <ScalarProperty Name="Connect_time" ColumnName="Connect_time" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="CLD" ColumnName="CLD" />
+          <ScalarProperty Name="CLI" ColumnName="CLI" />
+          <ScalarProperty Name="IEnv" ColumnName="IEnv" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="hourly_cdr_id" ColumnName="hourly_cdr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Period">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Period">
+        <MappingFragment StoreEntitySet="Period">
+          <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permission">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="PermName" ColumnName="PermName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="MaintanenceFee" ColumnName="MaintanenceFee" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IProduct" ColumnName="IProduct" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_ProductType">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Product_ProductType">
+        <MappingFragment StoreEntitySet="Product_ProductType">
+          <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductType">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.ProductType">
+        <MappingFragment StoreEntitySet="ProductType">
+          <ScalarProperty Name="ProductTypeName" ColumnName="ProductTypeName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Report">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Report">
+        <MappingFragment StoreEntitySet="Report">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Query" ColumnName="Query" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="ReportCatalogueId" ColumnName="ReportCatalogueId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportCatalogue">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.ReportCatalogue">
+        <MappingFragment StoreEntitySet="ReportCatalogue">
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolePermission">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.RolePermission">
+        <MappingFragment StoreEntitySet="RolePermission">
+          <ScalarProperty Name="IsAllowed" ColumnName="IsAllowed" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="PermId" ColumnName="PermId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysPage">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.SysPage">
+        <MappingFragment StoreEntitySet="SysPage">
+          <ScalarProperty Name="ParmissionId" ColumnName="ParmissionId" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemCustomer">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.SystemCustomer">
+        <MappingFragment StoreEntitySet="SystemCustomer">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemSetting">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.SystemSetting">
+        <MappingFragment StoreEntitySet="SystemSetting">
+          <ScalarProperty Name="MaxCallDuration" ColumnName="MaxCallDuration" />
+          <ScalarProperty Name="LocalCode" ColumnName="LocalCode" />
+          <ScalarProperty Name="AnswerTime" ColumnName="AnswerTime" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CodeExpiry" ColumnName="CodeExpiry" />
+          <ScalarProperty Name="IsCodeUsed" ColumnName="IsCodeUsed" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="InvalidPasswordAttempt" ColumnName="InvalidPasswordAttempt" />
+          <ScalarProperty Name="IsSuspended" ColumnName="IsSuspended" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogin">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogin">
+          <ScalarProperty Name="IsLoggedIn" ColumnName="IsLoggedIn" />
+          <ScalarProperty Name="ProtectedTicket" ColumnName="ProtectedTicket" />
+          <ScalarProperty Name="DateUtc" ColumnName="DateUtc" />
+          <ScalarProperty Name="AppId" ColumnName="AppId" />
+          <ScalarProperty Name="TokenId" ColumnName="TokenId" />
+          <ScalarProperty Name="Successful" ColumnName="Successful" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="App">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.App">
+        <MappingFragment StoreEntitySet="App">
+          <ScalarProperty Name="AllowedOrigin" ColumnName="AllowedOrigin" />
+          <ScalarProperty Name="RefreshTokenLifeTime" ColumnName="RefreshTokenLifeTime" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Secret" ColumnName="Secret" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calls">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Calls">
+        <MappingFragment StoreEntitySet="Calls">
+          <ScalarProperty Name="hourly_cdr_id" ColumnName="hourly_cdr_id" />
+          <ScalarProperty Name="OutGoingTransfered" ColumnName="OutGoingTransfered" />
+          <ScalarProperty Name="InComingTransfered" ColumnName="InComingTransfered" />
+          <ScalarProperty Name="Bounced" ColumnName="Bounced" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Legs" ColumnName="Legs" />
+          <ScalarProperty Name="CdrCallId" ColumnName="CdrCallId" />
+          <ScalarProperty Name="PeriodId" ColumnName="PeriodId" />
+          <ScalarProperty Name="ICustomer" ColumnName="ICustomer" />
+          <ScalarProperty Name="ExtensionName" ColumnName="ExtensionName" />
+          <ScalarProperty Name="ExtensionNo" ColumnName="ExtensionNo" />
+          <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+          <ScalarProperty Name="CLI" ColumnName="CLI" />
+          <ScalarProperty Name="DID" ColumnName="DID" />
+          <ScalarProperty Name="MissedCall" ColumnName="MissedCall" />
+          <ScalarProperty Name="InternalExternal" ColumnName="InternalExternal" />
+          <ScalarProperty Name="DisconnectTime" ColumnName="DisconnectTime" />
+          <ScalarProperty Name="ConnectTime" ColumnName="ConnectTime" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="RingTime" ColumnName="RingTime" />
+          <ScalarProperty Name="TalkTime" ColumnName="TalkTime" />
+          <ScalarProperty Name="CallTypeId" ColumnName="CallTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="activesoftswitch_portaone_apiModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="activesoftswitch_portaone_apiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="account" EntityType="activesoftswitch_portaone_apiModel.account" />
+    <EntitySet Name="CallType" EntityType="activesoftswitch_portaone_apiModel.CallType" />
+    <EntitySet Name="CDR_Call" EntityType="activesoftswitch_portaone_apiModel.CDR_Call" />
+    <EntitySet Name="CostCentre" EntityType="activesoftswitch_portaone_apiModel.CostCentre" />
+    <EntitySet Name="cron_joblog" EntityType="activesoftswitch_portaone_apiModel.cron_joblog" />
+    <EntitySet Name="cronjob" EntityType="activesoftswitch_portaone_apiModel.cronjob" />
+    <EntitySet Name="cronjob_command" EntityType="activesoftswitch_portaone_apiModel.cronjob_command" />
+    <EntitySet Name="customer" EntityType="activesoftswitch_portaone_apiModel.customer" />
+    <EntitySet Name="customer_hunt_group" EntityType="activesoftswitch_portaone_apiModel.customer_hunt_group" />
+    <EntitySet Name="Department" EntityType="activesoftswitch_portaone_apiModel.Department" />
+    <EntitySet Name="Division" EntityType="activesoftswitch_portaone_apiModel.Division" />
+    <EntitySet Name="extension" EntityType="activesoftswitch_portaone_apiModel.extension" />
+    <EntitySet Name="hourlycdr" EntityType="activesoftswitch_portaone_apiModel.hourlycdr" />
+    <EntitySet Name="hourlycdr__old_3_4_2015" EntityType="activesoftswitch_portaone_apiModel.hourlycdr__old_3_4_2015" />
+    <EntitySet Name="ImportLog" EntityType="activesoftswitch_portaone_apiModel.ImportLog" />
+    <EntitySet Name="Period" EntityType="activesoftswitch_portaone_apiModel.Period" />
+    <EntitySet Name="Permission" EntityType="activesoftswitch_portaone_apiModel.Permission" />
+    <EntitySet Name="product" EntityType="activesoftswitch_portaone_apiModel.product" />
+    <EntitySet Name="Product_ProductType" EntityType="activesoftswitch_portaone_apiModel.Product_ProductType" />
+    <EntitySet Name="ProductType" EntityType="activesoftswitch_portaone_apiModel.ProductType" />
+    <EntitySet Name="Role" EntityType="activesoftswitch_portaone_apiModel.Role" />
+    <EntitySet Name="RolePermission" EntityType="activesoftswitch_portaone_apiModel.RolePermission" />
+    <EntitySet Name="sysdiagrams" EntityType="activesoftswitch_portaone_apiModel.sysdiagrams" />
+    <EntitySet Name="temp_usage_download_log" EntityType="activesoftswitch_portaone_apiModel.temp_usage_download_log" />
+    <EntitySet Name="User" EntityType="activesoftswitch_portaone_apiModel.User" />
+    <EntitySet Name="UserLogin" EntityType="activesoftswitch_portaone_apiModel.UserLogin" />
+    <EntitySet Name="App" EntityType="activesoftswitch_portaone_apiModel.App" />
+    <EntitySet Name="Calls" EntityType="activesoftswitch_portaone_apiModel.Calls" />
+    <AssociationSet Name="FK_ComputedCalls_CallType" Association="activesoftswitch_portaone_apiModel.FK_ComputedCalls_CallType">
+      <End Role="CallType" EntitySet="CallType" />
+      <End Role="Calls" EntitySet="Calls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComputedCalls_Period" Association="activesoftswitch_portaone_apiModel.FK_ComputedCalls_Period">
+      <End Role="Period" EntitySet="Period" />
+      <End Role="Calls" EntitySet="Calls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermission_Permission" Association="activesoftswitch_portaone_apiModel.FK_RolePermission_Permission">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="RolePermission" EntitySet="RolePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermission_Role" Association="activesoftswitch_portaone_apiModel.FK_RolePermission_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="RolePermission" EntitySet="RolePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_Role" Association="activesoftswitch_portaone_apiModel.FK_SystemUsers_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogin_SystemUser" Association="activesoftswitch_portaone_apiModel.FK_UserLogin_SystemUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserLogin" EntitySet="UserLogin" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="account_id" />
+    </Key>
+    <Property Name="account_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IAccount" Type="Int32" Nullable="false" />
+    <Property Name="ICustomer" Type="Int32" Nullable="false" />
+    <Property Name="BillingModel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ISO4217" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Balance" Type="Int32" Nullable="false" />
+    <Property Name="UILogin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UIPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VoipPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Blocked" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UMEnabled" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BillStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Servicefeatures" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FollowMeEnabled" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="IRoutingPlan" Type="Int32" Nullable="false" />
+    <Property Name="IProduct" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IEnv" Type="Int32" Nullable="false" />
+    <Property Name="Salutation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ISubscriber" Type="Int32" Nullable="false" />
+    <Property Name="RecKey" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="RecStatus" Type="Byte" />
+  </EntityType>
+  <EntityType Name="CallType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CallTypeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Calls" Relationship="activesoftswitch_portaone_apiModel.FK_ComputedCalls_CallType" FromRole="CallType" ToRole="Calls" />
+  </EntityType>
+  <EntityType Name="CDR_Call">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CDR_Id" Type="Int32" Nullable="false" />
+    <Property Name="Call_Id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CostCentre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CostCentreName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cron_joblog">
+    <Key>
+      <PropertyRef Name="CronJobLogID" />
+    </Key>
+    <Property Name="CronJobLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CronJobID" Type="Int32" />
+    <Property Name="CronJobStatus" Type="Int16" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Precision="0" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_at" Type="DateTime" Precision="0" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cronjob">
+    <Key>
+      <PropertyRef Name="CronJobID" />
+    </Key>
+    <Property Name="CronJobID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CronJobCommandID" Type="Int32" />
+    <Property Name="Settings" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LastRunTime" Type="DateTime" Precision="0" />
+    <Property Name="NextRunTime" Type="DateTime" Precision="0" />
+    <Property Name="created_at" Type="DateTime" Precision="0" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_at" Type="DateTime" Precision="0" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cronjob_command">
+    <Key>
+      <PropertyRef Name="CronJobCommandID" />
+    </Key>
+    <Property Name="CronJobCommandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Command" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Settings" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="created_at" Type="DateTime" Precision="0" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updated_at" Type="DateTime" Precision="0" />
+    <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ICustomer" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RecKey" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="RecStatus" Type="Byte" />
+    <Property Name="CreationDate" Type="DateTime" Precision="0" />
+    <Property Name="IsImport" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="customer_hunt_group">
+    <Key>
+      <PropertyRef Name="customer_hunt_groups_id" />
+    </Key>
+    <Property Name="customer_hunt_groups_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="i_c_group" Type="Int32" Nullable="false" />
+    <Property Name="i_customer" Type="Int32" Nullable="false" />
+    <Property Name="i_customerSpecified" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="hunt_sequence" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="hunt_keep_original_cli" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="i_c_ext" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="assigned_extensions" Type="Int32" Nullable="false" />
+    <Property Name="RecKey" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="RecStatus" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DivisionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="extension">
+    <Key>
+      <PropertyRef Name="ExtensionID" />
+    </Key>
+    <Property Name="ExtensionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ICustomer" Type="Int32" Nullable="false" />
+    <Property Name="i_c_group" Type="Int32" Nullable="false" />
+    <Property Name="i_c_ext" Type="Int32" Nullable="false" />
+    <Property Name="i_cg_ext" Type="Int32" Nullable="false" />
+    <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="i_cg_extSpecified" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="i_c_extSpecified" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="i_account" Type="Int32" Nullable="false" />
+    <Property Name="account_id" Type="Int32" Nullable="false" />
+    <Property Name="RecKey" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="RecStatus" Type="Byte" />
+    <Property Name="DivisionId" Type="Int32" />
+    <Property Name="DeptId" Type="Int32" />
+    <Property Name="CostCentreId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hourlycdr">
+    <Key>
+      <PropertyRef Name="hourly_cdr_id" />
+    </Key>
+    <Property Name="hourly_cdr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="IEnv" Type="Int32" Nullable="false" />
+    <Property Name="CLI" Type="Int32" Nullable="false" />
+    <Property Name="CLD" Type="Int32" Nullable="false" />
+    <Property Name="AccountID" Type="Int32" Nullable="false" />
+    <Property Name="Connect_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Disconnect_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Bill_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ICustomer" Type="Int32" Nullable="false" />
+    <Property Name="IDest" Type="Int32" Nullable="false" />
+    <Property Name="Charged_Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Charged_Amount" Type="Double" Nullable="false" />
+    <Property Name="CallId" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="IAccount" Type="Int32" Nullable="false" />
+    <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BitFlags" Type="Int32" Nullable="false" />
+    <Property Name="DisconnectCause" Type="Int32" Nullable="false" />
+    <Property Name="ServiceFlags" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="History" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IService" Type="Int32" Nullable="false" />
+    <Property Name="CallType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RatingPattern" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Used_Quantity" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Precision="0" />
+    <Property Name="updated_at" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="hourlycdr__old_3_4_2015">
+    <Key>
+      <PropertyRef Name="hourly_cdr_id" />
+    </Key>
+    <Property Name="hourly_cdr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="IEnv" Type="Int32" Nullable="false" />
+    <Property Name="CLI" Type="Int32" Nullable="false" />
+    <Property Name="CLD" Type="Int32" Nullable="false" />
+    <Property Name="AccountID" Type="Int32" Nullable="false" />
+    <Property Name="Connect_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Disconnect_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Bill_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ICustomer" Type="Int32" Nullable="false" />
+    <Property Name="IDest" Type="Int32" Nullable="false" />
+    <Property Name="Charged_Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Charged_Amount" Type="Double" Nullable="false" />
+    <Property Name="CallId" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="IAccount" Type="Int32" Nullable="false" />
+    <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BitFlags" Type="Int32" Nullable="false" />
+    <Property Name="DisconnectCause" Type="Int32" Nullable="false" />
+    <Property Name="ServiceFlags" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="History" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IService" Type="Int32" Nullable="false" />
+    <Property Name="CallType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RatingPattern" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Used_Quantity" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Precision="0" />
+    <Property Name="updated_at" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="ImportLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TableName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ImportTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ImportStatus" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedRecordIDs" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedRecordIDs" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="DeletedRecordIDs" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Period">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="PeriodName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Calls" Relationship="activesoftswitch_portaone_apiModel.FK_ComputedCalls_Period" FromRole="Period" ToRole="Calls" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="PermName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RolePermission" Relationship="activesoftswitch_portaone_apiModel.FK_RolePermission_Permission" FromRole="Permission" ToRole="RolePermission" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ICustomer" Type="Int32" />
+    <Property Name="IProduct" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaintanenceFee" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="RecKey" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="RecStatus" Type="Byte" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Product_ProductType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="ProductTypeId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ProductTypeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RolePermission" Relationship="activesoftswitch_portaone_apiModel.FK_RolePermission_Role" FromRole="Role" ToRole="RolePermission" />
+    <NavigationProperty Name="User" Relationship="activesoftswitch_portaone_apiModel.FK_SystemUsers_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="PermId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Permission" Relationship="activesoftswitch_portaone_apiModel.FK_RolePermission_Permission" FromRole="RolePermission" ToRole="Permission" />
+    <NavigationProperty Name="Role" Relationship="activesoftswitch_portaone_apiModel.FK_RolePermission_Role" FromRole="RolePermission" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="temp_usage_download_log">
+    <Key>
+      <PropertyRef Name="TempUsageDownloadLogID" />
+    </Key>
+    <Property Name="TempUsageDownloadLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="start_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="end_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+    <Property Name="IsSuspended" Type="Boolean" Nullable="false" />
+    <Property Name="InvalidPasswordAttempt" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Role" Relationship="activesoftswitch_portaone_apiModel.FK_SystemUsers_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="UserLogin" Relationship="activesoftswitch_portaone_apiModel.FK_UserLogin_SystemUser" FromRole="User" ToRole="UserLogin" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="IPAddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Successful" Type="Boolean" Nullable="false" />
+    <Property Name="TokenId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="AppId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProtectedTicket" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsLoggedIn" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="activesoftswitch_portaone_apiModel.FK_UserLogin_SystemUser" FromRole="UserLogin" ToRole="User" />
+  </EntityType>
+  <EntityType Name="App">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Secret" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ApplicationType" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="RefreshTokenLifeTime" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Secret" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationType" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="RefreshTokenLifeTime" Type="Int32" Nullable="false" />
+    <Property Name="AllowedOrigin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Calls">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="CallTypeId" />
+      <PropertyRef Name="ICustomer" />
+      <PropertyRef Name="PeriodId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CallTypeId" Type="Int32" Nullable="false" />
+    <Property Name="TalkTime" Type="Int32" />
+    <Property Name="RingTime" Type="Int32" />
+    <Property Name="SetupTime" Type="Int32" />
+    <Property Name="AnswerTime" Type="Int32" />
+    <Property Name="TotalTime" Type="Int32" />
+    <Property Name="ConnectTime" Type="DateTime" Precision="3" />
+    <Property Name="MissedCall" Type="Boolean" />
+    <Property Name="DID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CLI" Type="Int32" />
+    <Property Name="ReceivedBy" Type="Int32" />
+    <Property Name="ICustomer" Type="Int32" Nullable="false" />
+    <Property Name="PeriodId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CallType" Relationship="activesoftswitch_portaone_apiModel.FK_ComputedCalls_CallType" FromRole="Calls" ToRole="CallType" />
+    <NavigationProperty Name="Period" Relationship="activesoftswitch_portaone_apiModel.FK_ComputedCalls_Period" FromRole="Calls" ToRole="Period" />
+  </EntityType>
+  <Association Name="FK_ComputedCalls_CallType">
+    <End Type="activesoftswitch_portaone_apiModel.CallType" Role="CallType" Multiplicity="1" />
+    <End Type="activesoftswitch_portaone_apiModel.Calls" Role="Calls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CallType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calls">
+        <PropertyRef Name="CallTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComputedCalls_Period">
+    <End Type="activesoftswitch_portaone_apiModel.Period" Role="Period" Multiplicity="1" />
+    <End Type="activesoftswitch_portaone_apiModel.Calls" Role="Calls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Period">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calls">
+        <PropertyRef Name="PeriodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePermission_Permission">
+    <End Type="activesoftswitch_portaone_apiModel.Permission" Role="Permission" Multiplicity="1" />
+    <End Type="activesoftswitch_portaone_apiModel.RolePermission" Role="RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="PermId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePermission_Role">
+    <End Type="activesoftswitch_portaone_apiModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="activesoftswitch_portaone_apiModel.RolePermission" Role="RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_Role">
+    <End Type="activesoftswitch_portaone_apiModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="activesoftswitch_portaone_apiModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogin_SystemUser">
+    <End Type="activesoftswitch_portaone_apiModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="activesoftswitch_portaone_apiModel.UserLogin" Role="UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

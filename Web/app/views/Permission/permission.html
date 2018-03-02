@@ -1,0 +1,89 @@
+<div class="app-view-header">
+    Permission
+</div>
+
+<!-- START row-->
+<div ng-controller="permissionController" class="row">
+    <div class="col-md-12">
+
+        <!-- START panel-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+
+                <fieldset>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Role</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" ng-model="model.roleId" required="" ng-change="change()">
+                                <option ng-repeat="s in roleList" value="{{s.id}}">{{s.roleName}}</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" style="padding-top:10px">Select All</label>
+                        <div class="col-sm-6">
+                            <div class="checkbox c-checkbox needsclick">
+                                <label class="needsclick">
+                                    <input type="checkbox" value="" class="needsclick" ng-model="selectedAll" ng-click="selectAllCheck()" />
+                                    <span class="fa fa-check"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <fieldset ng-repeat="c in permissionList">
+
+                    <div class="col-md-12">
+                        <h4 class="page-header">{{c.category}}</h4>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-10">
+                            <div class="panel panel-default" ng-repeat="a in c.actions">
+                                <div class="panel-heading">
+                                    <div class="panel-title">{{a.action}}</div>
+                                </div>
+                                <div class="panel-body">
+
+                                    <fieldset>
+                                        <div class="form-group">
+
+                                            <div class="col-md-12">
+                                                <div class="checkbox-inline c-checkbox needsclick" ng-repeat="p  in a.permissionModel" style=" margin-right:30px;">
+                                                    <label class="needsclick">
+                                                        <input type="checkbox" value="true" class="needsclick" ng-checked="p.isAllowed" ng-model="p.isAllowed" />
+                                                        <span class="fa fa-check"></span>{{p.permission}}
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+
+
+            <div class="panel-footer text-center">                
+                <button type="submit" class="btn btn-info" ng-click="permissionSubmit()">Submit</button>
+            </div>
+
+        </div>
+        <!-- END panel-->
+        <!-- END row-->
+
+    </div>
+</div>

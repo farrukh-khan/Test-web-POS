@@ -1,0 +1,55 @@
+<div class="app-view-header">
+    Extensions
+</div>
+
+
+<div ng-controller="extensionController" class="container-fluid">
+
+    <!-- Editable row-->
+    <!--<h4 class="page-header">Extension</h4>-->
+
+    <table class="table table-bordered table-hover bg-white">
+        <tr style="font-weight: bold">
+            <td style="width:20%">Extension</td>
+            <td style="width:20%">Username</td>
+            <td style="width:20%">CostCentre</td>
+            <td style="width:20%">Department</td>
+            <td style="width:20%">Division</td>
+            <td style="width:10%"></td>
+        </tr>
+
+        <tr ng-repeat="extension in extensionList">
+            <td>
+                <span>{{ extension.extension}}</span>
+            </td>
+            <td>
+                <span>{{ extension.username}}</span>
+            </td>
+            <td>
+                <span>{{ extension.costCentre}}</span>
+            </td>
+            <td>
+                <span>{{ extension.department}}</span>
+            </td>
+            <td>
+                <span>{{ extension.division}}</span>
+            </td>
+
+            <td style="white-space: nowrap">
+
+                <div class="buttons">
+                    <a href="#/app/extension?id={{extension.extensionId}}" ng-if="permissionAccessLevel.isEdit" title="Edit" class="btn btn-sm btn-info">
+                        <em class="fa fa-pencil"></em>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div style="margin-left:10px" paging
+         page="model.page"
+         page-size="model.pageSize"
+         total="model.total"
+         paging-action="pagingAction(page)">
+    </div>
+</div>

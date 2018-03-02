@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="23767316d7c944df8971fefe29e71346" Name="Diagram1" ZoomLevel="34">
+        <EntityTypeShape EntityType="BankCollectionModel.Action" Width="1.5" PointX="8" PointY="2.875" />
+        <EntityTypeShape EntityType="BankCollectionModel.ActionCategory" Width="1.5" PointX="5.75" PointY="3.125" />
+        <EntityTypeShape EntityType="BankCollectionModel.Area" Width="1.5" PointX="8" PointY="20" />
+        <EntityTypeShape EntityType="BankCollectionModel.Category" Width="1.5" PointX="12.75" PointY="3.625" />
+        <EntityTypeShape EntityType="BankCollectionModel.ChartofAccount" Width="1.5" PointX="8.25" PointY="7" />
+        <EntityTypeShape EntityType="BankCollectionModel.City" Width="1.5" PointX="5.75" PointY="20" />
+        <EntityTypeShape EntityType="BankCollectionModel.Company" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="BankCollectionModel.Invoice" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="BankCollectionModel.InvoiceDetail" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="BankCollectionModel.InvoiceVoucherMap" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BankCollectionModel.Lab" Width="1.5" PointX="3" PointY="11.5" />
+        <EntityTypeShape EntityType="BankCollectionModel.LabCategory" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="BankCollectionModel.LabMap" Width="1.5" PointX="5.25" PointY="12.5" />
+        <EntityTypeShape EntityType="BankCollectionModel.Log" Width="1.5" PointX="3" PointY="19.625" />
+        <EntityTypeShape EntityType="BankCollectionModel.Patient" Width="1.5" PointX="17.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BankCollectionModel.Permission" Width="1.5" PointX="8" PointY="17.25" />
+        <EntityTypeShape EntityType="BankCollectionModel.Product" Width="1.5" PointX="15" PointY="3" />
+        <EntityTypeShape EntityType="BankCollectionModel.ProductGroup" Width="1.5" PointX="15" PointY="9.375" />
+        <EntityTypeShape EntityType="BankCollectionModel.ProductMap" Width="1.5" PointX="17.25" PointY="4.375" />
+        <EntityTypeShape EntityType="BankCollectionModel.Report" Width="1.5" PointX="20" PointY="8" />
+        <EntityTypeShape EntityType="BankCollectionModel.ReportCatalogue" Width="1.5" PointX="17.75" PointY="8.375" />
+        <EntityTypeShape EntityType="BankCollectionModel.Role" Width="1.5" PointX="3" PointY="16.25" />
+        <EntityTypeShape EntityType="BankCollectionModel.RolePermission" Width="1.5" PointX="14.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BankCollectionModel.SysPage" Width="1.5" PointX="10.25" PointY="3" />
+        <EntityTypeShape EntityType="BankCollectionModel.SystemSetting" Width="1.5" PointX="17.75" PointY="17.75" />
+        <EntityTypeShape EntityType="BankCollectionModel.User" Width="1.5" PointX="12.75" PointY="15" />
+        <EntityTypeShape EntityType="BankCollectionModel.UserLogin" Width="1.5" PointX="15" PointY="16" />
+        <EntityTypeShape EntityType="BankCollectionModel.Voucher" Width="1.5" PointX="8.25" PointY="11.375" />
+        <EntityTypeShape EntityType="BankCollectionModel.VoucherDetail" Width="1.5" PointX="10.5" PointY="12.25" />
+        <EntityTypeShape EntityType="BankCollectionModel.App" Width="1.5" PointX="10.75" PointY="20.75" />
+        <EntityTypeShape EntityType="BankCollectionModel.Country" Width="1.5" PointX="16.75" PointY="20.75" />
+        <AssociationConnector Association="BankCollectionModel.FK_Action_ActionCategory" />
+        <AssociationConnector Association="BankCollectionModel.FK_SysPage_Action" />
+        <AssociationConnector Association="BankCollectionModel.FK_Area_City" />
+        <AssociationConnector Association="BankCollectionModel.FK_Product_Category" />
+        <AssociationConnector Association="BankCollectionModel.FK_VoucherDetail_ChartofAccount" />
+        <AssociationConnector Association="BankCollectionModel.FK_Company_Company" />
+        <AssociationConnector Association="BankCollectionModel.FK_Invoice_PatientInfo" />
+        <AssociationConnector Association="BankCollectionModel.FK_Lab_Company" />
+        <AssociationConnector Association="BankCollectionModel.FK_Log_Company" />
+        <AssociationConnector Association="BankCollectionModel.FK_Role_Company" />
+        <AssociationConnector Association="BankCollectionModel.FK_Voucher_Company" />
+        <AssociationConnector Association="BankCollectionModel.FK_InvoiceDetail_Invoice" />
+        <AssociationConnector Association="BankCollectionModel.FK_LabMap_Lab" />
+        <AssociationConnector Association="BankCollectionModel.FK_Voucher_Lab" />
+        <AssociationConnector Association="BankCollectionModel.FK_LabMap_LabCategory" />
+        <AssociationConnector Association="BankCollectionModel.FK_SysPage_Permission" />
+        <AssociationConnector Association="BankCollectionModel.FK_ProductMap_ProductMap" />
+        <AssociationConnector Association="BankCollectionModel.FK_ProductMap_ProductGroup" />
+        <AssociationConnector Association="BankCollectionModel.FK_Report_ReportCatalogue" />
+        <AssociationConnector Association="BankCollectionModel.FK_UserLogin_User" />
+        <AssociationConnector Association="BankCollectionModel.FK_VoucherDetail_Voucher" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

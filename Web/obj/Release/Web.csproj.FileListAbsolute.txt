@@ -1,0 +1,12 @@
+G:\Data\Git\smartreports.web\Web\bin\Web.dll.config
+G:\Data\Git\smartreports.web\Web\bin\Web.dll
+G:\Data\Git\smartreports.web\Web\bin\Web.pdb
+G:\Data\Git\smartreports.web\Web\bin\Antlr3.Runtime.dll
+G:\Data\Git\smartreports.web\Web\bin\Microsoft.Web.Infrastructure.dll
+G:\Data\Git\smartreports.web\Web\bin\System.Web.Optimization.dll
+G:\Data\Git\smartreports.web\Web\bin\WebGrease.dll
+G:\Data\Git\smartreports.web\Web\bin\Antlr3.Runtime.pdb
+G:\Data\Git\smartreports.web\Web\bin\System.Web.Optimization.xml
+G:\Data\Git\smartreports.web\Web\obj\Release\Web.dll
+G:\Data\Git\smartreports.web\Web\obj\Release\Web.pdb
+G:\Data\Git\smartreports.web\Web\obj\Release\Web.csprojResolveAssemblyReference.cache

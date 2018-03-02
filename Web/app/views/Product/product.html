@@ -1,0 +1,81 @@
+<div class="app-view-header">
+    Item
+</div>
+
+<!-- START row-->
+<div ng-controller="productController" class="row">
+    <div class="col-md-12">
+        
+        <form name="productForm" ng-submit="productSubmit(productForm.$valid)">
+            <!-- START panel-->
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+
+
+                    <fieldset ng-if="model.code != 0">
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label text-sm">Code</label>
+                            <div class="col-sm-11">
+                                <label class="form-control form-control-rounded input-sm">{{model.code}}</label>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label text-sm text-danger">Name</label>
+                            <div class="col-sm-11">
+                                <input type="text" ng-model="model.name"  class="form-control form-control-rounded input-sm" placeholder="Name"  required/>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label text-sm ">Description</label>
+                            <div class="col-sm-11">
+                                <input type="text" ng-model="model.description" class="form-control form-control-rounded input-sm" placeholder="Description" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label text-sm text-danger">Price</label>
+                            <div class="col-sm-11">
+                                <input type="number" ng-model="model.saleRate" class="form-control form-control-rounded input-sm" placeholder="E.g. 0.00" required />
+                            </div>
+
+                        </div>
+                    </fieldset>
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label text-sm text-danger">Category</label>
+                            <div class="col-sm-11">
+                                <select class="form-control  input-sm" ng-model="model.categoryId" required>
+                                    <option ng-repeat="s in cateList" value="{{s.id}}">{{s.name}}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                <div class="panel-footer text-center">
+                    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+                    <button type="submit" class="btn btn-danger" ng-disabled="productForm.$invalid">Submit</button>
+                </div>
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </form>
+
+    </div>
+</div>

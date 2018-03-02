@@ -1,0 +1,329 @@
+<div ng-controller="companyController">
+    <div class="app-view-header">Create new Company</div>
+    <!-- START panel-->
+    <div class="panel panel-default">
+        <!--<div class="panel-heading">Form Wizard Validate</div>-->
+        <div class="panel-body">
+            <div ng-init="activeStep=1" class="wizard">
+                <ul class="steps-bar">
+                    <li ng-class="{'active':activeStep&gt;=1}">
+                        <span>Step 1</span>
+                    </li>
+                    <li ng-class="{'active':activeStep&gt;=2}">
+                        <span>Step 2</span>
+                    </li>
+                    <li ng-class="{'active':activeStep&gt;=3}">
+                        <span>Step 3</span>
+                    </li>
+                </ul>
+                <div ng-show="activeStep==1" class="wizard-step">
+
+                    <form name="form_step1" class="form-validate">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>
+                                    Company Information
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" style="padding-top:10px">Active</label>
+                                        <div class="col-sm-6">
+                                            <div class="checkbox c-checkbox needsclick">
+                                                <label class="needsclick">
+                                                    <input type="checkbox" value="" class="needsclick" ng-model="model.isActive" />
+                                                    <span class="fa fa-check"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Name*</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="name" ng-model="model.name" placeholder="Company Name" class="form-control" required="" />
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+
+
+                                <fieldset>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Customer</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" ng-model="model.iCustomer" required="">
+                                                <option value="">Select Customer</option>
+                                                <option ng-repeat="c in cusList" value="{{c.iCustomer}}">{{c.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+
+                                <fieldset>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Country</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" ng-model="model.countryId" required="">
+                                                <option value="">Select Country</option>
+                                                <option ng-repeat="c in countryList" value="{{c.id}}">{{c.title}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+
+
+
+
+
+                                <div class="mt">
+                                    <button type="submit" ng-disabled="form_step1.$invalid" ng-click="activeStep=2" class="btn btn-primary">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div ng-show="activeStep==2" class="wizard-step">
+                    <h4>
+                        Role and Permission
+                        <!--<small>&mdash; Step 2</small>-->
+                    </h4>
+                    <form name="form_step2" class="form-validate">
+                        <!--<div ng-include="'/app/views/admin/role.permission.html'">
+                        </div>-->
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <!-- START panel-->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <fieldset>
+
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Role Name</label>
+                                                <div class="col-sm-10">
+
+                                                    <input type="text" placeholder="Role" name="role" ng-model="model.roleName" required="required" class="form-control" />
+
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" style="padding-top:10px">Select All</label>
+                                                <div class="col-sm-6">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="" class="needsclick" ng-model="selectedAll" ng-click="selectAllCheckCompany()" />
+                                                            <span class="fa fa-check"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset ng-repeat="c in permissionList">
+
+                                            <div class="col-md-12">
+                                                <h4 class="page-header">{{c.category}}</h4>
+                                                <div class="col-md-2">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="panel panel-default" ng-repeat="a in c.actions">
+                                                        <div class="panel-heading">
+                                                            <div class="panel-title">{{a.action}}</div>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <fieldset>
+                                                                <div class="form-group">
+
+                                                                    <div class="col-md-12">
+                                                                        <div class="checkbox-inline c-checkbox needsclick" ng-repeat="p  in a.permissionModel" style=" margin-right:30px;">
+                                                                            <label class="needsclick">
+                                                                                <input type="checkbox" value="true" class="needsclick" ng-checked="p.isAllowed" ng-model="p.isAllowed" />
+                                                                                <span class="fa fa-check"></span>{{p.permission}}
+                                                                            </label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </div>
+
+
+                                </div>
+                                <!-- END panel-->
+                                <!-- END row-->
+
+                            </div>
+                        </div>
+
+
+                        <div class="mt">
+                            <button type="button" ng-click="activeStep=1" class="btn btn-default">Prev</button>
+                            <button type="submit" ng-disabled="form_step2.$invalid" ng-click="activeStep=3" class="btn btn-primary">Next</button>
+                        </div>
+                    </form>
+                </div>
+                <div ng-show="activeStep==3" class="wizard-step">
+                    <h4>
+                        User
+                        <!--<small>&mdash; Step 3</small>-->
+                    </h4>
+
+                    <form name="form_step3" class="form-validate">
+                        <!--<div ng-include="'/app/views/admin/user.company.html'">
+                        </div>-->
+                        <!-- START panel-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <!--<div class="panel-title">User</div>-->
+                            </div>
+                            <div class="panel-body">
+
+
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" style="padding-top:10px">Active</label>
+                                        <div class="col-sm-6">
+                                            <div class="checkbox c-checkbox needsclick">
+                                                <label class="needsclick">
+                                                    <input type="checkbox" value="" class="needsclick" ng-model="model.User.isActive" />
+                                                    <span class="fa fa-check"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+
+
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">First Name*</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" ng-model="model.User.firstName" required="" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Last Name*</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" ng-model="model.User.lastName" required="" class="form-control" />
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Email*</label>
+                                        <div class="col-sm-6">
+                                            <input type="email" ng-model="model.User.email" required="" class="form-control" />
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Password*</label>
+                                        <div class="col-sm-6">
+                                            <!--<input type="password" ng-model="model.password" required="" class="form-control" />-->
+                                            <input id="id-source" type="password" placeholder="Type your password" ng-model="model.User.password" class="form-control" />
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <!--<input type="password" ng-model="model.confirmPassword" required="" class="form-control" />-->
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Confirm Password*</label>
+                                        <div class="col-sm-6">
+                                            <input id="id-confirm" type="password" placeholder="Retype your password" name="confirm_match" data-parsley-equalto="#id-source" ui-validate="'$value==model.User.password'" ui-validate-watch="'validator.User.password'" required="" ng-model="model.User.confirmPassword" class="form-control" />
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+
+                            </div>
+
+
+                        </div>
+                        <!-- END panel-->
+                        <!-- END row-->
+
+
+                    </form>
+
+
+                    <div ng-show="stepsDone" class="alert alert-success mv-lg">
+                        <p class="text-bold m0">Excellent ! You've completed all steps.</p>
+                    </div>
+                    <div class="mt">
+                        <button type="button" ng-click="activeStep=2" class="btn btn-default">Prev</button>
+                        <!--<button type="button" ng-disabled="form_step3.$invalid" ng-click="stepsDone=true" class="btn btn-primary">Finish</button>-->
+                        <button type="button" ng-disabled="form_step3.$invalid" ng-click="companySubmit()" class="btn btn-primary">Finish</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+<div class="app-view-header">
+    Extension
+</div>
+
+<!-- START row-->
+<div ng-controller="extensionController" class="row">
+    <div class="col-md-12">
+        <form name="extensionForm" ng-submit="extensionSubmit(extensionForm.$valid)">
+            <!-- START panel-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Extension</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.id" required="" class="form-control" disabled="disabled" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.name" required="" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Division</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" ng-model="model.divisionId">
+                                    <option ng-repeat="s in divisionList" value="{{s.id}}">{{s.divisionName}}</option>
+                                    <option value="0" selected="selected">Undefined</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Department</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" ng-model="model.departmentId">
+                                    <option ng-repeat="s in departmentList" value="{{s.id}}">{{s.departmentName}}</option>
+                                    <option value="0" selected="selected">Undefined</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Cost Centre</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" ng-model="model.costCentreId">
+                                    <option ng-repeat="s in costCentreList" value="{{s.id}}">{{s.costCentreName}}</option>
+                                    <option value="0" selected="selected">Undefined</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                </div>
+
+
+                <div class="panel-footer text-center">
+                    <button type="button" class="btn btn-info" ng-click="cancel()">Cancel</button>
+                    <button type="submit" class="btn btn-info" ng-disabled="extensionForm.$invalid">Submit</button>
+                </div>
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </form>
+</div>
+</div>

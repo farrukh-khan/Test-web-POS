@@ -1,0 +1,37 @@
+
+<div ng-controller="roleController">
+    <div class="app-view-header">
+        Roles
+        <a href="#/app/role?id=0" ng-if="permissionAccessLevel.isAdd" class="btn btn-success pull-right" style="margin-top:10px;">Create Role</a>
+    </div>
+
+    <div class="container-fluid">
+
+        <table class="table table-bordered table-hover bg-white">
+            <tr style="font-weight: bold">
+                <td>Name</td>
+                <td style="width:15%; text-align:center" >Action?</td>
+            </tr>
+
+            <tr ng-repeat="role in roleList">
+                <td>
+
+                    <span>{{ role.roleName}}</span>
+                </td>
+
+                <td style="white-space: nowrap" >
+
+                    <div class="buttons" style=" text-align:center">
+                        <a href="#/app/editrole?id={{role.id}}" ng-if="permissionAccessLevel.isEdit" title="Edit" class="btn btn-sm btn-info">
+                            <em class="fa fa-pencil"></em>
+                        </a>
+                        <button ng-click="delete(role.id)" title="Delete" ng-if="permissionAccessLevel.isDelete" class="btn btn-sm btn-danger">
+                            <em class="fa fa-trash"></em>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>

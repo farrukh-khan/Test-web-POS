@@ -1,0 +1,64 @@
+<style>
+    .btn-default {
+        color: #585F69 !important;
+        background-color: #ffffff;
+        border-color: #e6e9ee;
+    }
+</style>
+
+<div class="app-view-header">
+    Products
+</div>
+
+
+<!-- START row-->
+<div ng-controller="productController" class="row">
+    <div class="col-md-12">
+
+        <!-- START panel-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+
+                <fieldset>
+
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label">DID Products</label>
+                        <div class="col-sm-4">
+                            <ui-select multiple="" ng-model="model.selectedDDIList" theme="bootstrap">
+                                <ui-select-match placeholder="Select DID Products...">{{$item.name}}</ui-select-match>
+                                <ui-select-choices repeat="did in productList track by $index | filter:$select.search">{{did.name}}</ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label">Extension Products</label>
+                        <div class="col-sm-4">
+                            <ui-select multiple="" ng-model="model.selectedExtensionList" theme="bootstrap">
+                                <ui-select-match placeholder="Select Extension Products...">{{$item.name}}</ui-select-match>
+                                <ui-select-choices repeat="ex in productList track by $index | filter:$select.search">{{ex.name}}</ui-select-choices>
+                            </ui-select>
+                        </div>
+
+                    </div>
+                </fieldset>
+
+            </div>
+
+
+            <div class="panel-footer text-center">
+            <button type="submit" class="btn btn-info" ng-click="productSubmit()">Submit</button>
+            </div>
+
+        </div>
+        <!-- END panel-->
+        <!-- END row-->
+
+    </div>
+</div>

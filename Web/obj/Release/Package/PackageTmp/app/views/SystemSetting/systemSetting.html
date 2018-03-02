@@ -1,0 +1,353 @@
+<div class="app-view-header">
+    System Settings
+</div>
+
+
+<!-- START row-->
+<div ng-controller="systemSettingController" class="row">
+    <div class="col-md-12">
+        <form name="systemSettingForm" ng-submit="systemSettingSubmit(systemSettingForm.$valid)">
+            <!-- START panel-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Target Answer Time </label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.answerTime" required="" class="form-control" />                                
+                            </div>
+                            <div class="col-sm-1" style="padding-top:10px">
+                                <small>(Second)</small>
+                            </div>                    
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Country</label>
+                            <div class="col-sm-6">                                
+                                <select class="form-control" ng-model="model.localCode" required="" tabindex="-1" id="countryId">
+                                    <option value="" selected="selected">Select a Country</option>
+                                    <option value="1">AFGHANISTAN  93</option>
+                                    <option value="2">ALBANIA  355</option>
+                                    <option value="3">ALGERIA  213</option>
+                                    <option value="4">AMERICAN SAMOA  1684</option>
+                                    <option value="5">ANDORRA  376</option>
+                                    <option value="6">ANGOLA  244</option>
+                                    <option value="7">ANGUILLA  1264</option>
+                                    <option value="8">ANTARCTICA  672</option>
+                                    <option value="9">ANTIGUA &amp; BARBUDA  1268</option>
+                                    <option value="10">ARGENTINA  54</option>
+                                    <option value="11">ARMENIA  374</option>
+                                    <option value="12">ARUBA  297</option>
+                                    <option value="13">ASCENSION ISLAND  247</option>
+                                    <option value="14">AUSTRALIA  61</option>
+                                    <option value="15">Australia Territories  672</option>
+                                    <option value="16">AUSTRIA  43</option>
+                                    <option value="17">AZERBAIJAN  994</option>
+                                    <option value="18">BAHAMAS  1242</option>
+                                    <option value="19">BAHRAIN  973</option>
+                                    <option value="20">BANGLADESH  880</option>
+                                    <option value="21">BARBADOS  1246</option>
+                                    <option value="22">BELARUS  375</option>
+                                    <option value="23">BELGIUM  32</option>
+                                    <option value="24">BELIZE  501</option>
+                                    <option value="25">BENIN  229</option>
+                                    <option value="26">BERMUDA  1441</option>
+                                    <option value="27">BHUTAN  975</option>
+                                    <option value="28">BOLIVIA  591</option>
+                                    <option value="29">BOSNIA &amp; HERZEGOVINA  387</option>
+                                    <option value="30">BOTSWANA  267</option>
+                                    <option value="31">BRAZIL  55</option>
+                                    <option value="32">BRITISH VIRGIN ISLANDS  1284</option>
+                                    <option value="33">BRUNEI  673</option>
+                                    <option value="34">BULGARIA  359</option>
+                                    <option value="35">BURKINA FASO  226</option>
+                                    <option value="36">BURUNDI  257</option>
+                                    <option value="37">CAMBODIA  855</option>
+                                    <option value="38">CAMEROON  237</option>
+                                    <option value="39">CANADA  1</option>
+                                    <option value="40">CAPE VERDE  238</option>
+                                    <option value="41">CAYMAN ISLANDS  1345</option>
+                                    <option value="42">CENTRAL AFRICAN REPUBLIC  236</option>
+                                    <option value="43">CHAD  235</option>
+                                    <option value="44">CHILE  56</option>
+                                    <option value="45">CHINA  86</option>
+                                    <option value="46">COLOMBIA  57</option>
+                                    <option value="47">COMOROS  269</option>
+                                    <option value="48">CONGO  242</option>
+                                    <option value="49">COOK ISLANDS  682</option>
+                                    <option value="50">COSTA RICA  506</option>
+                                    <option value="51">COUNTRY OF SINT MAARTEN  1721</option>
+                                    <option value="52">CROATIA  385</option>
+                                    <option value="53">CUBA  53</option>
+                                    <option value="54">CYPRUS  357</option>
+                                    <option value="55">CZECH REPUBLIC  420</option>
+                                    <option value="56">DEM. REP. OF CONGO  243</option>
+                                    <option value="57">DENMARK  45</option>
+                                    <option value="58">DIEGO GARCIA  246</option>
+                                    <option value="59">DJIBOUTI  253</option>
+                                    <option value="60">DOMINICA  1767</option>
+                                    <option value="61">DOMINICAN REPUBLIC  1</option>
+                                    <option value="62">EAST TIMOR  670</option>
+                                    <option value="63">ECUADOR  593</option>
+                                    <option value="64">EGYPT  20</option>
+                                    <option value="65">EL SALVADOR  503</option>
+                                    <option value="66">ELLIPSO  881</option>
+                                    <option value="67">EMSAT  882</option>
+                                    <option value="68">EQUATORIAL GUINEA  240</option>
+                                    <option value="69">ERITREA  291</option>
+                                    <option value="70">ESTONIA  372</option>
+                                    <option value="71">ETHIOPIA  251</option>
+                                    <option value="72">FALKLAND ISLANDS  500</option>
+                                    <option value="73">FAROE ISLANDS  298</option>
+                                    <option value="74">FIJI  679</option>
+                                    <option value="75">FINLAND  358</option>
+                                    <option value="76">FRANCE  33</option>
+                                    <option value="77">FRENCH GUIANA  594</option>
+                                    <option value="78">FRENCH POLYNESIA  689</option>
+                                    <option value="79">GABON  241</option>
+                                    <option value="80">GAMBIA  220</option>
+                                    <option value="81">GEORGIA  995</option>
+                                    <option value="82">GERMANY  49</option>
+                                    <option value="83">GHANA  233</option>
+                                    <option value="84">GIBRALTAR  350</option>
+                                    <option value="85">GLOBALSTAR  881</option>
+                                    <option value="86">GREECE  30</option>
+                                    <option value="87">GREENLAND  299</option>
+                                    <option value="88">GRENADA  1473</option>
+                                    <option value="89">GUADELOUPE  590</option>
+                                    <option value="90">GUAM  1671</option>
+                                    <option value="91">GUATEMALA  502</option>
+                                    <option value="92">GUINEA  224</option>
+                                    <option value="93">GUINEA BISSAU  245</option>
+                                    <option value="94">GUYANA  592</option>
+                                    <option value="95">HAITI  509</option>
+                                    <option value="96">HONDURAS  504</option>
+                                    <option value="97">HONG KONG  852</option>
+                                    <option value="98">HUNGARY  36</option>
+                                    <option value="99">ICELAND  354</option>
+                                    <option value="100">INDIA  91</option>
+                                    <option value="101">INDONESIA  62</option>
+                                    <option value="102">INMARSAT SNAC  870</option>
+                                    <option value="103">INMARSAT SNAC - BGAN  870</option>
+                                    <option value="104">INMARSAT SNAC - BGAN HSD  870</option>
+                                    <option value="105">INTL NETWORK  882</option>
+                                    <option value="106">INTL NETWORK  883</option>
+                                    <option value="107">IRAN  98</option>
+                                    <option value="108">IRAQ  964</option>
+                                    <option value="109">IRELAND  353</option>
+                                    <option value="110">IRIDIUM  881</option>
+                                    <option value="111">ISRAEL  972</option>
+                                    <option value="112">ITALY  39</option>
+                                    <option value="113">IVORY COAST  225</option>
+                                    <option value="114">JAMAICA  1876</option>
+                                    <option value="115">JAPAN  81</option>
+                                    <option value="116">JORDAN  962</option>
+                                    <option value="117">KAZAKHSTAN  7</option>
+                                    <option value="118">KENYA  254</option>
+                                    <option value="119">KIRIBATI  686</option>
+                                    <option value="120">KUWAIT  965</option>
+                                    <option value="121">KYRGYZSTAN  996</option>
+                                    <option value="122">LAOS  856</option>
+                                    <option value="123">LATVIA  371</option>
+                                    <option value="124">LEBANON  961</option>
+                                    <option value="125">LESOTHO  266</option>
+                                    <option value="126">LIBERIA  231</option>
+                                    <option value="127">LIBYA  218</option>
+                                    <option value="128">LIECHTENSTEIN  423</option>
+                                    <option value="129">LITHUANIA  370</option>
+                                    <option value="130">LUXEMBOURG  352</option>
+                                    <option value="131">MACAU  853</option>
+                                    <option value="132">MACEDONIA  389</option>
+                                    <option value="133">MADAGASCAR  261</option>
+                                    <option value="134">MALAWI  265</option>
+                                    <option value="135">MALAYSIA  60</option>
+                                    <option value="136">MALDIVES  960</option>
+                                    <option value="137">MALI  223</option>
+                                    <option value="138">MALTA  356</option>
+                                    <option value="139">MARIANA ISLANDS  1670</option>
+                                    <option value="140">MARSHALL ISLANDS  692</option>
+                                    <option value="141">MARTINIQUE  596</option>
+                                    <option value="142">MAURITANIA  222</option>
+                                    <option value="143">MAURITIUS ISLAND  230</option>
+                                    <option value="144">MAYOTTE  262</option>
+                                    <option value="145">MCP NETWORK  882</option>
+                                    <option value="146">MEXICO  52</option>
+                                    <option value="147">MICRONESIA  691</option>
+                                    <option value="148">MOLDOVA  373</option>
+                                    <option value="149">MONACO  377</option>
+                                    <option value="150">MONGOLIA  976</option>
+                                    <option value="151">Montenegro  382</option>
+                                    <option value="152">MONTSERRAT  1664</option>
+                                    <option value="153">MOROCCO  212</option>
+                                    <option value="154">MOZAMBIQUE  258</option>
+                                    <option value="155">MYANMAR (BURMA)  95</option>
+                                    <option value="156">NAMIBIA  264</option>
+                                    <option value="157">NAURU  674</option>
+                                    <option value="158">NEPAL  977</option>
+                                    <option value="159">NETHERLANDS  31</option>
+                                    <option value="160">NETHERLANDS ANTILLES  599</option>
+                                    <option value="161">NEW CALEDONIA  687</option>
+                                    <option value="162">NEW ZEALAND  64</option>
+                                    <option value="163">NICARAGUA  505</option>
+                                    <option value="164">NIGER  227</option>
+                                    <option value="165">NIGERIA  234</option>
+                                    <option value="166">NIUE ISLAND  683</option>
+                                    <option value="167">NORTH KOREA  850</option>
+                                    <option value="168">NORWAY  47</option>
+                                    <option value="169">OMAN  968</option>
+                                    <option value="170">ONAIR  882</option>
+                                    <option value="171">ORATION TECHNOLOGIES NETWORK  882</option>
+                                    <option value="172">PAKISTAN  92</option>
+                                    <option value="173">PALAU  680</option>
+                                    <option value="174">PALESTINE  970</option>
+                                    <option value="175">PANAMA  507</option>
+                                    <option value="176">PAPUA NEW GUINEA  675</option>
+                                    <option value="177">PARAGUAY  595</option>
+                                    <option value="178">PERU  51</option>
+                                    <option value="179">PHILIPPINES  63</option>
+                                    <option value="180">POLAND  48</option>
+                                    <option value="181">PORTUGAL  351</option>
+                                    <option value="182">Puerto Rico  1</option>
+                                    <option value="183">QATAR  974</option>
+                                    <option value="184">REUNION  262</option>
+                                    <option value="185">ROMANIA  40</option>
+                                    <option value="186">RUSSIA  7</option>
+                                    <option value="187">RWANDA  250</option>
+                                    <option value="188">SAN MARINO  378</option>
+                                    <option value="189">SAO TOME &amp; PRINCIPE  239</option>
+                                    <option value="190">SAUDI ARABIA  966</option>
+                                    <option value="191">SENEGAL  221</option>
+                                    <option value="192">SERBIA  381</option>
+                                    <option value="193">SEYCHELLES  248</option>
+                                    <option value="194">SIERRA LEONE  232</option>
+                                    <option value="195">SINGAPORE  65</option>
+                                    <option value="196">SLOVAKIA  421</option>
+                                    <option value="197">SLOVENIA  386</option>
+                                    <option value="198">SOLOMON ISLANDS  677</option>
+                                    <option value="199">SOMALIA  252</option>
+                                    <option value="200">SOUTH AFRICA  27</option>
+                                    <option value="201">SOUTH KOREA  82</option>
+                                    <option value="202">South Sudan  211</option>
+                                    <option value="203">SPAIN  34</option>
+                                    <option value="204">SRI LANKA  94</option>
+                                    <option value="205">ST. HELENA  290</option>
+                                    <option value="206">ST. KITTS &amp; NEVIS  1869</option>
+                                    <option value="207">ST. LUCIA  1758</option>
+                                    <option value="208">ST. PIERRE &amp; MIQUELON  508</option>
+                                    <option value="209">ST. VINCENT &amp; GRENADINES  1784</option>
+                                    <option value="210">SUDAN  249</option>
+                                    <option value="211">SURINAME  597</option>
+                                    <option value="212">SWAZILAND  268</option>
+                                    <option value="213">SWEDEN  46</option>
+                                    <option value="214">SWITZERLAND  41</option>
+                                    <option value="215">SYRIA  963</option>
+                                    <option value="216">TAIWAN  886</option>
+                                    <option value="217">TAJIKISTAN  992</option>
+                                    <option value="218">TANZANIA  255</option>
+                                    <option value="219">THAILAND  66</option>
+                                    <option value="220">Thuraya  882</option>
+                                    <option value="221">TOGO  228</option>
+                                    <option value="222">TOKELAU  690</option>
+                                    <option value="223">TONGA  676</option>
+                                    <option value="224">TRINIDAD &amp; TOBAGO  1868</option>
+                                    <option value="225">TUNISIA  216</option>
+                                    <option value="226">TURKEY  90</option>
+                                    <option value="227">TURKMENISTAN  993</option>
+                                    <option value="228">TURKS &amp; CAICOS  1649</option>
+                                    <option value="229">TUVALU  688</option>
+                                    <option value="230">U.S. VIRGIN ISLANDS  1340</option>
+                                    <option value="231">UGANDA  256</option>
+                                    <option value="232">UKRAINE  380</option>
+                                    <option value="233">UNITED ARAB EMIRATES  971</option>
+                                    <option value="234">UNITED KINGDOM  44</option>
+                                    <option value="235">UNITED NATIONS-OCHA  888</option>
+                                    <option value="236">UPT  878</option>
+                                    <option value="237">URUGUAY  598</option>
+                                    <option value="238">USA  1</option>
+                                    <option value="239">Uzbekistan  998</option>
+                                    <option value="240">VANUATU  678</option>
+                                    <option value="241">VENEZUELA  58</option>
+                                    <option value="242">VIETNAM  84</option>
+                                    <option value="243">WALLIS &amp; FUTUNA  681</option>
+                                    <option value="244">WESTERN SAMOA  685</option>
+                                    <option value="245">Yemen  967</option>
+                                    <option value="246">ZAMBIA  260</option>
+                                    <option value="247">ZIMBABWE  263</option>
+                                    <option value="248">VATICAN  379</option>
+                                    <option value="249">INMARSAT - 871  871</option>
+                                    <option value="250">INMARSAT - 872  872</option>
+                                    <option value="251">INMARSAT - 873  873</option>
+                                    <option value="252">INMARSAT - 874  874</option>
+                                    <option value="253">INMARSAT - 870  870</option>
+                                    <option value="254">AMERICAN SAMOA  684</option>
+                                    <option value="255">EURO SAT  388</option>
+                                    <option value="256">PACIFIC ISLANDS  699</option>
+                                    <option value="257">MIDWAY ISLANDS  808</option>
+                                    <option value="258">PITCAIRN ISLANDS  870</option>
+                                    <option value="259">ABKHAZIA  840</option>
+                                    <option value="260">ALASKA  907</option>
+                                    <option value="261">KOSOVO  381</option>
+                                    <option value="262">Zanzibar  255</option>
+                                    <option value="263">TURKS AND CAICOS ISLANDS  1</option>
+                                    <option value="264">CURACAO  599</option>
+                                    <option value="265">CHRISTMAS ISLAND  61</option>
+                                    <option value="266">Norfolk Island  672</option>
+                                    <option value="267">INMARSAT BGAN SNAC  8709</option>
+                                </select>
+
+
+
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+
+
+                </div>
+
+
+                <div class="panel-footer text-center">
+                    <button type="submit" class="btn btn-info" ng-disabled="systemSettingForm.$invalid">Submit</button>
+                </div>
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </form>
+</div>
+</div>
+<script>
+
+    $(function () {
+        sortSelect('#countryId', 'text', 'asc');
+    });
+
+    function sortSelect(select, attr, order) {
+
+        if (attr === 'text') {
+            if (order === 'asc') {
+                $(select).html($(select).children('option').sort(function (x, y) {
+                    return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+                }));
+                $(select).get(0).selectedIndex = 0;
+                return false;
+            }// end asc
+            if (order === 'desc') {
+                $(select).html($(select).children('option').sort(function (y, x) {
+                    return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+                }));
+                $(select).get(0).selectedIndex = 0;
+                return false;
+            }// end desc
+        }
+
+    };
+</script>

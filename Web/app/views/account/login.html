@@ -1,0 +1,49 @@
+<div class="container container-sm animated fadeInDown" >
+   <div class="center-block mt-xl">
+      <!-- START panel-->
+      <!--<img src="app/img/logo-gray.png" alt="Image" class="center-block img-rounded" />-->
+       <!--<img src="/app/img/logo/alltel_logo.png" alt="Image" class="center-block img-rounded" style="height:300px;width:600px;"  />-->
+       
+       
+       <br />
+      <div class="panel">
+         <div class="panel-body">
+             <img src="/app/img/logo/itapx-cover.jpg"  />
+            <p class="pv text-bold">LOGIN CREDENTIALS</p>
+             <form role="form" class="mb-lg" data-ng-controller="loginController">
+                 <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group has-feedback mb">
+                             <input type="text" placeholder="Your email" autocomplete="off" class="form-control" data-ng-model="loginData.userName" />
+                             <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                         </div>
+                         <br />
+                         <div class="form-group has-feedback">
+                             <input type="password" placeholder="Your password" class="form-control" data-ng-model="loginData.password" />
+                             <span class="fa fa-lock form-control-feedback text-muted"></span>
+                         </div>
+                         <div class="checkbox c-checkbox pull-left mt0">
+                             <label>
+                                 <input type="checkbox" value="" ng-model="loginData.rememberMe" />
+                                 <span class="fa fa-check"></span>Remember me
+                             </label>
+                         </div>
+                         
+                     </div>
+                     <div class="col-md-6">
+                         <button type="submit" class="btn btn-block btn-info mb" data-ng-click="login()">Login</button>
+                         
+                     </div>
+                     <div class="text-center mt">
+                         <a ui-sref="recover" class="text-muted">Forgot your password?</a>
+                     </div>
+                 </div>
+             </form>
+         </div>
+      </div>
+      
+      <!-- END panel-->
+       <footer ng-include="'app/views/cached/footer.html'" class="p-lg text-center"></footer>
+      <!--<div ng-include="'app/views/page.footer.html'" class="p-lg text-center"></div>-->
+   </div>
+</div>

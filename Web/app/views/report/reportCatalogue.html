@@ -1,0 +1,54 @@
+<style>
+    .pt {
+        max-height: 500px !important;
+        min-height: 400px !important;
+    }
+
+    .slimScrollDiv {
+        max-height: 500px !important;
+        min-height: 400px !important;
+    }
+</style>
+<div class="app-view-header">
+    Report Catalogue
+    <small></small>
+</div>
+
+<div class="row" ng-controller="reportCatalogueController">
+    <div class="col-lg-4 col-md-3" ng-repeat="item in list">
+        <div ng-class="'panel-' + app.theme.name" class="panel">
+            <div class="panel-heading">
+                <div ng-class="'bg-' + app.theme.name" class="panel-title">
+                    {{item.title}}
+                </div>
+            </div>
+            <div class="panel-body pt0">
+                <div class="smoothy">
+                    <scrollable class="pt">
+                        <!-- START timeline-->
+                        <ul class="timeline-alt" style="padding-top:10px">
+
+                            <!-- START timeline item-->
+                            <li ng-repeat="data in item.report">
+                                <div class="timeline-badge timeline-badge-sm thumb-32" style="background-color: #3f51b5 !important">
+                                    <em class="icon-file"></em>
+                                </div>
+
+                                <div class="timeline-panel">
+                                    <div class="text-muted">
+                                        <a href="#/app/report?id={{data.id}}"><p style="color: #585f69 !important; font-weight: 500; font-size: large">{{data.title}}</p></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- END timeline-->
+                    </scrollable>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

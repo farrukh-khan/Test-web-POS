@@ -1,0 +1,1040 @@
+<style>
+    .panel-heading {
+        background-color: #3f51b5 !important;
+        color: white !important;
+    }
+
+    .panel-title {
+        font-size: 20px;
+        padding-top: 10px !important;
+        font-weight: bold;
+    }
+
+</style>
+
+<div ng-controller="reportController" class="container-fluid">
+    <div class="app-view-header">
+        {{reportTitle}}
+    </div>
+
+
+
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+
+            <accordion close-others="oneAtATime">
+                <accordion-group is-open="status.isFirstOpen">
+
+                    <accordion-heading>
+                        <div ng-click="filterAccordian()">
+                            <em class="fa fa-plus-square" id="filterAccordian"></em>  Filters
+                        </div>
+                    </accordion-heading>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Select Date/Time</label>
+                            <div class="col-sm-10">
+                                <div class="radio-inline c-radio">
+                                    <label>
+                                        <!--checked="checked"-->
+                                        <input id="inlineradio1" type="radio" name="selectedDateTime" value="today" ng-change='funcSelectedDateTime("today")' ng-model="model.selectedDateTime">
+                                        <span class="fa fa-circle"></span>Today
+                                    </label>
+                                </div>
+                                <div class="radio-inline c-radio">
+                                    <label>
+                                        <input id="inlineradio2" type="radio" name="selectedDateTime" value="thisweek" ng-change='funcSelectedDateTime("thisweek")' ng-model="model.selectedDateTime">
+                                        <span class="fa fa-circle"></span>This Week
+                                    </label>
+                                </div>
+                                <div class="radio-inline c-radio">
+                                    <label>
+                                        <input id="inlineradio3" type="radio" name="selectedDateTime" value="thismonth" ng-change='funcSelectedDateTime("thismonth")' ng-model="model.selectedDateTime">
+                                        <span class="fa fa-circle"></span>This Month
+                                    </label>
+                                </div>
+
+
+
+
+                                <div class="radio-inline c-radio">
+                                    <label>
+                                        <input id="inlineradio3" type="radio" name="selectedDateTime" value="yesterday" ng-change='funcSelectedDateTime("yesterday")' ng-model="model.selectedDateTime">
+                                        <span class="fa fa-circle"></span>Yesterday
+                                    </label>
+                                </div>
+
+                                <div class="radio-inline c-radio">
+                                    <label>
+                                        <input id="inlineradio3" type="radio" name="selectedDateTime" value="lastweek" ng-change='funcSelectedDateTime("lastweek")' ng-model="model.selectedDateTime">
+                                        <span class="fa fa-circle"></span>Last Week
+                                    </label>
+                                </div>
+
+                                <div class="radio-inline c-radio">
+                                    <label>
+                                        <input id="inlineradio3" type="radio" name="selectedDateTime" value="lastmonth" ng-change='funcSelectedDateTime("lastmonth")' ng-model="model.selectedDateTime">
+                                        <span class="fa fa-circle"></span>Last Month
+                                    </label>
+                                </div>
+
+
+
+
+                                <div class="radio-inline c-radio">
+                                    <label>
+                                        <input id="inlineradio3" type="radio" name="selectedDateTime" value="last7days" ng-change='funcSelectedDateTime("last7days")' ng-model="model.selectedDateTime">
+                                        <span class="fa fa-circle"></span>Last 7 Days
+                                    </label>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+
+                        <div class="form-group">
+
+                            <div class="col-md-4">
+
+                            </div>
+
+                            <label class="col-md-4 control-label">Start Date</label>
+                            <label class="col-md-4 control-label">End Date</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <div class="radio-inline c-radio">
+                                    <label>
+                                        <input type="radio" name="selectedDateTime" value="daterange" ng-change='funcSelectedDateTime("daterange")' ng-model="model.selectedDateTime">
+                                        <span class="fa fa-circle"></span>Date Range
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <p class="input-group" ng-controller="DatepickerDemoController">
+                                    <input type="text" ng-disabled="attr.isStartDateDisable" datepicker-popup="{{format}}" ng-model="model.selectedStartDate" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                                           class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="button" ng-disabled="attr.isStartDateDisable" ng-click="open($event)" class="btn btn-default">
+                                            <em class="fa fa-calendar"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <p class="input-group" ng-controller="DatepickerDemoController">
+                                    <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="model.selectedEndDate" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                                           class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default">
+                                            <em class="fa fa-calendar"></em>
+                                        </button>
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <fieldset>
+
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <div class="checkbox c-checkbox needsclick">
+                                        <label class="needsclick">
+                                            <input type="checkbox" value="timerange" class="needsclick" ng-model="model.timeRange" ng-change="funcTimerange()" />
+                                            <span class="fa fa-check"></span>Time Range
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                                <label class="col-md-4 control-label">Start Time</label>
+                                <label class="col-md-4 control-label">End Time</label>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+
+
+                                <label class="col-md-4 control-label">&nbsp;</label>
+
+                                <div class="col-md-4">
+                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" ng-model="model.timeRangeStartTime"></timepicker>
+                                </div>
+                                <div class="col-md-4">
+                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" ng-model="model.timeRangeEndTime"></timepicker>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </fieldset>
+
+
+                    <div class="col-lg-12">
+                        <!--<h4 class="page-header">Tabs</h4>-->
+                        <!-- START panel-->
+                        <div id="panelDemo14" class="panel panel-default">
+                            <div class="panel-body">
+                                <tabset>
+                                    <tab heading="Extensions/agents">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="radio c-radio">
+                                                    <label>
+                                                        <input type="radio" name="extensoin" value="allextention" checked="checked" ng-model="model.extension" ng-change="funcExtensions('allextention')">
+                                                        <span class="fa fa-circle"></span>All Extention
+                                                    </label>
+                                                </div>
+
+                                                <!--<div class="radio c-radio">
+                                                    <label>
+                                                        <input type="radio" name="extensoin" value="extensionrange" ng-model="model.extension" ng-change="funcExtensions('extensionrange')">
+                                                        <span class="fa fa-circle"></span>Extension Range
+
+                                                    </label>
+
+                                                </div>
+
+                                                <input type="text" ng-disabled="attr.isExtensionRangeDisable" ng-model="model.extensionRange" class="form-control" style="margin-left:15px;width:300px;" placeholder="e.g 236, 240-250, 268-292, 297" />-->
+
+                                                <div class="radio c-radio">
+                                                    <label>
+                                                        <input type="radio" name="extensoin" value="selectedextensions" ng-model="model.extension" ng-change="funcExtensions('selectedextensions')">
+                                                        <span class="fa fa-circle"></span>Selected Extensions
+                                                    </label>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="form-group">
+
+                                                <div class="col-md-6 col-sm-10">
+                                                    <ui-select multiple="" ng-model="model.selectedExtensions" theme="bootstrap" ng-disabled="attr.isSelectedExtensionsDisable" style="width: 300px !important; min-height: 35px !important; max-height: 200px !important;">
+                                                        <ui-select-match placeholder="Select Extensions...">{{$item}}</ui-select-match>
+                                                        <ui-select-choices repeat="color in availableExtentions | filter:$select.search">{{color}}</ui-select-choices>
+                                                    </ui-select>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+                                    </tab>
+                                    <tab heading="Groups">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="" class="needsclick" ng-model="model.division" ng-change="funcDivision()" />
+                                                            <span class="fa fa-check"></span>All Divisions
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-sm-4">
+
+                                                    <select class="form-control" ng-model="model.divisionId" required="" ng-disabled="attr.isDivisionDisable">
+                                                        <option ng-repeat="s in divisionList" value="{{s.id}}">{{s.divisionName}}</option>
+                                                    </select>
+
+
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="" class="needsclick" ng-model="model.department" ng-change="funcDepartment()" />
+                                                            <span class="fa fa-check"></span>All Departments
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <select class="form-control" ng-model="model.departmentId" required="" ng-disabled="attr.isDepartmentDisable">
+                                                        <option ng-repeat="s in departmentList" value="{{s.id}}">{{s.departmentName}}</option>
+
+                                                    </select>
+
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="" class="needsclick" ng-model="model.costCentre" ng-change="funcCostCentre()" />
+                                                            <span class="fa fa-check"></span>All Cost Centres
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <select class="form-control" ng-model="model.costCentreId" required="" ng-disabled="attr.isCostCentreDisable">
+                                                        <option ng-repeat="s in costCentreList" value="{{s.id}}">{{s.costCentreName}}</option>
+
+                                                    </select>
+
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </fieldset>
+
+                                        <!--<fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="" class="needsclick" ng-model="model.site" ng-change="funcSite()" />
+                                                            <span class="fa fa-check"></span>All Sites
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-sm-4">
+
+                                                    <select class="form-control" ng-model="model.siteId" ng-disabled="attr.isSiteDisable">
+                                                        <option value="">Undefine</option>
+                                                    </select>
+
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="" class="needsclick" ng-model="model.account" ng-change="funcAccount()" />
+                                                            <span class="fa fa-check"></span>All Accounts  (<small>Select Account</small>)
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-sm-4">
+
+                                                    <select class="form-control" ng-model="model.acccountId" ng-disabled="attr.isAccountDisable"></select>
+
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="" class="needsclick" ng-model="model.accountGroup" ng-change="funcAccountGroup()" />
+                                                            <span class="fa fa-check"></span>All Account  (<small>Select Account Group</small>)
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-sm-4">
+
+                                                    <select class="form-control" ng-model="model.accountGroupId" ng-disabled="attr.isAccountGroupDisable">
+                                                        <option value="">Unknown</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </fieldset>-->
+
+
+                                    </tab>
+                                    <tab heading="DDI/Campaign">
+
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="radio c-radio">
+                                                    <label>
+                                                        <input type="radio" name="ddi" value="allddi" ng-model="model.ddiCampaign" ng-change="funcDDI('allddi')" checked="checked">
+                                                        <span class="fa fa-circle"></span>All DDI's
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio c-radio">
+                                                    <label>
+                                                        <input type="radio" name="ddi" value="restrictcampaigns" ng-model="model.ddiCampaign" ng-change="funcDDI('restrictcampaigns')">
+                                                        <span class="fa fa-circle"></span>Restrict Campaigns
+
+                                                    </label>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <select class="form-control" ng-model="model.selectRestrictCampaigns" ng-disabled="attr.isSelectRestrictCampaignsDisable" style="width: 300px !important; margin-left: 12px;">
+                                                            <option ng-repeat="s in ddiGroupNameList" value="{{s.id}}">{{s.name}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="radio c-radio">
+                                                    <label>
+                                                        <input type="radio" name="ddi" value="restrictddi" ng-model="model.ddiCampaign" ng-change="funcDDI('restrictddi')">
+                                                        <span class="fa fa-circle"></span>Restrict DDI's
+                                                    </label>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+
+                                                        <div class="col-md-6 col-sm-10">
+                                                            <ui-select multiple="" ng-model="model.selectedDDIs" theme="bootstrap" ng-disabled="attr.isSelectedDDIsDisable" style="width: 300px !important; min-height: 35px !important; max-height: 200px !important;">
+                                                                <ui-select-match placeholder="Select Available DDI's...">{{$item}}</ui-select-match>
+                                                                <ui-select-choices repeat="ddi in ddiList | filter:$select.search">{{ddi}}</ui-select-choices>
+                                                            </ui-select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                          
+                                        </fieldset>
+
+
+                                    </tab>
+                                    <tab heading="Call Types">
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="incomingcalls" ng-model="model.incomingCalls" class="needsclick" ng-change="funcIncomingCalls()" />
+                                                            <span class="fa fa-check"></span>Incoming Calls
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+
+                                            <div class="form-group">
+
+                                                <label class="col-sm-2 control-label">Answer Status</label>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input type="radio" name="answerStatus" value="any" checked="checked" ng-model="model.incomingCallsAnsStatus" ng-disabled="attr.isIncomingCallsDisable">
+                                                        <span class="fa fa-circle"></span>Any
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input type="radio" name="answerStatus" value="onlyanswered" ng-model="model.incomingCallsAnsStatus" ng-disabled="attr.isIncomingCallsDisable">
+                                                        <span class="fa fa-circle"></span>Only answered
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input type="radio" name="answerStatus" value="onlyunanswered" ng-model="model.incomingCallsAnsStatus" ng-disabled="attr.isIncomingCallsDisable">
+                                                        <span class="fa fa-circle"></span>Only unanswered
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+
+                                            <div class="form-group">
+
+                                                <label class="col-sm-2 control-label">Routing</label>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="routing" value="any" checked="checked" ng-model="model.routing" ng-disabled="attr.isIncomingCallsDisable">
+                                                        <span class="fa fa-circle"></span>Any
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="routing" value="onlytransferred" ng-model="model.routing" ng-disabled="attr.isIncomingCallsDisable">
+                                                        <span class="fa fa-circle"></span>Only transferred
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="routing" value="onlynon-transferredcalls" ng-model="model.routing" ng-disabled="attr.isIncomingCallsDisable">
+                                                        <span class="fa fa-circle"></span>Only non-transferred calls
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+
+
+
+                                        <fieldset>
+
+                                            <div class="form-group">
+
+                                                <label class="col-sm-2 control-label">Bounced Calls</label>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="bouncedCalls" value="any" checked="checked" ng-model="model.bouncedCalls" ng-disabled="attr.isIncomingCallsDisable">
+                                                        <span class="fa fa-circle"></span>Any
+                                                    </label>
+                                                </div>
+
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="bouncedCalls" value="includebounced" checked="checked" ng-model="model.bouncedCalls" ng-disabled="attr.isIncomingCallsDisable">
+                                                        <span class="fa fa-circle"></span>Include Bounced
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="bouncedCalls" value="excludebounced" ng-model="model.bouncedCalls" ng-disabled="attr.isIncomingCallsDisable">
+                                                        <span class="fa fa-circle"></span>Exclude Bounced
+
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="outgoingcalls" class="needsclick" ng-model="model.checkOutgoingcalls" ng-change="funcCheckOutgoingcalls()" />
+                                                            <span class="fa fa-check"></span>Outgoing Calls
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+
+                                        <fieldset>
+                                            <div class="form-group">
+
+                                                <label class="col-sm-2 control-label">&nbsp;</label>
+
+
+                                                <div class="checkbox inline c-checkbox needsclick">
+                                                    <label class="needsclick">
+                                                        <input type="checkbox" value="local" class="needsclick" ng-model="model.outgoingcallsLocal" ng-disabled="attr.isCheckOutgoingcallsDisable" />
+                                                        <span class="fa fa-check"></span>Local
+                                                    </label>
+                                                </div>
+
+
+
+                                                <!--<div class="checkbox inline c-checkbox needsclick">
+                                                    <label class="needsclick">
+                                                        <input type="checkbox" value="national" class="needsclick" ng-model="model.outgoingcallsNational" ng-disabled="attr.isCheckOutgoingcallsDisable" />
+                                                        <span class="fa fa-check"></span>National
+                                                    </label>
+                                                </div>-->
+
+
+
+
+
+                                                <div class="checkbox inline c-checkbox needsclick">
+                                                    <label class="needsclick">
+                                                        <input type="checkbox" value="international" class="needsclick" ng-model="model.outgoingcallsInternational" ng-disabled="attr.isCheckOutgoingcallsDisable" />
+                                                        <span class="fa fa-check"></span>International
+                                                    </label>
+                                                </div>
+
+
+
+                                                <!--<div class="checkbox inline c-checkbox needsclick">
+                                                    <label class="needsclick">
+                                                        <input type="checkbox" value="" class="needsclick" ng-model="model.outgoingcallsMobile" ng-disabled="attr.isCheckOutgoingcallsDisable" />
+                                                        <span class="fa fa-check"></span>Mobile
+                                                    </label>
+                                                </div>
+
+                                                <div class="checkbox inline c-checkbox needsclick">
+                                                    <label class="needsclick">
+                                                        <input type="checkbox" value="" class="needsclick" ng-model="model.outgoingcallsOther" ng-disabled="attr.isCheckOutgoingcallsDisable" />
+                                                        <span class="fa fa-check"></span>Other
+                                                    </label>
+                                                </div>-->
+
+
+                                            </div>
+                                        </fieldset>Bounced Calls
+
+
+
+
+                                        <fieldset>
+                                            <div class="form-group">
+
+                                                <label class="col-sm-2 control-label">&nbsp;</label>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="outGoingRadio" value="any" checked="checked" ng-model="model.radioOutgoingcalls" ng-disabled="attr.isCheckOutgoingcallsDisable">
+                                                        <span class="fa fa-circle"></span>Any
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="outGoingRadio" value="onlydirectcalls" ng-model="model.radioOutgoingcalls" ng-disabled="attr.isCheckOutgoingcallsDisable">
+                                                        <span class="fa fa-circle"></span>Only direct calls
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="outGoingRadio" value="onlytransferredcalls" ng-model="model.radioOutgoingcalls" ng-disabled="attr.isCheckOutgoingcallsDisable">
+                                                        <span class="fa fa-circle"></span>Only transferred calls
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <div class="checkbox c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="internalcalls" class="needsclick" ng-model="model.checkInternalcalls" ng-change="funcCheckInternalcalls()" />
+                                                            <span class="fa fa-check"></span>Internal Calls
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group">
+
+                                                <label class="col-sm-2 control-label">&nbsp;</label>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="internalRadio" value="any" checked="checked" ng-model="model.radioInternalcalls" ng-disabled="attr.isCheckInternalcallsDisable">
+                                                        <span class="fa fa-circle"></span>Any
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="internalRadio" value="onlyanswered" ng-model="model.radioInternalcalls" ng-disabled="attr.isCheckInternalcallsDisable">
+                                                        <span class="fa fa-circle"></span>Only answered
+                                                    </label>
+                                                </div>
+
+                                                <div class="radio-inline c-radio">
+                                                    <label>
+                                                        <input id="inlineradio3" type="radio" name="internalRadio" value="onlyunanswered" ng-model="model.radioInternalcalls" ng-disabled="attr.isCheckInternalcallsDisable">
+                                                        <span class="fa fa-circle"></span>Only unanswered
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+
+
+                                    </tab>
+
+                                    <tab heading="Restrictions">
+
+                                        <!--<label class="control-label">Destination Restrictions</label>
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-sm-8">
+
+
+                                                    <div class="c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="restrict" class="needsclick" ng-model="model.checkRestrict" ng-change="funcCheckRestrict()" />
+                                                            <span class="fa fa-check"></span>Restrict
+                                                        </label>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                        </fieldset>-->
+
+
+                                        <!--<fieldset>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+
+                                                    <div class="col-md-3">
+                                                        <div class="c-radio">
+                                                            <label>
+                                                                <input id="inlineradio3" type="radio" name="restrictRadio" value="starts" checked="checked" ng-model="model.radioRestrict" ng-change="funcRestrictradio('starts')" ng-disabled="attr.isCheckRestrictDisable">
+                                                                <span class="fa fa-circle"></span>Starts
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" placeholder="" ng-model="model.restrictStarts" ng-disabled="isRestrictStartsDisable" />
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+
+                                                    <div class="col-md-3">
+                                                        <div class="c-radio">
+                                                            <label>
+                                                                <input type="radio" name="restrictRadio" value="selectfrom" ng-model="model.radioRestrict" ng-change="funcRestrictradio('selectfrom')" ng-disabled="attr.isCheckRestrictDisable">
+
+                                                                <span class="fa fa-circle"></span>Select from
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <select class="form-control" ng-model="model.restrictSelectFrom" required="" ng-disabled="isRestrictSelectFromDisable">
+                                                            <option ng-repeat="s in roleList" value="{{s.id}}">{{s.roleName}}</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+
+                                                    <div class="col-md-3">
+                                                        <div class="c-radio">
+                                                            <label>
+                                                                <input type="radio" name="restrictRadio" value="selectfromdirectory" ng-change="funcRestrictradio('selectfromdirectory')" ng-model="model.radioRestrict" ng-disabled="attr.isCheckRestrictDisable">
+
+                                                                <span class="fa fa-circle"></span>Select from directory
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <select class="form-control" ng-model="model.selectFromDirectory" required="" ng-disabled=>
+                                                            <option>ABC Company</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </fieldset>-->
+
+
+
+                                        <label class="control-label">Call Duration Range Restrictions</label>
+
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+
+                                                    <div class="checkbox inline c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="incoming" class="needsclick" ng-model="model.incomingCallDurationRange" ng-change="funcIncomingCallDurationRange()" />
+                                                            <span class="fa fa-check"></span>Incoming
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                                <label class="col-md-1 control-label">Minimum</label>
+                                                <div class="col-md-3">
+
+                                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="false" ng-model="model.incomingminimum"></timepicker>
+                                                </div>
+
+                                                <label class=" col-md-1 control-label">Maximum</label>
+                                                <div class="col-md-3">
+
+
+                                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="false" ng-model="model.incomingmuximum"></timepicker>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+
+
+                                                    <div class="checkbox inline c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="outgoing" class="needsclick" ng-model="model.outgoingCallDurationRange" ng-change="funcOutgoingCallDurationRange()" />
+                                                            <span class="fa fa-check"></span>Outgoing
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                                <label class="col-md-1 control-label">Minimum</label>
+                                                <div class="col-md-3">
+
+                                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="false" ng-model="model.outgoingminimum"></timepicker>
+                                                </div>
+
+                                                <label class=" col-md-1 control-label">Maximum</label>
+                                                <div class="col-md-3">
+
+                                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="false" ng-model="model.outgoingmuximum"></timepicker>
+                                                </div>
+
+                                            </div>
+
+
+                                        </fieldset>
+
+
+
+
+
+                                        <label class="control-label">Ringtime Range Restrictions</label>
+
+
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+
+
+                                                    <div class="checkbox inline c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="incomingnswered" class="needsclick" ng-model="model.incomingAnsweredRingTime" ng-change="funcIncomingAnsweredRingTime()" />
+                                                            <span class="fa fa-check"></span>Incoming Answered
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                                <label class="col-md-1 control-label">Minimum</label>
+                                                <div class="col-md-3">
+
+                                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="false" ng-model="model.incomingAnsweredRingTimeMinimum"></timepicker>
+                                                </div>
+
+                                                <label class=" col-md-1 control-label">Maximum</label>
+                                                <div class="col-md-3">
+
+                                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="false" ng-model="model.incomingAnsweredRingTimeMaximum"></timepicker>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+
+
+                                                    <div class="checkbox inline c-checkbox needsclick">
+                                                        <label class="needsclick">
+                                                            <input type="checkbox" value="incomingunanswered" class="needsclick" ng-model="model.incomingUnansweredRingTime" ng-change="funcIncomingUnansweredRingTime()" />
+                                                            <span class="fa fa-check"></span>Incoming Unanswered
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                                <label class="col-md-1 control-label">Minimum</label>
+                                                <div class="col-md-3">
+                                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="false" ng-model="model.incomingUnansweredRingTimeMinimum"></timepicker>
+                                                </div>
+
+                                                <label class=" col-md-1 control-label">Maximum</label>
+                                                <div class="col-md-3">
+
+                                                    <timepicker ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="false" ng-model="model.incomingUnansweredRingTimeMaximum"></timepicker>
+                                                </div>
+
+                                            </div>
+
+
+                                        </fieldset>
+
+                                    </tab>
+                                </tabset>
+                            </div>
+
+                            <div class="panel-footer text-center ">
+                                <button type="button" class="btn btn-info" ng-click="reset()">Reset</button>
+                                <button type="button" class="btn btn-info" ng-click="cancel()">Cancel</button>
+                                <button type="submit" class="btn btn-info" ng-click="applyFilter()">Apply Filter</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </accordion-group>
+
+            </accordion>
+
+
+            <!-- END panel-->
+            <!-- END row-->
+            <!-- Editable row-->
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <div class="panel-title">Summary</div>
+                </div>
+                <table class="table table-bordered table-striped">
+
+                    <tr style="font-weight: bold">
+                        <td ng-repeat="key in getKeys(reportSummeryHeader) track by $id($index)" ng-init="value = data[key]">{{key.toUpperCase()}}</td>
+                    </tr>
+
+                    <tr ng-repeat="bodyEx in reportSummeryBody" id="{{$index + 1}}">
+                        <td ng-repeat="key in  getKeys(bodyEx) track by $id($index)" ng-init="value1 = bodyEx[key]" name="{{key}}"> {{value1}}</td>
+                    </tr>
+
+                </table>
+            </div>
+
+
+            <div class="panel panel-default" style=" overflow: auto;zoom:1">
+                <div class="panel-heading" style="width: 1100px !important;">
+
+                    <div class="panel-title">Detail</div>
+                </div>
+
+
+                <table ng-table="tableParams" class="table table-bordered table-striped" id="tbl">
+
+                    <thead>
+                        <tr style="font-weight: bold">
+                            <th ng-repeat="key in getKeys(reportDetailHeader) track by $id($index)" ng-init="value = data[key]" style="cursor:pointer">
+
+                                <div style="float: left; margin-right:10px;">
+                                    {{key.toUpperCase()}}
+                                </div>
+                                <div style="float: right;">
+                                    <div class="row" style="margin-bottom: -15px;" ng-click="ascSort($index)">
+                                        <em class="fa fa-sort-up"></em>
+                                    </div>
+                                    <div class="row" ng-click="descSort($index)">
+                                        <em class="fa fa-sort-down"></em>
+                                    </div>
+                                </div>
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr ng-repeat="bodyEx in reportDetailBody" id="{{$index + 1}}">
+                            <td ng-repeat="key in  getKeys(bodyEx) track by $id($index)" ng-init="value1 = bodyEx[key]" name="{{key}}"> {{value1}}</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+                <div style="padding-left:20px;">
+                    <h4>
+                        {{system.alertMsg}}
+                    </h4>
+                </div>
+
+
+                <div style="margin-left:10px" paging
+                     page="model.page"
+                     page-size="model.pageSize"
+                     total="model.total"
+                     paging-action="pagingAction(page)">
+                </div>
+
+                <div style="margin-left:10px" ng-if="system.alertMsg == ''">
+                    {{system.startRowNumber}} - {{system.endRowNumber}} Out Of {{model.total}} Rows
+                </div>
+
+
+            </div>
+
+
+
+            <div>
+
+                <div ng-if="reportTitle == 'Call Response Analysis'" ng-include="'app/views/report/_callResponseAnalysis.html'"></div>
+                <div ng-if="reportTitle == 'Overall Activity by DDI'" ng-include="'app/views/report/_overallActivityByDDI.html'"></div>
+                <div ng-if="reportTitle == 'Division Call Activity'" ng-include="'app/views/report/_divisionCallActivity.html'"></div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+

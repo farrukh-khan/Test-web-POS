@@ -1,0 +1,90 @@
+G:\Data\Git\SmartReports\Service\bin\Debug\Service.dll
+G:\Data\Git\SmartReports\Service\bin\Debug\Service.pdb
+G:\Data\Git\SmartReports\Service\bin\Debug\DataAccess.dll
+G:\Data\Git\SmartReports\Service\bin\Debug\EntityFramework.dll
+G:\Data\Git\SmartReports\Service\bin\Debug\DataAccess.pdb
+G:\Data\Git\SmartReports\Service\bin\Debug\EntityFramework.xml
+G:\Data\Git\SmartReports\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+G:\Data\Git\SmartReports\Service\obj\Debug\Service.dll
+G:\Data\Git\SmartReports\Service\obj\Debug\Service.pdb
+G:\Data\Git\smartreports.web\Service\bin\Debug\Service.dll
+G:\Data\Git\smartreports.web\Service\bin\Debug\Service.pdb
+G:\Data\Git\smartreports.web\Service\bin\Debug\DataAccess.dll
+G:\Data\Git\smartreports.web\Service\bin\Debug\EntityFramework.dll
+G:\Data\Git\smartreports.web\Service\bin\Debug\DataAccess.pdb
+G:\Data\Git\smartreports.web\Service\bin\Debug\EntityFramework.xml
+G:\Data\Git\smartreports.web\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+G:\Data\Git\smartreports.web\Service\obj\Debug\Service.dll
+G:\Data\Git\smartreports.web\Service\obj\Debug\Service.pdb
+E:\CODEDESK\SMR\Service\bin\Debug\Service.dll
+E:\CODEDESK\SMR\Service\bin\Debug\Service.pdb
+E:\CODEDESK\SMR\Service\bin\Debug\DataAccess.dll
+E:\CODEDESK\SMR\Service\bin\Debug\EntityFramework.dll
+E:\CODEDESK\SMR\Service\bin\Debug\DataAccess.pdb
+E:\CODEDESK\SMR\Service\bin\Debug\EntityFramework.xml
+E:\CODEDESK\SMR\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+E:\CODEDESK\SMR\Service\obj\Debug\Service.dll
+E:\CODEDESK\SMR\Service\obj\Debug\Service.pdb
+F:\Code-Desk\Git\smartreports.web\Service\bin\Debug\Service.dll
+F:\Code-Desk\Git\smartreports.web\Service\bin\Debug\Service.pdb
+F:\Code-Desk\Git\smartreports.web\Service\bin\Debug\DataAccess.dll
+F:\Code-Desk\Git\smartreports.web\Service\bin\Debug\EntityFramework.dll
+F:\Code-Desk\Git\smartreports.web\Service\bin\Debug\DataAccess.pdb
+F:\Code-Desk\Git\smartreports.web\Service\bin\Debug\EntityFramework.xml
+F:\Code-Desk\Git\smartreports.web\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+F:\Code-Desk\Git\smartreports.web\Service\obj\Debug\Service.dll
+F:\Code-Desk\Git\smartreports.web\Service\obj\Debug\Service.pdb
+E:\Git\Code-Desk\smartreports.web\Service\bin\Debug\Service.dll
+E:\Git\Code-Desk\smartreports.web\Service\bin\Debug\Service.pdb
+E:\Git\Code-Desk\smartreports.web\Service\bin\Debug\DataAccess.dll
+E:\Git\Code-Desk\smartreports.web\Service\bin\Debug\EntityFramework.dll
+E:\Git\Code-Desk\smartreports.web\Service\bin\Debug\DataAccess.pdb
+E:\Git\Code-Desk\smartreports.web\Service\bin\Debug\EntityFramework.xml
+E:\Git\Code-Desk\smartreports.web\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+E:\Git\Code-Desk\smartreports.web\Service\obj\Debug\Service.dll
+E:\Git\Code-Desk\smartreports.web\Service\obj\Debug\Service.pdb
+E:\Git\Itapx\bankcollection\Service\bin\Debug\Service.dll
+E:\Git\Itapx\bankcollection\Service\bin\Debug\Service.pdb
+E:\Git\Itapx\bankcollection\Service\bin\Debug\DataAccess.dll
+E:\Git\Itapx\bankcollection\Service\bin\Debug\EntityFramework.dll
+E:\Git\Itapx\bankcollection\Service\bin\Debug\DataAccess.pdb
+E:\Git\Itapx\bankcollection\Service\bin\Debug\EntityFramework.xml
+E:\Git\Itapx\bankcollection\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+E:\Git\Itapx\bankcollection\Service\obj\Debug\Service.dll
+E:\Git\Itapx\bankcollection\Service\obj\Debug\Service.pdb
+D:\Git\Itapx Solutions\bankcollection\Service\bin\Debug\Service.dll
+D:\Git\Itapx Solutions\bankcollection\Service\bin\Debug\Service.pdb
+D:\Git\Itapx Solutions\bankcollection\Service\bin\Debug\DataAccess.dll
+D:\Git\Itapx Solutions\bankcollection\Service\bin\Debug\EntityFramework.dll
+D:\Git\Itapx Solutions\bankcollection\Service\bin\Debug\DataAccess.pdb
+D:\Git\Itapx Solutions\bankcollection\Service\bin\Debug\EntityFramework.xml
+D:\Git\Itapx Solutions\bankcollection\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+D:\Git\Itapx Solutions\bankcollection\Service\obj\Debug\Service.dll
+D:\Git\Itapx Solutions\bankcollection\Service\obj\Debug\Service.pdb
+D:\git\PPHI.CEO.DASHBOARD\Service\bin\Debug\Service.dll
+D:\git\PPHI.CEO.DASHBOARD\Service\bin\Debug\Service.pdb
+D:\git\PPHI.CEO.DASHBOARD\Service\bin\Debug\DataAccess.dll
+D:\git\PPHI.CEO.DASHBOARD\Service\bin\Debug\EntityFramework.dll
+D:\git\PPHI.CEO.DASHBOARD\Service\bin\Debug\DataAccess.pdb
+D:\git\PPHI.CEO.DASHBOARD\Service\bin\Debug\EntityFramework.xml
+D:\git\PPHI.CEO.DASHBOARD\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+D:\git\PPHI.CEO.DASHBOARD\Service\obj\Debug\Service.dll
+D:\git\PPHI.CEO.DASHBOARD\Service\obj\Debug\Service.pdb
+D:\git\pphi.lab\Service\bin\Debug\Service.dll
+D:\git\pphi.lab\Service\bin\Debug\Service.pdb
+D:\git\pphi.lab\Service\bin\Debug\DataAccess.dll
+D:\git\pphi.lab\Service\bin\Debug\EntityFramework.dll
+D:\git\pphi.lab\Service\bin\Debug\DataAccess.pdb
+D:\git\pphi.lab\Service\bin\Debug\EntityFramework.xml
+D:\git\pphi.lab\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+D:\git\pphi.lab\Service\obj\Debug\Service.dll
+D:\git\pphi.lab\Service\obj\Debug\Service.pdb
+D:\git\web.pos\Service\bin\Debug\Service.dll
+D:\git\web.pos\Service\bin\Debug\Service.pdb
+D:\git\web.pos\Service\bin\Debug\DataAccess.dll
+D:\git\web.pos\Service\bin\Debug\EntityFramework.dll
+D:\git\web.pos\Service\bin\Debug\DataAccess.pdb
+D:\git\web.pos\Service\bin\Debug\EntityFramework.xml
+D:\git\web.pos\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+D:\git\web.pos\Service\obj\Debug\Service.dll
+D:\git\web.pos\Service\obj\Debug\Service.pdb

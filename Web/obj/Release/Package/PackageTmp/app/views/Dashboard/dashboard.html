@@ -1,0 +1,287 @@
+
+<div class="app-view-header">
+    Dashboard
+</div>
+
+<div ng-controller="dashboardController" class="row" id="dasboardPage" ng-cloak class="page ng-cloak">
+    <!-- START dashboard content-->
+    <div class="col-lg-9 fw-boxed">
+        <!-- START Tabbed panel-->
+        <div ng-init="hpanel = [true, false, false, false]" class="panel panel-default">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row row-flush text-center text-muted m0">
+                        <div ripple="" ng-click="hpanel = [true, false, false, false]" ng-class="{'bg-primary': hpanel[0]}" class="col-xs-3 col-md-6 bb br pv-xxl clickable">
+                            <em class="icon-pie-graph fa-2x mv"></em>
+                        </div>
+                        <div ripple="" ng-click="hpanel = [false, true, false, false]" ng-class="{'bg-purple': hpanel[1]}" class="col-xs-3 col-md-6 bb br pv-xxl clickable">
+                            <em class="icon-target fa-2x mv"></em>
+                        </div>
+                        <div ripple="" ng-click="hpanel = [false, false, true, false]" ng-class="{'bg-pink': hpanel[2]}" class="col-xs-3 col-md-6 bb-lg br pv-xxl clickable">
+                            <em class="icon-loader fa-2x mv"></em>
+                        </div>
+                        <div ripple="" ng-click="hpanel = [false, false, false, true]" ng-class="{'bg-amber': hpanel[3]}" class="col-xs-3 col-md-6 bb-lg br pv-xxl clickable">
+                            <em class="icon-help fa-2x mv"></em>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div ng-if="hpanel[0]" class="col-md-8">
+                    <div class="row row-table">
+                        <div class="col-lg-6 col-xs-8">
+                            <div class="p">
+                                <div class="row row-flush text-center">
+
+                                    <div class="col-xs-12">
+                                        <p class="mt-lg">Total In Bound</p>
+
+                                        <div easypiechart="" options="pieOptions" percent="pieChart.totalIn" class="easypie">
+                                            <span>{{pieChart.totalIn}}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div ng-if="hpanel[1]" class="col-md-8">
+                    <div class="row row-table">
+                        <div class="col-lg-6 col-xs-8">
+                            <div class="p">
+                                <div class="row row-flush text-center">
+
+                                    <div class="col-xs-12">
+                                        <p class="mt-lg">Total Out Bound</p>
+                                        <div easypiechart="" options="pieOptions" percent="pieChart.totalOut" class="easypie">
+                                            <span>{{pieChart.totalOut}}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div ng-if="hpanel[2]" ng-init="loadProgressValues()" class="col-md-8">
+                    <div class="row row-table">
+                        <div class="col-lg-6 col-xs-8">
+                            <div class="p">
+                                <div class="row row-flush text-center">
+                                    <div class="col-xs-12">
+                                        <p class="mt-lg">Total Internal</p>
+                                        <div easypiechart="" options="pieOptions" percent="pieChart.internal" class="easypie">
+                                            <span>{{pieChart.internal}}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div ng-if="hpanel[3]" class="col-md-8">
+                    <div class="row row-table">
+                        <div class="col-lg-6 col-xs-8">
+                            <div class="p">
+                                <div class="row row-flush text-center">
+
+                                    <div class="col-xs-12">
+                                        <p class="mt-lg">Total Answered</p>
+                                        <div easypiechart="" options="pieOptions" percent="pieChart.answered" class="easypie">
+                                            <span>{{pieChart.answered}}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Tabbed panel-->
+        <!-- START Responsive table-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Active Calls
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th class="text-center">From</th>
+                            <th class="text-center">To</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Duration Mins</th>
+                            <th class="text-center">Call Type</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in activeCallsList">
+                            <td>{{data.cli}}</td>
+                            <td>{{data.cld}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.durationMins}}</td>
+                            <td>{{data.callType}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div style="padding-left:20px;">
+                    <h4>
+                        {{alertMsg}}
+                      
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+        <!-- END Responsive table-->
+        <!-- START Panel-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Hourly Incoming Calls Distribution
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <flot dataset="barChartCalls" options="chartBarFlotChart"></flot>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- START Responsive table-->
+        <div class="panel panel-default">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Department</th>
+                            <th class="text-center">Total Calls</th>
+                            <th class="text-center">Total Out</th>
+                            <th class="text-center">Total In</th>
+                            <th class="text-center">Missed</th>
+                            <th class="text-center">Transferred</th>
+                            <th class="text-center">Avg Talk Time</th>
+                            <th class="text-center">Total Talk Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in grid">
+                            <td>{{data.department}}</td>
+                            <td>{{data.totalCalls}}</td>
+                            <td>{{data.totalOut}}</td>
+                            <td>{{data.totalIn}}</td>
+                            <td>{{data.missed}}</td>
+                            <td>{{data.transferred}}</td>
+                            <td>{{data.avgTalkTime}}</td>
+                            <td>{{data.totalTalkTime}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div style="padding-left:20px;">
+                    <h4>
+                        {{gridAlertMsg}}
+                      
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+        <!-- END Responsive table-->
+    </div>
+    <!-- END dashboard content-->
+    <!-- START dashboard sidebar-->
+    <aside class="col-lg-3 fw-boxed">
+        <div class="row">
+            <div class="col-lg-6 col-sm-3 col-xs-6">
+                <div ripple="" class="panel panel-default">
+                    <div ng-class="'bg-' + app.theme.name" class="panel-body">
+                        <h1 class="text-thin mt">{{model.totalCalls}}</h1>
+                        <div class="text-right text-sm text-muted">Total Calls</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-3 col-xs-6">
+                <div ripple="" class="panel panel-default">
+                    <div class="panel-body">
+                        <h1 class="text-thin mt">{{model.totalOut}}</h1>
+                        <div class="text-right text-sm text-muted">Out</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-3 col-xs-6">
+                <div ripple="" class="panel panel-default">
+                    <div class="panel-body">
+                        <h1 class="text-thin mt">{{model.totalAnswered}}</h1>
+                        <div class="text-right text-sm text-muted">Answered</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-sm-3 col-xs-6">
+                <div ripple="" class="panel panel-default">
+                    <div ng-class="'bg-' + app.theme.name" class="panel-body">
+                        <h1 class="text-thin mt">{{model.totalMissed}}</h1>
+                        <div class="text-right text-sm text-muted">Missed</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <div ng-class="'panel-' + app.theme.name" class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div ng-class="'bg-' + app.theme.name" class="panel-title bg-primary">
+                            Users
+                        </div>
+                    </div>
+                    <div class="panel-body pt0">
+                        <div class="smoothy">
+                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 285px;">
+                                <scrollable class="pt" style="overflow: hidden; width: auto; height: 285px;">
+                                    <!-- START timeline-->
+                                    <ul class="timeline-alt" style="padding-top:10px">
+
+                                        <!-- START timeline item-->
+                                        <li ng-repeat="data in users">
+                                            <div class="timeline-badge timeline-badge-sm thumb-32" style="background-color: #3f51b5 !important">
+                                                <em class="icon-head"></em>
+                                            </div>
+
+                                            <div class="timeline-panel">
+                                                <a href="#/app/edituser?id={{data.id}}">
+                                                    <div class="text-muted">
+                                                        <p>{{data.firstName}} {{data.lastName}}</p>
+                                                        <em>{{data.email}}</em>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!-- END timeline-->
+                                </scrollable><div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 186.724137931034px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+    <!-- END dashboard sidebar-->
+</div>

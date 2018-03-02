@@ -1,0 +1,864 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BankCollectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Action" EntityType="BankCollectionModel.Action" />
+    <EntitySet Name="ActionCategory" EntityType="BankCollectionModel.ActionCategory" />
+    <EntitySet Name="Area" EntityType="BankCollectionModel.Area" />
+    <EntitySet Name="Category" EntityType="BankCollectionModel.Category" />
+    <EntitySet Name="ChartofAccount" EntityType="BankCollectionModel.ChartofAccount" />
+    <EntitySet Name="City" EntityType="BankCollectionModel.City" />
+    <EntitySet Name="Company" EntityType="BankCollectionModel.Company" />
+    <EntitySet Name="Invoice" EntityType="BankCollectionModel.Invoice" />
+    <EntitySet Name="InvoiceDetail" EntityType="BankCollectionModel.InvoiceDetail" />
+    <EntitySet Name="InvoiceVoucherMap" EntityType="BankCollectionModel.InvoiceVoucherMap" />
+    <EntitySet Name="Lab" EntityType="BankCollectionModel.Lab" />
+    <EntitySet Name="LabCategory" EntityType="BankCollectionModel.LabCategory" />
+    <EntitySet Name="LabMap" EntityType="BankCollectionModel.LabMap" />
+    <EntitySet Name="Log" EntityType="BankCollectionModel.Log" />
+    <EntitySet Name="Patient" EntityType="BankCollectionModel.Patient" />
+    <EntitySet Name="Permission" EntityType="BankCollectionModel.Permission" />
+    <EntitySet Name="Product" EntityType="BankCollectionModel.Product" />
+    <EntitySet Name="ProductGroup" EntityType="BankCollectionModel.ProductGroup" />
+    <EntitySet Name="ProductMap" EntityType="BankCollectionModel.ProductMap" />
+    <EntitySet Name="Report" EntityType="BankCollectionModel.Report" />
+    <EntitySet Name="ReportCatalogue" EntityType="BankCollectionModel.ReportCatalogue" />
+    <EntitySet Name="Role" EntityType="BankCollectionModel.Role" />
+    <EntitySet Name="RolePermission" EntityType="BankCollectionModel.RolePermission" />
+    <EntitySet Name="SysPage" EntityType="BankCollectionModel.SysPage" />
+    <EntitySet Name="SystemSetting" EntityType="BankCollectionModel.SystemSetting" />
+    <EntitySet Name="User" EntityType="BankCollectionModel.User" />
+    <EntitySet Name="UserLogin" EntityType="BankCollectionModel.UserLogin" />
+    <EntitySet Name="Voucher" EntityType="BankCollectionModel.Voucher" />
+    <EntitySet Name="VoucherDetail" EntityType="BankCollectionModel.VoucherDetail" />
+    <EntitySet Name="App" EntityType="BankCollectionModel.App" />
+    <EntitySet Name="Country" EntityType="BankCollectionModel.Country" />
+    <AssociationSet Name="FK_Action_ActionCategory" Association="BankCollectionModel.FK_Action_ActionCategory">
+      <End Role="ActionCategory" EntitySet="ActionCategory" />
+      <End Role="Action" EntitySet="Action" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysPage_Action" Association="BankCollectionModel.FK_SysPage_Action">
+      <End Role="Action" EntitySet="Action" />
+      <End Role="SysPage" EntitySet="SysPage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Area_City" Association="BankCollectionModel.FK_Area_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Area" EntitySet="Area" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="BankCollectionModel.FK_Product_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherDetail_ChartofAccount" Association="BankCollectionModel.FK_VoucherDetail_ChartofAccount">
+      <End Role="ChartofAccount" EntitySet="ChartofAccount" />
+      <End Role="VoucherDetail" EntitySet="VoucherDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_Company" Association="BankCollectionModel.FK_Company_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Company1" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_PatientInfo" Association="BankCollectionModel.FK_Invoice_PatientInfo">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Invoice" EntitySet="Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lab_Company" Association="BankCollectionModel.FK_Lab_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Lab" EntitySet="Lab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Company" Association="BankCollectionModel.FK_Log_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Log" EntitySet="Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Company" Association="BankCollectionModel.FK_Role_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_Company" Association="BankCollectionModel.FK_Voucher_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceDetail_Invoice" Association="BankCollectionModel.FK_InvoiceDetail_Invoice">
+      <End Role="Invoice" EntitySet="Invoice" />
+      <End Role="InvoiceDetail" EntitySet="InvoiceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabMap_Lab" Association="BankCollectionModel.FK_LabMap_Lab">
+      <End Role="Lab" EntitySet="Lab" />
+      <End Role="LabMap" EntitySet="LabMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_Lab" Association="BankCollectionModel.FK_Voucher_Lab">
+      <End Role="Lab" EntitySet="Lab" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabMap_LabCategory" Association="BankCollectionModel.FK_LabMap_LabCategory">
+      <End Role="LabCategory" EntitySet="LabCategory" />
+      <End Role="LabMap" EntitySet="LabMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysPage_Permission" Association="BankCollectionModel.FK_SysPage_Permission">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="SysPage" EntitySet="SysPage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductMap_ProductMap" Association="BankCollectionModel.FK_ProductMap_ProductMap">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductMap" EntitySet="ProductMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductMap_ProductGroup" Association="BankCollectionModel.FK_ProductMap_ProductGroup">
+      <End Role="ProductGroup" EntitySet="ProductGroup" />
+      <End Role="ProductMap" EntitySet="ProductMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Report_ReportCatalogue" Association="BankCollectionModel.FK_Report_ReportCatalogue">
+      <End Role="ReportCatalogue" EntitySet="ReportCatalogue" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogin_User" Association="BankCollectionModel.FK_UserLogin_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserLogin" EntitySet="UserLogin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherDetail_Voucher" Association="BankCollectionModel.FK_VoucherDetail_Voucher">
+      <End Role="Voucher" EntitySet="Voucher" />
+      <End Role="VoucherDetail" EntitySet="VoucherDetail" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ActionCategoryId" Type="Int64" />
+    <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsShowMenu" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ActionCategory" Relationship="BankCollectionModel.FK_Action_ActionCategory" FromRole="Action" ToRole="ActionCategory" />
+    <NavigationProperty Name="SysPage" Relationship="BankCollectionModel.FK_SysPage_Action" FromRole="Action" ToRole="SysPage" />
+  </EntityType>
+  <EntityType Name="ActionCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" />
+    <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Action" Relationship="BankCollectionModel.FK_Action_ActionCategory" FromRole="ActionCategory" ToRole="Action" />
+  </EntityType>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CityId" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="City" Relationship="BankCollectionModel.FK_Area_City" FromRole="Area" ToRole="City" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="BankCollectionModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ChartofAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountLevel" Type="Int64" />
+    <Property Name="ParentId" Type="Int64" Nullable="false" />
+    <Property Name="DrCr" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="VoucherDetail" Relationship="BankCollectionModel.FK_VoucherDetail_ChartofAccount" FromRole="ChartofAccount" ToRole="VoucherDetail" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Area" Relationship="BankCollectionModel.FK_Area_City" FromRole="City" ToRole="Area" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Phone2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Company1" Relationship="BankCollectionModel.FK_Company_Company" FromRole="Company" ToRole="Company1" />
+    <NavigationProperty Name="Company2" Relationship="BankCollectionModel.FK_Company_Company" FromRole="Company1" ToRole="Company" />
+    <NavigationProperty Name="Invoice" Relationship="BankCollectionModel.FK_Invoice_PatientInfo" FromRole="Company" ToRole="Invoice" />
+    <NavigationProperty Name="Lab" Relationship="BankCollectionModel.FK_Lab_Company" FromRole="Company" ToRole="Lab" />
+    <NavigationProperty Name="Log" Relationship="BankCollectionModel.FK_Log_Company" FromRole="Company" ToRole="Log" />
+    <NavigationProperty Name="Role" Relationship="BankCollectionModel.FK_Role_Company" FromRole="Company" ToRole="Role" />
+    <NavigationProperty Name="Voucher" Relationship="BankCollectionModel.FK_Voucher_Company" FromRole="Company" ToRole="Voucher" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientId" Type="Int64" Nullable="false" />
+    <Property Name="LabId" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SubTotal" Type="Double" Nullable="false" />
+    <Property Name="Discount" Type="Double" Nullable="false" />
+    <Property Name="OtherCharges" Type="Double" Nullable="false" />
+    <Property Name="Adjustment" Type="Double" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int64" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Company" Relationship="BankCollectionModel.FK_Invoice_PatientInfo" FromRole="Invoice" ToRole="Company" />
+    <NavigationProperty Name="InvoiceDetail" Relationship="BankCollectionModel.FK_InvoiceDetail_Invoice" FromRole="Invoice" ToRole="InvoiceDetail" />
+  </EntityType>
+  <EntityType Name="InvoiceDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int64" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Rate" Type="Double" Nullable="false" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Double" Nullable="false" />
+    <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Invoice" Relationship="BankCollectionModel.FK_InvoiceDetail_Invoice" FromRole="InvoiceDetail" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="InvoiceVoucherMap">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int64" Nullable="false" />
+    <Property Name="VoucherId" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lab">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int64" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Company" Relationship="BankCollectionModel.FK_Lab_Company" FromRole="Lab" ToRole="Company" />
+    <NavigationProperty Name="LabMap" Relationship="BankCollectionModel.FK_LabMap_Lab" FromRole="Lab" ToRole="LabMap" />
+    <NavigationProperty Name="Voucher" Relationship="BankCollectionModel.FK_Voucher_Lab" FromRole="Lab" ToRole="Voucher" />
+  </EntityType>
+  <EntityType Name="LabCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="LabMap" Relationship="BankCollectionModel.FK_LabMap_LabCategory" FromRole="LabCategory" ToRole="LabMap" />
+  </EntityType>
+  <EntityType Name="LabMap">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LabId" Type="Int64" Nullable="false" />
+    <Property Name="LabCategoryId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Lab" Relationship="BankCollectionModel.FK_LabMap_Lab" FromRole="LabMap" ToRole="Lab" />
+    <NavigationProperty Name="LabCategory" Relationship="BankCollectionModel.FK_LabMap_LabCategory" FromRole="LabMap" ToRole="LabCategory" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CompanyId" Type="Int64" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Action" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Controller" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Company" Relationship="BankCollectionModel.FK_Log_Company" FromRole="Log" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mr" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prefix" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Cnic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RefLocationId" Type="Int32" />
+    <Property Name="RefName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="PermName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SysPage" Relationship="BankCollectionModel.FK_SysPage_Permission" FromRole="Permission" ToRole="SysPage" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="SaleRate" Type="Double" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int64" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Category" Relationship="BankCollectionModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="ProductMap" Relationship="BankCollectionModel.FK_ProductMap_ProductMap" FromRole="Product" ToRole="ProductMap" />
+  </EntityType>
+  <EntityType Name="ProductGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="SRate" Type="Double" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ProductMap" Relationship="BankCollectionModel.FK_ProductMap_ProductGroup" FromRole="ProductGroup" ToRole="ProductMap" />
+  </EntityType>
+  <EntityType Name="ProductMap">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int64" Nullable="false" />
+    <Property Name="ProductGroupId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="BankCollectionModel.FK_ProductMap_ProductMap" FromRole="ProductMap" ToRole="Product" />
+    <NavigationProperty Name="ProductGroup" Relationship="BankCollectionModel.FK_ProductMap_ProductGroup" FromRole="ProductMap" ToRole="ProductGroup" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReportCatalogueId" Type="Int64" Nullable="false" />
+    <Property Name="PdfReportName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Query" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReportCatalogue" Relationship="BankCollectionModel.FK_Report_ReportCatalogue" FromRole="Report" ToRole="ReportCatalogue" />
+  </EntityType>
+  <EntityType Name="ReportCatalogue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Report" Relationship="BankCollectionModel.FK_Report_ReportCatalogue" FromRole="ReportCatalogue" ToRole="Report" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyId" Type="Int64" />
+    <Property Name="UserType" Type="Byte" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Company" Relationship="BankCollectionModel.FK_Role_Company" FromRole="Role" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int64" Nullable="false" />
+    <Property Name="PermId" Type="Int64" Nullable="false" />
+    <Property Name="ActionId" Type="Int64" Nullable="false" />
+    <Property Name="IsAllowed" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PageName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ActionId" Type="Int64" />
+    <Property Name="ParmissionId" Type="Int64" />
+    <NavigationProperty Name="Action" Relationship="BankCollectionModel.FK_SysPage_Action" FromRole="SysPage" ToRole="Action" />
+    <NavigationProperty Name="Permission" Relationship="BankCollectionModel.FK_SysPage_Permission" FromRole="SysPage" ToRole="Permission" />
+  </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+    <Property Name="IsSuspended" Type="Boolean" Nullable="false" />
+    <Property Name="InvalidPasswordAttempt" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="Int32" Nullable="false" />
+    <Property Name="IsCodeUsed" Type="Boolean" Nullable="false" />
+    <Property Name="CodeExpiry" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int64" Nullable="false" />
+    <Property Name="LabId" Type="Int32" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="UserLogin" Relationship="BankCollectionModel.FK_UserLogin_User" FromRole="User" ToRole="UserLogin" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="IPAddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Successful" Type="Boolean" Nullable="false" />
+    <Property Name="TokenId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="AppId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProtectedTicket" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsLoggedIn" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="BankCollectionModel.FK_UserLogin_User" FromRole="UserLogin" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Voucher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Amount" Type="Double" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsContinue" Type="Boolean" Nullable="false" />
+    <Property Name="CompanyId" Type="Int64" Nullable="false" />
+    <Property Name="LabId" Type="Int64" Nullable="false" />
+    <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+    <Property Name="IsUpdate" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Company" Relationship="BankCollectionModel.FK_Voucher_Company" FromRole="Voucher" ToRole="Company" />
+    <NavigationProperty Name="Lab" Relationship="BankCollectionModel.FK_Voucher_Lab" FromRole="Voucher" ToRole="Lab" />
+    <NavigationProperty Name="VoucherDetail" Relationship="BankCollectionModel.FK_VoucherDetail_Voucher" FromRole="Voucher" ToRole="VoucherDetail" />
+  </EntityType>
+  <EntityType Name="VoucherDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VoucherId" Type="Int64" Nullable="false" />
+    <Property Name="AccountId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Debit" Type="Double" Nullable="false" />
+    <Property Name="Credit" Type="Double" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BillNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Particular" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChartofAccount" Relationship="BankCollectionModel.FK_VoucherDetail_ChartofAccount" FromRole="VoucherDetail" ToRole="ChartofAccount" />
+    <NavigationProperty Name="Voucher" Relationship="BankCollectionModel.FK_VoucherDetail_Voucher" FromRole="VoucherDetail" ToRole="Voucher" />
+  </EntityType>
+  <EntityType Name="App">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Secret" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ApplicationType" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="RefreshTokenLifeTime" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Secret" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationType" Type="Int64" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="RefreshTokenLifeTime" Type="Int64" Nullable="false" />
+    <Property Name="AllowedOrigin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Prefix" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Action_ActionCategory">
+    <End Type="BankCollectionModel.ActionCategory" Role="ActionCategory" Multiplicity="0..1" />
+    <End Type="BankCollectionModel.Action" Role="Action" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Action">
+        <PropertyRef Name="ActionCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysPage_Action">
+    <End Type="BankCollectionModel.Action" Role="Action" Multiplicity="0..1" />
+    <End Type="BankCollectionModel.SysPage" Role="SysPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Action">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysPage">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Area_City">
+    <End Type="BankCollectionModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="BankCollectionModel.Area" Role="Area" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Area">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Category">
+    <End Type="BankCollectionModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="BankCollectionModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherDetail_ChartofAccount">
+    <End Type="BankCollectionModel.ChartofAccount" Role="ChartofAccount" Multiplicity="1" />
+    <End Type="BankCollectionModel.VoucherDetail" Role="VoucherDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChartofAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VoucherDetail">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_Company">
+    <End Type="BankCollectionModel.Company" Role="Company" Multiplicity="1" />
+    <End Type="BankCollectionModel.Company" Role="Company1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_PatientInfo">
+    <End Type="BankCollectionModel.Company" Role="Company" Multiplicity="1" />
+    <End Type="BankCollectionModel.Invoice" Role="Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lab_Company">
+    <End Type="BankCollectionModel.Company" Role="Company" Multiplicity="1" />
+    <End Type="BankCollectionModel.Lab" Role="Lab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lab">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Company">
+    <End Type="BankCollectionModel.Company" Role="Company" Multiplicity="1" />
+    <End Type="BankCollectionModel.Log" Role="Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Company">
+    <End Type="BankCollectionModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="BankCollectionModel.Role" Role="Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_Company">
+    <End Type="BankCollectionModel.Company" Role="Company" Multiplicity="1" />
+    <End Type="BankCollectionModel.Voucher" Role="Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceDetail_Invoice">
+    <End Type="BankCollectionModel.Invoice" Role="Invoice" Multiplicity="1" />
+    <End Type="BankCollectionModel.InvoiceDetail" Role="InvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceDetail">
+        <PropertyRef Name="InvoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabMap_Lab">
+    <End Type="BankCollectionModel.Lab" Role="Lab" Multiplicity="1" />
+    <End Type="BankCollectionModel.LabMap" Role="LabMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lab">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabMap">
+        <PropertyRef Name="LabId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_Lab">
+    <End Type="BankCollectionModel.Lab" Role="Lab" Multiplicity="1" />
+    <End Type="BankCollectionModel.Voucher" Role="Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lab">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="LabId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabMap_LabCategory">
+    <End Type="BankCollectionModel.LabCategory" Role="LabCategory" Multiplicity="1" />
+    <End Type="BankCollectionModel.LabMap" Role="LabMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabMap">
+        <PropertyRef Name="LabCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysPage_Permission">
+    <End Type="BankCollectionModel.Permission" Role="Permission" Multiplicity="0..1" />
+    <End Type="BankCollectionModel.SysPage" Role="SysPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysPage">
+        <PropertyRef Name="ParmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductMap_ProductMap">
+    <End Type="BankCollectionModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="BankCollectionModel.ProductMap" Role="ProductMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductMap">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductMap_ProductGroup">
+    <End Type="BankCollectionModel.ProductGroup" Role="ProductGroup" Multiplicity="1" />
+    <End Type="BankCollectionModel.ProductMap" Role="ProductMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductMap">
+        <PropertyRef Name="ProductGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Report_ReportCatalogue">
+    <End Type="BankCollectionModel.ReportCatalogue" Role="ReportCatalogue" Multiplicity="1" />
+    <End Type="BankCollectionModel.Report" Role="Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportCatalogue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="ReportCatalogueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogin_User">
+    <End Type="BankCollectionModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="BankCollectionModel.UserLogin" Role="UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherDetail_Voucher">
+    <End Type="BankCollectionModel.Voucher" Role="Voucher" Multiplicity="1" />
+    <End Type="BankCollectionModel.VoucherDetail" Role="VoucherDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voucher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VoucherDetail">
+        <PropertyRef Name="VoucherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

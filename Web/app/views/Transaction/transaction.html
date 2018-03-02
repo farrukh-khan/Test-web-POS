@@ -1,0 +1,713 @@
+<style>
+    @media screen and (min-width: 768px) {
+
+        #traceDetailsModal .modal-dialog {
+            width: 1000px;
+        }
+
+        #myModal .modal-dialog {
+            width: 1000px;
+        }
+    }
+</style>
+
+
+<!-- START row-->
+<div ng-controller="caseTransactionController">
+    <p class="ng-scope"><a href="/#/app/dashboard">Dashboard</a>&nbsp;&gt;&nbsp; <a href="/#/app/transaction?cifNo={{cifNo}}" class="ng-binding">Transection</a> </p>
+
+
+    <div class="col-md-12">
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <b>Case Info</b>
+            </div>
+            <form name="form-data" ng-submit="caseTransactionSubmit(transactionForm.$valid)">
+
+                <div class="panel-body">
+
+
+
+
+
+
+
+                    <div class="col-lg-12">
+
+
+                        <fieldset>
+                            <div class="row padding-row">
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Cif  No.</label>
+
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.cif}}</label>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Account No.</label>
+
+                                    <div class="col-sm-4">
+                                        <select class="form-control input-sm" ng-model="caseModel.accountNo" required="" ng-change="accountChange()">
+                                            <option ng-repeat="c in accountList" value="{{c.accountNo}}">{{c.accountNo}}</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="row padding-row">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Bank Name</label>
+
+                                    <div class=" col-sm-4 ">
+                                        <label class="form-control input-sm">{{caseModel.bankName}}</label>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Customer Name</label>
+
+                                    <div class=" col-sm-4 ">
+                                        <label class="form-control input-sm">{{caseModel.customerName}}</label>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                            </div>
+                            <div class="row padding-row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Outstanding</label>
+
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.outstanding}}</label>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"> Docs Status</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.docsStatus}}</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row padding-row">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Currency</label>
+                                    <div class="col-sm-4">
+
+                                        <label class="form-control input-sm">{{caseModel.currency}}</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">DPD</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.dpd}}</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row padding-row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Write off /Bkt</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.writeoffBkt}}</label>
+                                    </div>
+
+                                </div>
+
+
+
+
+                            </div>
+
+
+                            <div class="row padding-row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Write off Date</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.writeoffDate}}</label>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Security Cheque Number</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.securityChequeNumber}}</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="row padding-row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Secuirty Cheque Date</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.secuirtyChequeDate}}</label>
+                                    </div>
+
+                                </div>
+
+                              
+                            </div>
+
+
+                           
+
+                            <div class="row padding-row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Billing Cycle </label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.billingCycle}}</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Value on TOS</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.valueonTOS}}</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row padding-row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Credit Limit (for Cards), Sanctioned Amount (for Loans)</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.creditLimitCardsSanctionAmountLoan}}</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Last Purchasing Date</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.lastPurchasingDate}}</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="row padding-row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Last Payment Amount</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.lastPaymentAmount}}</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"> Overdue Amount</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.overdueAmount}}</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="row padding-row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"> Status of Police Case</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.statusofPoliceCase}}</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"> Details of Police Case (Case Number)</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.DetailsofPoliceCaseCaseNumber}}</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="row padding-row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">  Police Station</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.policeStation}}</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"> Allocation Month</label>
+                                    <div class="col-sm-4">
+                                        <label class="form-control input-sm">{{caseModel.allocationMonth}}</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </fieldset>
+
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <b>Transection Detail</b>
+                    </div>
+
+
+                    <div class="panel-body">
+
+                        <div class="col-lg-12">
+
+                            <fieldset>
+
+                                <div class="row padding-row">
+
+
+                                    <div class="form-group">
+
+                                        <label class=" col-sm-2 control-label ">Code </label>
+                                        <div class=" col-sm-4 ">
+                                            <select class="form-control input-sm" ng-model="model.code1" required="" ng-change="code1Change()">
+                                                <option ng-repeat="c in code1List" value="{{c.code1}}">{{c.code1}}</option>
+                                            </select>
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label class=" col-sm-2 control-label ">Sub Code</label>
+                                        <div class=" col-sm-4 ">
+                                            <select class="form-control input-sm" ng-model="model.code2" required="">
+                                                <option ng-repeat="c in code2List" value="{{c.code2}}">{{c.code2}}</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row padding-row">
+
+                                    <div class="form-group">
+
+                                        <label class=" col-sm-2 control-label ">Email notice served</label>
+                                        <div class=" col-sm-4 ">
+                                            <!--<input type="text" ng-model="model.emailNoticeServed" class="form-control input-sm" />-->
+                                            <select class="form-control input-sm" ng-model="model.emailNoticeServed" required="">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+
+
+                                        <!--<label class=" col-sm-2 control-label ">Visit Status codes</label>
+                                        <div class=" col-sm-4 ">
+                                            <select class="form-control input-sm" ng-model="model.visitDoneNotDone" required>
+                                                <option value="FD Clbk">FD Clbk</option>
+                                                <option value="D Lock">D Look</option>
+                                                <option value="FD LM">FD LM</option>
+                                                <option value="Shifted">Shifted</option>
+                                                <option value="FD PTP">FD PTP</option>
+                                                <option value="FD BPTP">FD BPTP</option>
+                                                <option value="OGL">OGL</option>
+                                                <option value="Not Done">Not Done</option>
+                                            </select>
+
+                                        </div>-->
+                                        <div class="form-group">
+                                            <label class=" col-sm-2 control-label ">Visit Issue</label>
+                                            <div class=" col-sm-4 ">
+                                                <!--<textarea ng-model="model.issuedVisit" class="form-control input-sm"></textarea>-->
+                                                <select class="form-control input-sm" ng-model="model.issuedVisit" required="" ng-change="issuedVisitChange()">
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <div class="row padding-row">
+                                   
+                                    
+                                    <label class=" col-sm-2 control-label ">Visit Status codes</label>
+                                    <div class=" col-sm-4 ">
+                                        <select class="form-control input-sm" ng-model="model.visitDoneNotDone" required >
+                                            <option value="FD Clbk">FD Clbk</option>
+                                            <option value="D Lock">D Look</option>
+                                            <option value="FD LM">FD LM</option>
+                                            <option value="Shifted">Shifted</option>
+                                            <option value="FD PTP">FD PTP</option>
+                                            <option value="FD BPTP">FD BPTP</option>
+                                            <option value="OGL">OGL</option>
+                                            <option value="Not Done">Not Done</option>
+                                        </select>
+
+                                    </div>
+
+                                    
+                                    
+                                     
+
+                                    <div class="form-group">
+                                        <label class=" col-sm-2 control-label" ng-show="viewPerm.isPhotoTakenShow">Photo Taken</label>
+                                        <div class=" col-sm-4 ">
+                                            <select class="form-control input-sm" ng-model="model.photoTaken" required="" ng-show="viewPerm.isPhotoTakenShow">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="row padding-row" ng-show="viewPerm.isAmountShow">
+                                    <div class="form-group" ng-show="viewPerm.isDateShow">
+
+                                        <label class=" col-sm-2 control-label ">Amount Collected  Date</label>
+                                        <div class=" col-sm-4 ">
+                                            <p class="input-group" ng-controller="DatepickerDemoController">
+                                                <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="model.paymentCollectedDate" is-open="opened" datepicker-options="dateOptions" close-text="Close"
+                                                       class="form-control input-sm" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default input-sm">
+                                                        <em class="fa fa-calendar"></em>
+                                                    </button>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group" ng-show="!viewPerm.isDateShow">
+
+                                        <label class=" col-sm-2 control-label ">Amount Exp. Date</label>
+                                        <div class=" col-sm-4 ">
+                                            <p class="input-group" ng-controller="DatepickerDemoController">
+                                                <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="model.amountExDate" is-open="opened" datepicker-options="dateOptions" close-text="Close"
+                                                       class="form-control input-sm" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default input-sm">
+                                                        <em class="fa fa-calendar"></em>
+                                                    </button>
+                                                </span>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="form-group">
+
+                                        <label class=" col-sm-2 control-label ">Amount Collected</label>
+                                        <div class=" col-sm-4 ">
+                                            <input type="text" ng-model="model.amountCollected" class="form-control input-sm" />
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+
+
+                                <div class="row padding-row">
+                                    <div class="form-group">
+
+                                        <label class=" col-sm-2 control-label ">Traced Details</label>
+                                        <div class=" col-sm-8 ">
+                                            <textarea ng-model="model.tracingDetail" class="form-control input-sm"></textarea>
+                                        </div>
+                                        <div class=" col-sm-2 pull-right">
+
+                                            <button type="button" class="btn btn-success small pull-right" ng-click="prevtracingDetail()">
+                                                <i class="fa fa-eye"></i>  View Details
+                                            </button>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+                                <div class="row padding-row">
+                                    <div class="form-group">
+
+                                        <label class=" col-sm-2 control-label ">Remarks</label>
+                                        <div class=" col-sm-8">
+                                            <textarea ng-model="model.remarks" class="form-control input-sm"></textarea>
+                                        </div>
+
+                                        <div class=" col-sm-2 pull-right">
+
+                                            <button type="button" class="btn btn-success small pull-right" ng-click="prevRemarks()" >
+                                                <i class="fa fa-eye"></i>  View Remarks
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+
+                            <div class="panel-footer text-center">
+                                <button type="button" class="btn btn-info" ng-click="cancel()">Cancel</button>
+                                <button type="submit" class="btn btn-info" ng-disabled="transactionForm.$invalid">Submit</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">View Remarks</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12" id="prevRemarksId">
+
+                                        <div style="height:350px;overflow-y:auto" id="remarksContainer">
+                                            <div ng-repeat="c in remarksList">
+                                                <p ng-show="c.remarks != ''">
+                                                    <h5>
+                                                        {{c.username}}: {{c.callDate}} {{c.calltime}}:  {{c.code1}}: {{c.remarks}}
+
+                                                    </h5>
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <fieldset>
+
+                                            <div class="row padding-row">
+                                                <div class="form-group">
+
+                                                    <label class=" col-sm-2 control-label ">Remarks</label>
+                                                    <div class=" col-sm-10 ">
+                                                        <textarea ng-model="model.remarks" class="form-control input-sm"></textarea>
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-info" ng-disabled="transactionForm.$invalid">Submit</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <div id="traceDetailsModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">View Traced Details</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+
+                                        <div style="height:350px;overflow-y:auto" id="remarksContainerTracingDetail">
+                                            <div ng-repeat="c in remarksList">
+                                                <p ng-show="c.TracingDetail != ''">
+                                                    <h5>
+                                                        {{c.username}}: {{c.callDate}} {{c.calltime}}:{{c.code1}}:{{c.tracingDetail}}
+
+                                                    </h5>
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        
+                                        <fieldset>
+
+                                            <div class="row padding-row">
+                                                <div class="form-group">
+
+                                                    <label class=" col-sm-2 control-label ">Traced Details</label>
+                                                    <div class=" col-sm-10 ">
+                                                        <textarea ng-model="model.tracingDetail" class="form-control input-sm"></textarea>
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-info" ng-disabled="transactionForm.$invalid">Submit</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </form>
+
+            <!--<div class="panel panel-default">
+                <div class="panel-heading">
+                    Last 2 Transections
+                </div>
+                <div class="panel-body">
+
+                    <div class="col-lg-12">
+                        <div class="table-responsive" style="min-height:400px; overflow:auto">
+
+
+                            <table class="table table-bordered table-hover bg-white">
+                                <tr style="font-weight: bold">
+                                    <td style="width:20%">Call Date Time</td>
+                                    <td style="width:10%">Code 1</td>
+                                    <td style="width:10%">Code 2</td>
+                                    <td style="width:25%">Tracing Detail</td>
+                                    <td style="width:25%">Remarks</td>
+                                    
+                                </tr>
+
+                                <tr ng-repeat="transaction in transactionList">
+                                    <td>
+                                        <span> <p ng-bind="transaction.callDateTime | date:'dd-MM-yyyy hh:mm:ss'"></p> </span>
+                                    </td>
+                                    <td>
+                                        <span>{{ transaction.code1}}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ transaction.code2}}</span>
+                                    </td>
+                                    <td>
+                                        <span><textarea class="form-control">{{ transaction.tracingDetail}}</textarea></span>
+                                    </td>
+                                    <td>
+                                        <span><textarea class="form-control">{{ transaction.remarks}}</textarea></span>
+                                    </td>
+
+                                </tr>
+                            </table>
+
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>-->
+        </div>
+
+
+
+      
+
+
+    </div>
+</div>
+
+
+
+

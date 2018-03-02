@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E290EEA8-829E-40EF-BF7C-F2C44A3FA03B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Service</RootNamespace>
+    <AssemblyName>Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IInvoiceDetailService.cs" />
+    <Compile Include="Contracts\IInvoiceService.cs" />
+    <Compile Include="Contracts\IProductMapService.cs" />
+    <Compile Include="Contracts\IProductGroupService.cs" />
+    <Compile Include="Contracts\ICategoryService.cs" />
+    <Compile Include="Contracts\IProductService.cs" />
+    <Compile Include="Contracts\IPermissionService.cs" />
+    <Compile Include="Contracts\IActionService.cs" />
+    <Compile Include="Contracts\IActionCategoryService.cs" />
+    <Compile Include="Contracts\IRolePermissionService.cs" />
+    <Compile Include="Contracts\IReportCatalogueService.cs" />
+    <Compile Include="Contracts\IReportService.cs" />
+    <Compile Include="Contracts\IPatientService.cs" />
+    <Compile Include="Contracts\ICompanyService.cs" />
+    <Compile Include="Contracts\ICountryService.cs" />
+    <Compile Include="Contracts\ISystemSettingService.cs" />
+    <Compile Include="Contracts\IUserLoginService.cs" />
+    <Compile Include="Contracts\IRoleService.cs" />
+    <Compile Include="Contracts\ISpService.cs" />
+    <Compile Include="Contracts\IAppService.cs" />
+    <Compile Include="Contracts\IUsersService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\InvoiceDetailService.cs" />
+    <Compile Include="Services\InvoiceService.cs" />
+    <Compile Include="Services\ProductMapService.cs" />
+    <Compile Include="Services\ProductGroupService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\PermissionService.cs" />
+    <Compile Include="Services\ReportCatalogueService.cs" />
+    <Compile Include="Services\ActionCategoryService.cs" />
+    <Compile Include="Services\ActionService.cs" />
+    <Compile Include="Services\RolePermissionService.cs" />
+    <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\PatientService.cs" />
+    <Compile Include="Services\CompanyService.cs" />
+    <Compile Include="Services\CountryService.cs" />
+    <Compile Include="Services\SystemSettingService.cs" />
+    <Compile Include="Services\UserLoginService.cs" />
+    <Compile Include="Services\RoleService.cs" />
+    <Compile Include="Services\SpVcisService.cs" />
+    <Compile Include="Services\AppService.cs" />
+    <Compile Include="Services\UsersService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{b41aeb92-fa33-4266-a4b2-dccde41805eb}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

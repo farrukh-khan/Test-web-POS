@@ -1,0 +1,60 @@
+                string sqlquery = "Select * From [Sheet1$]; ";
+                DataSet ds = new DataSet();
+                string filePath = @"D:\git\pphi.lab\document\ratelist.xlsx";
+                string constring = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
+                OleDbConnection con = new OleDbConnection(constring + "");
+                OleDbDataAdapter da = new OleDbDataAdapter(sqlquery, con);
+                da.Fill(ds);
+
+                int count = 0;
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    var product = new Product();
+                    if (item["F3"].ToString().ToUpper() == "S" && count != 0)
+                    {
+                        product.Name = item["F2"].ToString();
+                        product.Description = item["F2"].ToString();
+                        product.SaleRate = double.Parse(item["F4"].ToString());
+                        product.StartRage = 0;
+                        product.EndRange = 0;
+
+                        product.Code = GetCode(product.CompanyId);
+                        product.IsActive = true;
+                        product.IsAdd = false;
+                        product.IsUpdate = true;
+                        product.IsDelete = true;
+                        product.IsContinue = true;
+                        product.CreatedDate = DateTime.Now;
+                        product.Type = "T";
+
+                        _ProductService.InsertProduct(product);
+                    }
+
+
+
+                    if (item["F8"].ToString().ToUpper() == "S" && count != 0)
+                    {
+                        product.Name = item["F6"].ToString();
+                        product.Description = item["F6"].ToString();
+                        product.SaleRate = double.Parse(item["F7"].ToString());
+                        product.StartRage = 0;
+                        product.EndRange = 0;
+
+                        product.Code = GetCode(product.CompanyId);
+                        product.IsActive = true;
+                        product.IsAdd = false;
+                        product.IsUpdate = true;
+                        product.IsDelete = true;
+                        product.IsContinue = true;
+                        product.CreatedDate = DateTime.Now;
+                        product.Type = "T";
+
+                        _ProductService.InsertProduct(product);
+                    }
+
+
+
+
+
+                    count++;
+                }

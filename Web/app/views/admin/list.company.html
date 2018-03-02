@@ -1,0 +1,51 @@
+<div ng-controller="companyController">
+    <div class="app-view-header">
+        <div>Companies</div>
+        <a href="#/app/company" class="btn btn-success pull-right" style="margin-top:10px;">Register New Company</a>
+    </div>
+
+    <div class="container-fluid">
+
+
+        <!-- Editable row-->
+
+        <table class="table table-bordered table-hover bg-white">
+            <tr style="font-weight: bold">
+                <td style="width:20%">Name</td>
+                <td style="width:20%">Customer</td>
+                <td style="width:30%">Country</td>
+                <td style="width:10%">Active</td>
+                <td style="width:10%"></td>
+            </tr>
+
+            <tr ng-repeat="company in companyList">
+                <td>
+                    <span>{{ company.name}}</span>
+                </td>
+                <td>
+                    <span>{{ company.customer}}</span>
+                </td>
+                <td>
+                    <span>{{ company.country}}</span>
+                </td>
+
+                <td>
+                    <span>{{ company.isActive?"Yes":"No"}}</span>
+                </td>
+
+                <td style="white-space: nowrap">
+
+                    <div class="buttons">
+                        <a href="#/app/editcompany?id={{company.id}}" title="Edit" class="btn btn-sm btn-info">
+                            <em class="fa fa-pencil"></em>
+                        </a>
+                        <button ng-click="deleteCompany(company.id)" title="Delete" class="btn btn-sm btn-danger">
+                            <em class="fa fa-trash"></em>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>

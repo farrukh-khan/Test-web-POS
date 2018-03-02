@@ -1,0 +1,93 @@
+<div class="container container-sm animated fadeInDown" ng-controller="passwordResetController">
+    <div class="center-block mt-xl">
+        <img src="app/img/logo-gray.png" alt="Image" class="center-block img-rounded" />
+
+
+        <!-- START panel 1-->
+
+        <div class="panel" ng-show="model.panel1">
+            <div class="panel-body">
+                <p class="pv">
+                    <strong>RESET PASSWORD</strong>
+                    <br />We will send you Verify Code to reset your password.
+                </p>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group has-feedback">
+                            <input type="email" placeholder="Your email" autocomplete="off" class="form-control" ng-model="model.email" />
+                            <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-danger btn-block" ng-click="emailVarification()">Send</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END panel-->
+        <!-- START panel 2-->
+
+        <div class="panel" ng-show="model.panel2">
+            <div class="panel-body">
+                <p class="pv">
+                    <strong>RESET PASSWORD</strong>
+                    <br />Please enter given code which we emailed you.
+                </p>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group has-feedback">
+                            <input type="text" placeholder="Code" autocomplete="off" class="form-control" ng-model="model.code" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary btn-block" ng-click="verifyCode()">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END panel-->
+        <!-- START panel 3-->
+
+        <div class="panel" ng-show="model.panel3">
+            <div class="panel-body">
+                <p class="pv">
+                    <strong>RESET PASSWORD</strong>
+                    <br />Please enter password and confirm password.
+                </p>
+
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Password*</label>
+                        <div class="col-sm-6">
+                            <input type="password" ng-model="model.Password" required="" class="form-control" />
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Confirm Password*</label>
+                        <div class="col-sm-6">
+                            <input type="password" ng-model="model.confirmPassword" required="" class="form-control" />
+                        </div>
+
+                    </div>
+                </fieldset>
+
+            </div>
+            <div class="panel-footer text-center">
+                <button type="submit" class="btn btn-block btn-primary" ng-click="resetPassword()">Submit</button>
+            </div>
+        </div>
+        <!-- END panel-->
+
+
+
+        <div ng-include="'app/views/page.footer.html'" class="p-lg text-center"></div>
+    </div>
+</div>

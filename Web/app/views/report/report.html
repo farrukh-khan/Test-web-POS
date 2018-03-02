@@ -1,0 +1,431 @@
+<style>
+    .panel-heading {
+        background-color: #3f51b5 !important;
+        color: white !important;
+    }
+
+    .panel-title {
+        font-size: 20px;
+        padding-top: 10px !important;
+        font-weight: bold;
+    }
+</style>
+
+<div ng-controller="reportController" class="container-fluid">
+    <div class="app-view-header">
+        {{reportTitle}}
+    </div>
+
+
+
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+
+            <accordion close-others="oneAtATime">
+                <accordion-group is-open="true">
+
+                    <accordion-heading>
+                        <div ng-click="filterAccordian()">
+                            <em class="fa fa-plus-square" id="filterAccordian"></em>  Filter
+                        </div>
+                    </accordion-heading>
+
+
+
+
+                    <div class="col-lg-12">
+                        <!--<h4 class="page-header">Tabs</h4>-->
+                        <!-- START panel-->
+                        <div id="panelDemo14" class="panel panel-default">
+                            <div class="panel-body">
+                                <fieldset>
+                                    <div class="row padding-row" ng-if="template.isCode">
+                                        <div class="form-group">
+
+                                            <label class=" col-sm-2 control-label ">Code*</label>
+                                            <div class=" col-sm-4 ">
+                                                <select class="form-control input-sm" ng-model="model.code1" required="">
+                                                    <option value=""></option>
+                                                    <option ng-repeat="c in code1List" value="{{c.code1}}">{{c.code1}}</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+
+                                            <label class=" col-sm-2 control-label ">Sub Code*</label>
+                                            <div class=" col-sm-4 ">
+                                                <select class="form-control input-sm" ng-model="model.code2" required="">
+                                                    <option value=""></option>
+                                                    <option ng-repeat="c in code2List" value="{{c.code2}}">{{c.code2}}</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row padding-row" ng-if="template.isBankCustomer">
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Bank Name</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <input type="text" class="form-control input-sm" ng-model="model.bankName" />
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Customer Name</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <input type="text" class="form-control input-sm" ng-model="model.customerName" />
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row padding-row" ng-if="template.isDate">
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">From Date</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <p class="input-group" ng-controller="DatepickerDemoController">
+                                                    <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="model.from" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                                                           class="form-control input-sm" />
+                                                    <span class="input-group-btn">
+                                                        <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default input-sm">
+                                                            <em class="fa fa-calendar"></em>
+                                                        </button>
+                                                    </span>
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">To Date</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <p class="input-group" ng-controller="DatepickerDemoController">
+                                                    <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="model.to" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                                                           class="form-control input-sm" />
+                                                    <span class="input-group-btn">
+                                                        <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default input-sm">
+                                                            <em class="fa fa-calendar"></em>
+                                                        </button>
+                                                    </span>
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row padding-row" ng-if="template.isYearMonth">
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Year</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <input type="text" class="form-control input-sm" ng-model="model.year" />
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Month</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <select class="form-control input-sm" ng-model="model.month" required="">
+
+                                                    <option value="1">January</option>
+                                                    <option value="2">February</option>
+                                                    <option value="3">March</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">May</option>
+                                                    <option value="6">June</option>
+                                                    <option value="7">July</option>
+                                                    <option value="8">August</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row padding-row" ng-if="template.isCallGapType">
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Call Gap Type</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <select class="form-control input-sm" ng-model="model.callGapType" required="">
+                                                    <option value="0">Overall_Base</option>
+                                                    <option value="1">TC_Base</option>
+                                                    <option value="2">FO_Base</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            
+                                            <div class=" col-sm-4 ">
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row padding-row" ng-if="template.isAgeSlab">
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Age Slab Type</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <select class="form-control input-sm" ng-model="model.ageSlab" required="">
+                                                    <option value="1">Bank</option>
+                                                    <option value="2">State</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            
+
+                                            <div class=" col-sm-4 ">
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row padding-row" ng-if="template.isFeildFeedback">
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Feild Feedback Type</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <select class="form-control input-sm" ng-model="model.feildFeedback" required="">
+                                                    <option value="1">Bank</option>
+                                                    <option value="2">State</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+
+
+                                            <div class=" col-sm-4 ">
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row padding-row" ng-if="template.isOverallSummary">
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Overall Summary Type</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <select class="form-control input-sm" ng-model="model.overallSummary" required="">
+                                                    <option value="1">Overall Summary ( TC + Field )</option>
+                                                    <option value="2">Telecalling Unit - Karachi</option>
+                                                    <option value="3">Dedicated FOS - Inhouse Field Team</option>
+                                                    <option value="4">Agency -(  Location Name )</option>
+                                                    <option value="5">Telecalling Unit - Karachi - Nafees & Team</option>
+
+
+                                                    
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+
+
+                                            <div class=" col-sm-4 ">
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="row padding-row" ng-if="template.isMisType">
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Mis Type</label>
+
+                                            <div class=" col-sm-4 ">
+                                                <select class="form-control input-sm" ng-model="model.misType" required="">
+                                                    <option value="1">Bank</option>
+                                                    <option value="2">Geography</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+
+
+                                            <div class=" col-sm-4 ">
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </fieldset>
+
+
+
+                            </div>
+
+                            <div class="panel-footer text-center ">
+                                <button type="button" class="btn btn-info " ng-click="reset()">Reset</button>
+                                <button type="button" class="btn btn-info" ng-click="cancel()">Cancel</button>
+                                <button type="submit" class="btn btn-info" ng-click="applyFilter()">Generate Report</button>
+                                <button type="submit" class="btn btn-info" ng-click="getReportExcel()">Generate Excel</button>
+                                <button type="submit" class="btn btn-info" ng-click="getReportPdf()">Generate Pdf</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </accordion-group>
+
+            </accordion>
+
+
+            <!-- END panel-->
+            <!-- END row-->
+            <!-- Editable row-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <div class="panel-title">Summary</div>
+                </div>
+                <table class="table table-bordered table-striped">
+
+                    <tr style="font-weight: bold">
+                        <td ng-repeat="key in getKeys(reportSummeryHeader) track by $id($index)" ng-init="value = data[key]">{{key.toUpperCase()}}</td>
+                    </tr>
+
+                    <tr ng-repeat="bodyEx in reportSummeryBody" id="{{$index + 1}}">
+                        <td ng-repeat="key in  getKeys(bodyEx) track by $id($index)" ng-init="value1 = bodyEx[key]" name="{{key}}"> {{value1}}</td>
+                    </tr>
+
+                </table>
+            </div>
+
+
+
+            <div class="panel panel-default" style=" overflow: auto;zoom:1">
+                <div class="panel-heading" style="min-width: 1100px !important; ">
+
+                    <div class="panel-title">Detail</div>
+                </div>
+
+
+                <table ng-table="tableParams" class="table table-bordered table-striped" id="tbl">
+
+                    <thead>
+                        <tr style="font-weight: bold">
+                            <th ng-repeat="key in getKeys(reportDetailHeader) track by $id($index)" ng-init="value = data[key]" style="cursor:pointer">
+
+                                <div style="float: left; margin-right:10px;">
+                                    {{key.toUpperCase()}}
+                                </div>
+                                <!--<div style="float: right;">
+                                    <div class="row" style="margin-bottom: -15px;" ng-click="ascSort($index)">
+                                        <em class="fa fa-sort-up"></em>
+                                    </div>
+                                    <div class="row" ng-click="descSort($index)">
+                                        <em class="fa fa-sort-down"></em>
+                                    </div>
+                                </div>-->
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr ng-repeat="bodyEx in reportDetailBody" id="{{$index + 1}}">
+                            <td ng-repeat="key in  getKeys(bodyEx) track by $id($index)" ng-init="value1 = bodyEx[key]" name="{{key}}"> {{value1}}</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+                <div style="padding-left:20px;">
+                    <h4>
+                        {{system.alertMsg}}
+                    </h4>
+                </div>
+                <div style="margin-left:10px" paging
+                     page="model.page"
+                     page-size="model.pageSize"
+                     total="model.total"
+                     paging-action="pagingAction(page)">
+                </div>
+
+                <div style="margin-left:10px" ng-if="system.alertMsg == ''">
+                    {{system.startRowNumber}} - {{system.endRowNumber}} Out Of {{model.total}} Rows
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+

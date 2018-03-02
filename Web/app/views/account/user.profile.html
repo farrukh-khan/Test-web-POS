@@ -1,0 +1,98 @@
+<div class="app-view-header">
+    Profile
+</div>
+
+<!--<div class="container container-sm animated">-->
+<!-- START row-->
+<div ng-controller="userController" class="row">
+    <div class="col-md-12">
+
+        <!-- START panel-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <!--<div class="panel-title">User</div>-->
+            </div>
+            <div class="panel-body">
+
+                <fieldset>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">First Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="model.firstName" required="" class="form-control" />
+                        </div>
+
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Last Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="model.lastName" required="" class="form-control" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="model.email" required="" class="form-control" ng-disabled="true" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-6">
+                            <input type="password" ng-model="model.password" required="" class="form-control" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Confirm Password</label>
+                        <div class="col-sm-6">
+                            <input type="password" ng-model="model.confirmPassword" required="" class="form-control" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset ng-if="system.userType == 3">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Role</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" ng-model="model.roleId" required="" ng-disabled="true">
+                                <option ng-repeat="s in roleList" value="{{s.id}}">{{s.roleName}}</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset ng-if="system.userType != 3">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Role</label>
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="system.systemRole" required="" class="form-control" ng-disabled="true" />
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+
+
+            </div>
+
+            <div class="panel-footer text-center">
+                <button type="button" class="btn btn-info" ng-click="cancel()">Cancel</button>
+                <button type="submit" class="btn btn-info" ng-click="userSubmit()">Submit</button>
+            </div>
+
+        </div>
+        <!-- END panel-->
+        <!-- END row-->
+
+    </div>
+</div>
+
+<!--</div>-->

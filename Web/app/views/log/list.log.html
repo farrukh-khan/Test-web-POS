@@ -1,0 +1,123 @@
+<div ng-controller="logController">
+    <div class="app-view-header">
+        Logs
+    </div>
+
+    <div class="container-fluid">
+
+
+        <form>
+            <accordion close-others="oneAtATime">
+                <accordion-group is-open="true">
+
+                    <accordion-heading>
+                        <div ng-click="filterAccordian()">
+                            <em class="fa fa-plus-square" id="filterAccordian"></em>  Search
+                        </div>
+                    </accordion-heading>
+
+
+                    <div class="col-lg-12">
+
+
+                        <fieldset>
+                            <div class="form-group">
+
+                                <label class=" col-sm-2 control-label ">Start Date</label>
+                                <div class=" col-sm-8 ">
+                                    <p class="input-group" ng-controller="DatepickerDemoController">
+                                        <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="search.from" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                                               class="form-control" />
+                                        <span class="input-group-btn">
+                                            <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default">
+                                                <em class="fa fa-calendar"></em>
+                                            </button>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="form-group">
+
+                                <label class=" col-sm-2 control-label ">End Date</label>
+                                <div class=" col-sm-8 ">
+                                    <p class="input-group" ng-controller="DatepickerDemoController">
+                                        <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="search.to" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                                               class="form-control" />
+                                        <span class="input-group-btn">
+                                            <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default">
+                                                <em class="fa fa-calendar"></em>
+                                            </button>
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                        </fieldset>
+
+
+                        <fieldset>
+                            <div class="form-group">
+
+                                <label class=" col-sm-2 control-label ">Agent</label>
+                                <div class=" col-sm-8 ">
+                                    <select class="form-control" ng-model="search.email">
+                                        <option ng-repeat="s in userList" value="{{s.email}}">{{s.email}}</option>
+
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+                        </fieldset>
+
+
+                        <div class="panel-footer text-center">
+                            <button type="button" class="btn btn-info" ng-click="reset()">Reset</button>
+                            <button type="submit" class="btn btn-info" ng-click="filter()">Search</button>
+                        </div>
+
+
+
+
+                    </div>
+
+                </accordion-group>
+
+            </accordion>
+        </form>
+
+        <table class="table table-bordered table-hover bg-white">
+            <tr style="font-weight: bold">
+                <td width="10%">Date</td>
+                <td width="1%">Agent</td>
+                <td width="1%">Page</td>
+                <td width="97%">Detail</td>                
+            </tr>
+
+            <tr ng-repeat="data in logList">
+                <td>
+                    <span>{{ formatDate(data.createdDate)}}</span>
+                </td>
+
+                <td>
+                    <span>{{ data.createdBy }}</span>
+                </td>
+                <td>
+                    <span>{{ data.controller}}</span>
+                </td>
+                <td>
+                    <span><textarea style="width:95%">{{ data.logData}}</textarea> </span>
+                </td>
+                
+            </tr>
+        </table>
+
+    </div>
+</div>

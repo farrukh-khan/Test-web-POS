@@ -1,0 +1,755 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="activesoftswitch_portaone_apiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="account_id" />
+    </Key>
+    <Property Name="account_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="varchar" MaxLength="50" />
+    <Property Name="IAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="ICustomer" Type="int" />
+    <Property Name="BillingModel" Type="varchar" MaxLength="50" />
+    <Property Name="ISO4217" Type="varchar" MaxLength="50" />
+    <Property Name="Balance" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="UILogin" Type="varchar" MaxLength="50" />
+    <Property Name="UIPassword" Type="varchar" MaxLength="50" />
+    <Property Name="VoipPassword" Type="varchar" MaxLength="50" />
+    <Property Name="Blocked" Type="varchar" MaxLength="50" />
+    <Property Name="UMEnabled" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone1" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="BillStatus" Type="varchar" MaxLength="50" />
+    <Property Name="Servicefeatures" Type="varchar" MaxLength="50" />
+    <Property Name="FollowMeEnabled" Type="varchar" MaxLength="3" />
+    <Property Name="IRoutingPlan" Type="int" />
+    <Property Name="IProduct" Type="int" />
+    <Property Name="Note" Type="varchar" MaxLength="100" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="Login" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="Phone2" Type="varchar" MaxLength="50" />
+    <Property Name="IEnv" Type="int" />
+    <Property Name="Salutation" Type="varchar" MaxLength="50" />
+    <Property Name="ISubscriber" Type="int" />
+  </EntityType>
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ActionCategoryId" Type="int" />
+    <Property Name="Url" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ActionCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SmartReport.dbo.App' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="App">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Secret" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ApplicationType" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="RefreshTokenLifeTime" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Secret" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ApplicationType" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="RefreshTokenLifeTime" Type="int" Nullable="false" />
+    <Property Name="AllowedOrigin" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SmartReport.dbo.Calls' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Calls">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="CallTypeId" />
+      <PropertyRef Name="ICustomer" />
+      <PropertyRef Name="PeriodId" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CallTypeId" Type="int" Nullable="false" />
+    <Property Name="TalkTime" Type="int" />
+    <Property Name="RingTime" Type="int" />
+    <Property Name="TotalTime" Type="int" />
+    <Property Name="ConnectTime" Type="datetime" />
+    <Property Name="DisconnectTime" Type="datetime" />
+    <Property Name="InternalExternal" Type="tinyint" />
+    <Property Name="MissedCall" Type="bit" />
+    <Property Name="DID" Type="varchar" MaxLength="250" />
+    <Property Name="CLI" Type="varchar" MaxLength="250" />
+    <Property Name="ReceivedBy" Type="int" />
+    <Property Name="ExtensionNo" Type="varchar" MaxLength="50" />
+    <Property Name="ExtensionName" Type="varchar" MaxLength="50" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="PeriodId" Type="int" Nullable="false" />
+    <Property Name="CdrCallId" Type="uniqueidentifier" />
+    <Property Name="Legs" Type="int" />
+    <Property Name="Location" Type="int" />
+    <Property Name="Bounced" Type="int" />
+    <Property Name="InComingTransfered" Type="int" />
+    <Property Name="OutGoingTransfered" Type="int" />
+    <Property Name="hourly_cdr_id" Type="int" />
+  </EntityType>
+  <EntityType Name="CallType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CallTypeName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cdr_cronjob_log">
+    <Key>
+      <PropertyRef Name="CDRLogID" />
+    </Key>
+    <Property Name="CDRLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="start_time" Type="datetime" />
+    <Property Name="end_time" Type="datetime" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Address1" Type="nvarchar(max)" />
+    <Property Name="Address2" Type="nvarchar(max)" />
+    <Property Name="Phone1" Type="nvarchar" MaxLength="20" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CostCentre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CostCentreName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SmartReport.dbo.Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Prefix" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="cron_joblog">
+    <Key>
+      <PropertyRef Name="CronJobLogID" />
+    </Key>
+    <Property Name="CronJobLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CronJobID" Type="int" />
+    <Property Name="CronJobStatus" Type="smallint" />
+    <Property Name="Message" Type="varchar" MaxLength="500" />
+    <Property Name="created_at" Type="datetime2" Precision="0" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_at" Type="datetime2" Precision="0" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cronjob">
+    <Key>
+      <PropertyRef Name="CronJobID" />
+    </Key>
+    <Property Name="CronJobID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CronJobCommandID" Type="int" />
+    <Property Name="Settings" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LastRunTime" Type="datetime2" Precision="0" />
+    <Property Name="NextRunTime" Type="datetime2" Precision="0" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="created_at" Type="datetime2" Precision="0" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_at" Type="datetime2" Precision="0" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="int" />
+  </EntityType>
+  <EntityType Name="cronjob_command">
+    <Key>
+      <PropertyRef Name="CronJobCommandID" />
+    </Key>
+    <Property Name="CronJobCommandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Command" Type="varchar" MaxLength="200" />
+    <Property Name="Settings" Type="varchar" MaxLength="200" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="created_at" Type="datetime2" Precision="0" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="updated_at" Type="datetime2" Precision="0" />
+    <Property Name="updated_by" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="CreationDate" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="customer_hunt_group">
+    <Key>
+      <PropertyRef Name="customer_hunt_groups_id" />
+    </Key>
+    <Property Name="customer_hunt_groups_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="i_c_group" Type="int" />
+    <Property Name="i_customer" Type="int" />
+    <Property Name="i_customerSpecified" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="hunt_sequence" Type="varchar" MaxLength="50" />
+    <Property Name="hunt_keep_original_cli" Type="varchar" MaxLength="10" />
+    <Property Name="i_c_ext" Type="int" />
+    <Property Name="id" Type="int" />
+    <Property Name="assigned_extensions" Type="int" />
+  </EntityType>
+  <EntityType Name="CustomerJob">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="LastRunTime" Type="datetime" />
+    <Property Name="NextRunTime" Type="datetime" />
+    <Property Name="RecordsFetched" Type="int" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="ReportTo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CustomerJobLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="JobTime" Type="datetime" />
+    <Property Name="Description" Type="varchar" MaxLength="5000" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DivisionName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ext_Dept_Dev_CC">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExtensionId" Type="int" Nullable="false" />
+    <Property Name="DivisionId" Type="int" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="CostCentreId" Type="int" />
+  </EntityType>
+  <EntityType Name="extension">
+    <Key>
+      <PropertyRef Name="ExtensionID" />
+    </Key>
+    <Property Name="ExtensionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" />
+    <Property Name="i_c_group" Type="int" />
+    <Property Name="i_c_ext" Type="int" />
+    <Property Name="i_cg_ext" Type="int" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="i_cg_extSpecified" Type="varchar" MaxLength="50" />
+    <Property Name="i_c_extSpecified" Type="varchar" MaxLength="50" />
+    <Property Name="id" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="i_account" Type="nvarchar" MaxLength="50" />
+    <Property Name="account_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="DivisionId" Type="int" />
+    <Property Name="CostCentreId" Type="int" />
+    <Property Name="updated_at" Type="datetime" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="hourlycdr">
+    <Key>
+      <PropertyRef Name="hourly_cdr_id" />
+    </Key>
+    <Property Name="hourly_cdr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="IEnv" Type="int" />
+    <Property Name="CLI" Type="nvarchar" MaxLength="50" />
+    <Property Name="CLD" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Connect_time" Type="datetime" />
+    <Property Name="Disconnect_time" Type="datetime" />
+    <Property Name="Bill_time" Type="datetime" />
+    <Property Name="ICustomer" Type="int" />
+    <Property Name="IDest" Type="int" />
+    <Property Name="Charged_Quantity" Type="int" />
+    <Property Name="Charged_Amount" Type="float" />
+    <Property Name="CallId" Type="varchar" MaxLength="250" />
+    <Property Name="IAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="ServiceName" Type="varchar" MaxLength="100" />
+    <Property Name="BitFlags" Type="int" />
+    <Property Name="DisconnectCause" Type="int" />
+    <Property Name="ServiceFlags" Type="varchar" MaxLength="250" />
+    <Property Name="History" Type="varchar" MaxLength="100" />
+    <Property Name="IService" Type="int" />
+    <Property Name="CallType" Type="varchar" MaxLength="50" />
+    <Property Name="RatingPattern" Type="varchar" MaxLength="200" />
+    <Property Name="Used_Quantity" Type="varchar" MaxLength="100" />
+    <Property Name="IsProcessed" Type="bit" Nullable="false" />
+    <Property Name="CallIdentity" Type="uniqueidentifier" />
+    <Property Name="created_at" Type="datetime2" Precision="0" />
+    <Property Name="updated_at" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="Period">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PeriodName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PermName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" />
+    <Property Name="IProduct" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaintanenceFee" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Product_ProductType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="ProductTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ProductTypeName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReportCatalogueId" Type="int" Nullable="false" />
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Query" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ReportCatalogue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ClientId" Type="int" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="PermId" Type="int" Nullable="false" />
+    <Property Name="ActionId" Type="int" Nullable="false" />
+    <Property Name="IsAllowed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PageName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ActionId" Type="int" />
+    <Property Name="ParmissionId" Type="int" />
+  </EntityType>
+  <EntityType Name="SystemCustomer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" Nullable="false" />
+    <Property Name="AnswerTime" Type="int" Nullable="false" />
+    <Property Name="LocalCode" Type="int" Nullable="false" />
+    <Property Name="MaxCallDuration" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ICustomer" Type="int" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="UserType" Type="tinyint" Nullable="false" />
+    <Property Name="ClientId" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsLocked" Type="bit" Nullable="false" />
+    <Property Name="IsSuspended" Type="bit" Nullable="false" />
+    <Property Name="InvalidPasswordAttempt" Type="int" Nullable="false" />
+    <Property Name="Code" Type="int" Nullable="false" />
+    <Property Name="IsCodeUsed" Type="bit" Nullable="false" />
+    <Property Name="CodeExpiry" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="30" />
+    <Property Name="Successful" Type="bit" Nullable="false" />
+    <Property Name="TokenId" Type="nvarchar" MaxLength="128" />
+    <Property Name="AppId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateUtc" Type="datetime" Nullable="false" />
+    <Property Name="ProtectedTicket" Type="nvarchar(max)" />
+    <Property Name="IsLoggedIn" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Action_ActionCategory">
+    <End Role="ActionCategory" Type="Self.ActionCategory" Multiplicity="0..1" />
+    <End Role="Action" Type="Self.Action" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Action">
+        <PropertyRef Name="ActionCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Company1" Type="Self.Company" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Company1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ext_Dept_Dev_CC_CostCentre">
+    <End Role="CostCentre" Type="Self.CostCentre" Multiplicity="0..1" />
+    <End Role="Ext_Dept_Dev_CC" Type="Self.Ext_Dept_Dev_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CostCentre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ext_Dept_Dev_CC">
+        <PropertyRef Name="CostCentreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ext_Dept_Dev_CC_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Ext_Dept_Dev_CC" Type="Self.Ext_Dept_Dev_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ext_Dept_Dev_CC">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ext_Dept_Dev_CC_Division">
+    <End Role="Division" Type="Self.Division" Multiplicity="0..1" />
+    <End Role="Ext_Dept_Dev_CC" Type="Self.Ext_Dept_Dev_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ext_Dept_Dev_CC">
+        <PropertyRef Name="DivisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ext_Dept_Dev_CC_extension">
+    <End Role="extension" Type="Self.extension" Multiplicity="1" />
+    <End Role="Ext_Dept_Dev_CC" Type="Self.Ext_Dept_Dev_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extension">
+        <PropertyRef Name="ExtensionID" />
+      </Principal>
+      <Dependent Role="Ext_Dept_Dev_CC">
+        <PropertyRef Name="ExtensionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Report_ReportCatalogue">
+    <End Role="ReportCatalogue" Type="Self.ReportCatalogue" Multiplicity="1" />
+    <End Role="Report" Type="Self.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportCatalogue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="ReportCatalogueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Role" Type="Self.Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysPage_Action">
+    <End Role="Action" Type="Self.Action" Multiplicity="0..1" />
+    <End Role="SysPage" Type="Self.SysPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Action">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysPage">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysPage_Permission">
+    <End Role="Permission" Type="Self.Permission" Multiplicity="0..1" />
+    <End Role="SysPage" Type="Self.SysPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysPage">
+        <PropertyRef Name="ParmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogin_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="activesoftswitch_portaone_apiModelStoreContainer">
+    <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActionCategory" EntityType="Self.ActionCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CallType" EntityType="Self.CallType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cdr_cronjob_log" EntityType="Self.cdr_cronjob_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CostCentre" EntityType="Self.CostCentre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cron_joblog" EntityType="Self.cron_joblog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cronjob" EntityType="Self.cronjob" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cronjob_command" EntityType="Self.cronjob_command" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer_hunt_group" EntityType="Self.customer_hunt_group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerJob" EntityType="Self.CustomerJob" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerJobLog" EntityType="Self.CustomerJobLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ext_Dept_Dev_CC" EntityType="Self.Ext_Dept_Dev_CC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="extension" EntityType="Self.extension" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hourlycdr" EntityType="Self.hourlycdr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Period" EntityType="Self.Period" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_ProductType" EntityType="Self.Product_ProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportCatalogue" EntityType="Self.ReportCatalogue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysPage" EntityType="Self.SysPage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemCustomer" EntityType="Self.SystemCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemSetting" EntityType="Self.SystemSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="App" EntityType="Self.App" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [App].[Id] AS [Id], 
+    [App].[Secret] AS [Secret], 
+    [App].[Name] AS [Name], 
+    [App].[ApplicationType] AS [ApplicationType], 
+    [App].[Active] AS [Active], 
+    [App].[RefreshTokenLifeTime] AS [RefreshTokenLifeTime], 
+    [App].[AllowedOrigin] AS [AllowedOrigin]
+    FROM [dbo].[App] AS [App]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Calls" EntityType="Self.Calls" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Calls].[Id] AS [Id], 
+    [Calls].[CallTypeId] AS [CallTypeId], 
+    [Calls].[TalkTime] AS [TalkTime], 
+    [Calls].[RingTime] AS [RingTime], 
+    [Calls].[TotalTime] AS [TotalTime], 
+    [Calls].[ConnectTime] AS [ConnectTime], 
+    [Calls].[DisconnectTime] AS [DisconnectTime], 
+    [Calls].[InternalExternal] AS [InternalExternal], 
+    [Calls].[MissedCall] AS [MissedCall], 
+    [Calls].[DID] AS [DID], 
+    [Calls].[CLI] AS [CLI], 
+    [Calls].[ReceivedBy] AS [ReceivedBy], 
+    [Calls].[ExtensionNo] AS [ExtensionNo], 
+    [Calls].[ExtensionName] AS [ExtensionName], 
+    [Calls].[ICustomer] AS [ICustomer], 
+    [Calls].[PeriodId] AS [PeriodId], 
+    [Calls].[CdrCallId] AS [CdrCallId], 
+    [Calls].[Legs] AS [Legs], 
+    [Calls].[Location] AS [Location], 
+    [Calls].[Bounced] AS [Bounced], 
+    [Calls].[InComingTransfered] AS [InComingTransfered], 
+    [Calls].[OutGoingTransfered] AS [OutGoingTransfered], 
+    [Calls].[hourly_cdr_id] AS [hourly_cdr_id]
+    FROM [dbo].[Calls] AS [Calls]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Country" EntityType="Self.Country" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Country].[Id] AS [Id], 
+    [Country].[Title] AS [Title], 
+    [Country].[Code] AS [Code], 
+    [Country].[Prefix] AS [Prefix]
+    FROM [dbo].[Country] AS [Country]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Action_ActionCategory" Association="Self.FK_Action_ActionCategory">
+      <End Role="ActionCategory" EntitySet="ActionCategory" />
+      <End Role="Action" EntitySet="Action" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_Company" Association="Self.FK_Company_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Company1" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ext_Dept_Dev_CC_CostCentre" Association="Self.FK_Ext_Dept_Dev_CC_CostCentre">
+      <End Role="CostCentre" EntitySet="CostCentre" />
+      <End Role="Ext_Dept_Dev_CC" EntitySet="Ext_Dept_Dev_CC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ext_Dept_Dev_CC_Department" Association="Self.FK_Ext_Dept_Dev_CC_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Ext_Dept_Dev_CC" EntitySet="Ext_Dept_Dev_CC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ext_Dept_Dev_CC_Division" Association="Self.FK_Ext_Dept_Dev_CC_Division">
+      <End Role="Division" EntitySet="Division" />
+      <End Role="Ext_Dept_Dev_CC" EntitySet="Ext_Dept_Dev_CC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ext_Dept_Dev_CC_extension" Association="Self.FK_Ext_Dept_Dev_CC_extension">
+      <End Role="extension" EntitySet="extension" />
+      <End Role="Ext_Dept_Dev_CC" EntitySet="Ext_Dept_Dev_CC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Report_ReportCatalogue" Association="Self.FK_Report_ReportCatalogue">
+      <End Role="ReportCatalogue" EntitySet="ReportCatalogue" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Company" Association="Self.FK_Role_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysPage_Action" Association="Self.FK_SysPage_Action">
+      <End Role="Action" EntitySet="Action" />
+      <End Role="SysPage" EntitySet="SysPage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysPage_Permission" Association="Self.FK_SysPage_Permission">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="SysPage" EntitySet="SysPage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Company" Association="Self.FK_User_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogin_User" Association="Self.FK_UserLogin_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserLogin" EntitySet="UserLogin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

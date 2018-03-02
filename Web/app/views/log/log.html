@@ -1,0 +1,447 @@
+<div class="app-view-header">
+    Customer
+</div>
+
+
+<!-- START row-->
+<div ng-controller="customerController" class="row">
+    <div class="col-md-12">
+        <form name="customerForm" ng-submit="customerSubmit(customerForm.$valid)">
+            <!-- START panel-->
+            <div class="panel panel-default">
+                <!--<div class="panel-heading">
+                </div>-->
+                <div class="panel-body">
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">CIF / Base / CID / RIM No</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.cifBaseCIDRIMNo" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Loan #/ Card #</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.loadCard" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Product</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.product" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Customer Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.name" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Father's Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.fatherName" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Mother's Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.motherName" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Gender</label>
+                            <div class="col-sm-6">
+                                <select ng-model="model.gender" class="form-control">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+
+
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">DOB</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.dob" class="form-control" />
+
+                                <!--<p class="input-group" ng-controller="DatepickerDemoController">
+                                    <input type="text" ng-disabled="attr.isEndDateDisable" datepicker-popup="{{format}}" ng-model="model.dob" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                                           class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="button" ng-disabled="attr.isEndDateDisable" ng-click="open($event)" class="btn btn-default">
+                                            <em class="fa fa-calendar"></em>
+                                        </button>
+                                    </span>
+                                </p>-->
+
+
+                            </div>
+
+                          
+
+                        
+                        
+                        </div>
+
+                    </fieldset>
+
+
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Age</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.age" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Marital Status</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.maritalStatus" class="form-control" />
+
+
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">HC Residence Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.hcResidenceAddress" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Zip / Pin Code</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.zipPinCode" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">City</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.city" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">State</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.state" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nationality</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.nationality" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">UAE State</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.uaeState" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">UAE Residence Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.uaeResidenceAddress" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">UAE Residence Contact Number</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.uaeResidenceContactNumber" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">UAE Mobile Contact Number(s)</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.uaeMobileContactNumber" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Employer Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.employerName" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Employer Company Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.employerCompanyAddress" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Position in Company</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.positioninCompany" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nature of Business</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.natureofBusiness" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email Address (Company)</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.emailAddressCompany" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Ref (UAE) Name 1</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.refUAEName1" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Ref (UAE) Contact Number 1</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.refUAEContactNumber1" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Ref (UAE) Name 2</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.refUAEName2" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Ref (UAE) Contact Number 2</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.refUAEContactNumber2" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> CNIC No</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.cnicNo" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Passport No</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.passportNo" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Passport Exp. Date</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.passportExpDate" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> HC Residence Contact Number(s)</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.hcResidenceContactNumber" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> HC Mobile Contact Number(s)</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.hcMobileContactNumber" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Ref (HC) Contact Number(s)</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.refhcContactNumber" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Ref (HC) Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.refHCAddress" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"> Email Address</label>
+                            <div class="col-sm-6">
+                                <input type="email" ng-model="model.emailAddress" class="form-control" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+
+                </div>
+
+
+                <div class="panel-footer text-center">
+                    <button type="button" class="btn btn-info" ng-click="cancel()">Cancel</button>
+                    <button type="submit" class="btn btn-info" ng-disabled="customerForm.$invalid">Submit</button>
+                </div>
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </form>
+    </div>
+</div>

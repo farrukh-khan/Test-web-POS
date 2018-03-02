@@ -1,0 +1,197 @@
+<div ng-controller="bankController">
+    <div class="app-view-header">
+        Banks
+        <button class="btn btn-success pull-right" style="margin:5px" ng-click="excel()">
+            <i class="fa fa-file-excel-o"></i> &nbsp; Excel
+        </button>
+
+        <button class="btn btn-success pull-right" style="margin:5px" ng-click="pdf()">
+            <i class="fa fa-print"></i> &nbsp; Print
+        </button>
+        <a href="#/app/bank?id=0" ng-if="permissionAccessLevel.isAdd" class="btn btn-info pull-right" style="margin:5px">
+            <i class="fa fa-plus-square"></i> &nbsp;  New Bank
+        </a>
+    </div>
+
+
+
+    <div class="container-fluid">
+
+        <form>
+            <accordion close-others="oneAtATime">
+                <accordion-group is-open="status.isFirstOpen">
+
+                    <accordion-heading>
+                        <div ng-click="filterAccordian()">
+                            <em class="fa fa-plus-square" id="filterAccordian"></em>  Search
+                        </div>
+                    </accordion-heading>
+
+
+                    <div class="col-lg-12">
+
+
+                        <fieldset>
+                            <div class="form-group">
+
+                                <label class=" col-sm-2 control-label ">Code</label>
+                                <div class="col-sm-8">
+                                    <input type="text" ng-model="search.code" class="form-control" />
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+
+                        <fieldset>
+                            <div class="form-group">
+
+                                <label class=" col-sm-2 control-label ">Name </label>
+                                <div class="col-sm-8">
+                                    <input type="text" ng-model="search.name" class="form-control" />
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+
+                        <fieldset>
+                            <div class="form-group">
+
+                                <label class=" col-sm-2 control-label ">Contact Person </label>
+                                <div class=" col-sm-8 ">
+                                    <input type="text" ng-model="search.contactPerson" class="form-control" />
+                                </div>
+
+                            </div>
+
+
+
+
+                        </fieldset>
+
+
+                        <fieldset>
+                            <div class="form-group">
+
+                                <label class=" col-sm-2 control-label ">Email Address</label>
+                                <div class=" col-sm-8 ">
+                                    <input type="text" ng-model="search.emailAddress" class="form-control" />
+                                </div>
+
+                            </div>
+
+
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group">
+
+                                <label class=" col-sm-2 control-label ">Address</label>
+                                <div class=" col-sm-8 ">
+                                    <input type="text" ng-model="search.address" class="form-control" />
+                                </div>
+
+                            </div>
+
+
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Country</label>
+                                <div class="col-sm-8">
+
+                                    <input type="text" ng-model="search.country"  class="form-control" />
+                                    <!--<select class="form-control" ng-model="search.countryId" required="">
+                                        <option ng-repeat="s in countryList" value="{{s.id}}">{{s.title}}</option>
+
+                                    </select>-->
+
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+
+
+                        <div class="panel-footer text-center">
+                            <button type="button" class="btn btn-info" ng-click="reset()">Reset</button>
+                            <button type="submit" class="btn btn-info" ng-click="filter()">Search</button>
+                        </div>
+
+
+
+
+                    </div>
+
+                </accordion-group>
+
+            </accordion>
+        </form>
+
+        <table class="table table-bordered table-hover bg-white">
+            <tr style="font-weight: bold">
+                <td style="width:2%">Code</td>
+                <td >Name</td>
+                <td >Contact Person</td>
+                <td >Email Address</td>
+                <td >Contact No</td>
+                <td ></td>
+            </tr>
+
+            <tr ng-repeat="bank in bankList">
+                <td>
+                    <span>{{ bank.code}}</span>
+                </td>
+
+                <td>
+                    <span>{{ bank.name}}</span>
+                </td>
+
+                <td>
+                    <span>{{ bank.contactPerson}}</span>
+                </td>
+                <td>
+                    <span>{{ bank.emailAddress}}</span>
+                </td>
+                <td>
+                    <span>{{ bank.contactNo}}</span>
+                </td>
+
+                <td style="white-space: nowrap">
+
+                    <div class="buttons">
+                        <a href="#/app/editbank?id={{bank.id}}" ng-if="permissionAccessLevel.isEdit" title="Edit" class="btn btn-sm btn-info">
+                            <em class="fa fa-pencil"></em>
+                        </a>
+                        <button ng-click="delete(bank.id)" title="Delete" ng-if="permissionAccessLevel.isDelete" class="btn btn-sm btn-danger">
+                            <em class="fa fa-trash"></em>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div style="padding-left:20px;">
+            <h4>
+                {{system.alertMsg}}
+            </h4>
+        </div>
+        <div style="margin-left:10px" paging
+             page="model.page"
+             page-size="model.pageSize"
+             total="(model.totalPage)"
+             paging-action="pagingAction(page)">
+        </div>
+
+        <div style="margin-left:10px" ng-if="system.alertMsg == ''">
+            {{system.startRowNumber}} - {{system.endRowNumber}} Out Of {{model.total}} Rows
+        </div>
+
+
+    </div>
+</div>

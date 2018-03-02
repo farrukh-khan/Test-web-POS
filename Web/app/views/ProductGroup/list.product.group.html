@@ -1,0 +1,80 @@
+<div ng-controller="productGroupController">
+
+
+   
+        <div class="form-group mb-xl shadow-z1">
+            <div class="input-group">
+                <input type="text" placeholder="Search Item.." class="form-control input-filter  ng-pristine ng-untouched ng-valid" my-enter="searchFunc()" ng-model="search.Search" >
+                
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-info " ng-click="search()"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+
+
+
+
+    <div class="panel panel-default ">
+        <div class="panel-heading ">
+
+            <div class="btn-group pull-right">
+
+                <a href="#/app/product-group?id={{queryString}}" class="btn btn-default  ember-view popovercontainer" data-original-title="Edit" title="New">
+                    <i class="fa fa-plus-square"></i>
+                </a>
+                <button class="btn btn-default ember-view popovercontainer" data-original-title="PDF" title="Excel">
+                    <i class="fa fa-file-excel-o"></i>
+                </button>
+                <button class="btn btn-default ember-view popovercontainer" data-original-title="Print" title="Print">
+                    <i class="fa fa-print"></i>
+                </button>
+            </div>
+
+            <div class="panel-title  ">Deals</div>
+        </div>
+        <hr />
+        <div class="panel-body">
+            <div class="col-lg-4 col-md-4 col-sm-6" ng-repeat="data in productGroupList">
+                <div class="panel panel-default text-center" style="min-height:400px;">
+                    <a href="#/app/product-group?id={{encode(data.id)}}" class="btn btn-sm btn-fw  pull-right " data-original-title="Edit" title="Edit" style="vertical-align:top">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <div class="panel-body">
+                        <div class="p bb-info mb">
+                            <div class="text-md">
+                                <h3>
+                                    {{data.name}}
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="text-md">Rs. {{data.price}}</div>
+                        <em class="text-muted">Code: {{data.code}}</em>
+                        <ul class="list-unstyled">
+                            <li class="bb pv" ng-repeat="d in data.products">
+                                {{d.name}}
+                            </li>
+                            <li class="pv">
+                                <p>{{d.description}}.</p>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

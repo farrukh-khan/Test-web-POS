@@ -1,0 +1,92 @@
+G:\Itapx Project\Git\itapxschoolsystem\DataAccess\bin\Debug\DataAccess.dll
+G:\Itapx Project\Git\itapxschoolsystem\DataAccess\bin\Debug\DataAccess.pdb
+G:\Itapx Project\Git\itapxschoolsystem\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+G:\Itapx Project\Git\itapxschoolsystem\DataAccess\obj\Debug\DataAccess.dll
+G:\Itapx Project\Git\itapxschoolsystem\DataAccess\obj\Debug\DataAccess.pdb
+G:\Data\Git\SmartReports\DataAccess\obj\Debug\DataAccess.dll
+G:\Data\Git\SmartReports\DataAccess\obj\Debug\DataAccess.pdb
+G:\Data\Git\SmartReports\DataAccess\bin\Debug\DataAccess.dll.config
+G:\Data\Git\SmartReports\DataAccess\bin\Debug\DataAccess.dll
+G:\Data\Git\SmartReports\DataAccess\bin\Debug\DataAccess.pdb
+G:\Data\Git\SmartReports\DataAccess\bin\Debug\EntityFramework.dll
+G:\Data\Git\SmartReports\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+G:\Data\Git\SmartReports\DataAccess\bin\Debug\EntityFramework.xml
+G:\Data\Git\SmartReports\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+G:\Data\Git\smartreports.web\DataAccess\bin\Debug\DataAccess.dll.config
+G:\Data\Git\smartreports.web\DataAccess\bin\Debug\DataAccess.dll
+G:\Data\Git\smartreports.web\DataAccess\bin\Debug\DataAccess.pdb
+G:\Data\Git\smartreports.web\DataAccess\bin\Debug\EntityFramework.dll
+G:\Data\Git\smartreports.web\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+G:\Data\Git\smartreports.web\DataAccess\bin\Debug\EntityFramework.xml
+G:\Data\Git\smartreports.web\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+G:\Data\Git\smartreports.web\DataAccess\obj\Debug\DataAccess.dll
+G:\Data\Git\smartreports.web\DataAccess\obj\Debug\DataAccess.pdb
+F:\Code-Desk\Git\smartreports.web\DataAccess\bin\Debug\DataAccess.dll.config
+F:\Code-Desk\Git\smartreports.web\DataAccess\bin\Debug\DataAccess.dll
+F:\Code-Desk\Git\smartreports.web\DataAccess\bin\Debug\DataAccess.pdb
+F:\Code-Desk\Git\smartreports.web\DataAccess\bin\Debug\EntityFramework.dll
+F:\Code-Desk\Git\smartreports.web\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+F:\Code-Desk\Git\smartreports.web\DataAccess\bin\Debug\EntityFramework.xml
+F:\Code-Desk\Git\smartreports.web\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+F:\Code-Desk\Git\smartreports.web\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+F:\Code-Desk\Git\smartreports.web\DataAccess\obj\Debug\DataAccess.dll
+F:\Code-Desk\Git\smartreports.web\DataAccess\obj\Debug\DataAccess.pdb
+E:\Git\Code-Desk\smartreports.web\DataAccess\bin\Debug\DataAccess.dll.config
+E:\Git\Code-Desk\smartreports.web\DataAccess\bin\Debug\DataAccess.dll
+E:\Git\Code-Desk\smartreports.web\DataAccess\bin\Debug\DataAccess.pdb
+E:\Git\Code-Desk\smartreports.web\DataAccess\bin\Debug\EntityFramework.dll
+E:\Git\Code-Desk\smartreports.web\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+E:\Git\Code-Desk\smartreports.web\DataAccess\bin\Debug\EntityFramework.xml
+E:\Git\Code-Desk\smartreports.web\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+E:\Git\Code-Desk\smartreports.web\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+E:\Git\Code-Desk\smartreports.web\DataAccess\obj\Debug\DataAccess.dll
+E:\Git\Code-Desk\smartreports.web\DataAccess\obj\Debug\DataAccess.pdb
+E:\Git\Itapx\bankcollection\DataAccess\bin\Debug\DataAccess.dll.config
+E:\Git\Itapx\bankcollection\DataAccess\bin\Debug\DataAccess.dll
+E:\Git\Itapx\bankcollection\DataAccess\bin\Debug\DataAccess.pdb
+E:\Git\Itapx\bankcollection\DataAccess\bin\Debug\EntityFramework.dll
+E:\Git\Itapx\bankcollection\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+E:\Git\Itapx\bankcollection\DataAccess\bin\Debug\EntityFramework.xml
+E:\Git\Itapx\bankcollection\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+E:\Git\Itapx\bankcollection\DataAccess\obj\Debug\DataAccess.dll
+E:\Git\Itapx\bankcollection\DataAccess\obj\Debug\DataAccess.pdb
+E:\Git\Itapx\bankcollection\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\Git\Itapx Solutions\bankcollection\DataAccess\bin\Debug\DataAccess.dll.config
+D:\Git\Itapx Solutions\bankcollection\DataAccess\bin\Debug\DataAccess.dll
+D:\Git\Itapx Solutions\bankcollection\DataAccess\bin\Debug\DataAccess.pdb
+D:\Git\Itapx Solutions\bankcollection\DataAccess\bin\Debug\EntityFramework.dll
+D:\Git\Itapx Solutions\bankcollection\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\Itapx Solutions\bankcollection\DataAccess\bin\Debug\EntityFramework.xml
+D:\Git\Itapx Solutions\bankcollection\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\Itapx Solutions\bankcollection\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\Git\Itapx Solutions\bankcollection\DataAccess\obj\Debug\DataAccess.dll
+D:\Git\Itapx Solutions\bankcollection\DataAccess\obj\Debug\DataAccess.pdb
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\bin\Debug\DataAccess.dll.config
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\bin\Debug\DataAccess.dll
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\bin\Debug\DataAccess.pdb
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\bin\Debug\EntityFramework.dll
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\bin\Debug\EntityFramework.xml
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\obj\Debug\DataAccess.dll
+D:\git\PPHI.CEO.DASHBOARD\DataAccess\obj\Debug\DataAccess.pdb
+D:\git\pphi.lab\DataAccess\bin\Debug\DataAccess.dll.config
+D:\git\pphi.lab\DataAccess\bin\Debug\DataAccess.dll
+D:\git\pphi.lab\DataAccess\bin\Debug\DataAccess.pdb
+D:\git\pphi.lab\DataAccess\bin\Debug\EntityFramework.dll
+D:\git\pphi.lab\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\git\pphi.lab\DataAccess\bin\Debug\EntityFramework.xml
+D:\git\pphi.lab\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\git\pphi.lab\DataAccess\obj\Debug\DataAccess.dll
+D:\git\pphi.lab\DataAccess\obj\Debug\DataAccess.pdb
+D:\git\web.pos\DataAccess\bin\Debug\DataAccess.dll.config
+D:\git\web.pos\DataAccess\bin\Debug\DataAccess.dll
+D:\git\web.pos\DataAccess\bin\Debug\DataAccess.pdb
+D:\git\web.pos\DataAccess\bin\Debug\EntityFramework.dll
+D:\git\web.pos\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\git\web.pos\DataAccess\bin\Debug\EntityFramework.xml
+D:\git\web.pos\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\git\web.pos\DataAccess\obj\Debug\DataAccess.dll
+D:\git\web.pos\DataAccess\obj\Debug\DataAccess.pdb
+D:\git\web.pos\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache

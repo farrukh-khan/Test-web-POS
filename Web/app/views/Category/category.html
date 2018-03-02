@@ -1,0 +1,42 @@
+<div class="app-view-header">
+    Category
+</div>
+
+<!-- START row-->
+<div ng-controller="categoryController" class="row">
+    <div class="col-md-12">
+
+        <form name="categoryForm" ng-submit="categorySubmit(categoryForm.$valid)">
+            <!-- START panel-->
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label text-sm text-danger">Name</label>
+                            <div class="col-sm-11">
+                                <input type="text" ng-model="model.name" class="form-control form-control-rounded input-sm" placeholder="Name" required />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+
+                </div>
+
+
+                <div class="panel-footer text-center">
+                    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+                    <button type="submit" class="btn btn-danger" ng-disabled="categoryForm.$invalid">Submit</button>
+                </div>
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </form>
+
+    </div>
+</div>

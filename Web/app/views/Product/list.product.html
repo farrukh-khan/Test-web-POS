@@ -1,0 +1,116 @@
+<div ng-controller="productController">
+
+
+    <form class="ng-pristine ng-valid ng-scope">
+        <div class="form-group mb-xl shadow-z1">
+            <div class="input-group">
+                <input type="text" placeholder="Search Item.." class="form-control input-filter ng-pristine ng-untouched ng-valid">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-info "><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+    </form>
+
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+
+            <div class="btn-group pull-right">
+
+                <a href="#/app/product?id={{queryString}}" class="btn btn-default  ember-view popovercontainer" data-original-title="Edit" title="New">
+                    <i class="fa fa-plus-square"></i>
+                </a>
+                <button class="btn btn-default ember-view popovercontainer" data-original-title="PDF" title="Excel">
+                    <i class="fa fa-file-excel-o"></i>
+                </button>
+                <button class="btn btn-default ember-view popovercontainer" data-original-title="Print" title="Print">
+                    <i class="fa fa-print"></i>
+                </button>
+
+
+            </div>
+
+            <div class="panel-title">Items</div>
+        </div>
+        <hr />
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover bg-white dataTable row-border ">
+                <thead>
+                    <tr style="font-weight: bold">
+                        <th style="width:2%">Code</th>
+                        <th style="width:50%">Name</th>                        
+                        <th style="width:20%">Category</th> 
+                        <th style="width:10%">Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in ProductList">
+                        <td>
+                            <span>{{ data.code}}</span>
+                        </td>
+
+                        <td>
+                            <span>{{ data.name}}</span>
+                        </td>
+
+                        <td>
+                            <span>{{ data.categoryName}}</span>
+                        </td>
+
+                        
+                        <td class="text-right">
+                            <span> {{data.saleRate | number:0}}</span>
+                        </td>
+
+                        <td style="white-space: nowrap">
+
+                            <div class="buttons">
+                                <button ng-click="edit(data.id)" ng-if="permissionAccessLevel.isEdit" title="Edit" class="btn btn-sm btn-info">
+                                    <em class="fa fa-pencil"></em>
+                                </button>
+                                <button ng-click="delete(data.id)" title="Delete" ng-if="permissionAccessLevel.isDelete" class="btn btn-sm btn-danger">
+                                    <em class="fa fa-trash"></em>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+
+            </table>
+
+            <div style="padding-left:20px;">
+                <h4>
+                    {{system.alertMsg}}
+
+                </h4>
+            </div>
+            <div style="margin-left:10px" paging
+                 page="search.page"
+                 page-size="search.pageSize"
+                 total="(search.totalPage)"
+                 paging-action="pagingAction(page)">
+            </div>
+
+            <div style="margin-left:10px" ng-if="system.alertMsg == ''">
+                {{system.startRowNumber}} - {{system.endRowNumber}} Out Of {{model.total}} Rows
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

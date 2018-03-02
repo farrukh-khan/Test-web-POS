@@ -1,0 +1,695 @@
+
+
+<div ng-controller="orderController" class="row">
+    <form name="orderForm" ng-submit="orderSubmit(customerForm.$valid)">
+
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+
+            <!-- START panel-->
+            <div class="panel panel-amber">
+
+                <div class="panel-heading clearfix">
+                    <h4 class="panel-title">DEALS</h4>
+                </div>
+
+
+                <div class="panel-body">
+
+                    <fieldset>
+
+                        <div class="form-group">
+
+                            <div class="input-group">
+                                <input type="text" placeholder="Search Deal.." class="form-control input-filter ng-pristine ng-untouched ng-valid">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-info "><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+
+                        <div class="row ng-scope">
+
+
+                           
+
+                            <div class="col-sm-6">
+                                <div class="thumbnail">
+                                    <a href="app/img/bg2.jpg" data-gallery="" title="Unsplash images">
+                                        <img src="/app/img/Deal/deal-2.jpg" alt="deal 1" />
+                                    </a>
+                                    <div class="caption panel-amber">
+                                        <h3>Rs. 150</h3>
+                                        <p>
+                                            Deal 1
+
+                                        </p>
+
+                                        <!--<div class="panel panel-amber">
+
+                                            <div class="panel-heading">
+
+                                                <div class="panel-title">
+                                                    <div class="text-center bg-amber ">
+                                                        Rs. 300
+                                                        <br>
+                                                        <small class="text-muted">Deal 1</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>-->
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="thumbnail">
+                                    <a href="app/img/bg2.jpg" data-gallery="" title="Unsplash images">
+                                        <img src="/app/img/Deal/deal-2.jpg" alt="deal 1" />
+                                    </a>
+                                    <div class="caption panel-amber">
+                                        <h3>Rs. 150</h3>
+                                        <p>
+                                            Deal 2
+                                        </p>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="thumbnail">
+                                    <a href="app/img/bg2.jpg" data-gallery="" title="Unsplash images">
+                                        <img src="/app/img/Deal/deal-2.jpg" alt="deal 1" />
+                                    </a>
+                                    <div class="caption panel-amber">
+                                        <h3>Rs. 150</h3>
+                                        <p>
+                                            Deal 2
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="thumbnail">
+                                    <a href="app/img/bg2.jpg" data-gallery="" title="Unsplash images">
+                                        <img src="/app/img/Deal/deal-2.jpg" alt="deal 1" />
+                                    </a>
+                                    <div class="caption panel-amber">
+                                        <h3>Rs. 150</h3>
+                                        <p>
+                                            Deal 2
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="thumbnail">
+                                    <a href="app/img/bg2.jpg" data-gallery="" title="Unsplash images">
+                                        <img src="/app/img/Deal/deal-2.jpg" alt="deal 1" />
+                                    </a>
+                                    <div class="caption panel-amber">
+                                        <h3>Rs. 150</h3>
+                                        <p>
+                                            Deal 2
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="thumbnail">
+                                    <a href="app/img/bg2.jpg" data-gallery="" title="Unsplash images">
+                                        <img src="/app/img/Deal/deal-2.jpg" alt="deal 1" />
+                                    </a>
+                                    <div class="caption panel-amber">
+                                        <h3>Rs. 150</h3>
+                                        <p>
+                                            Deal 2
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="thumbnail">
+                                    <a href="app/img/bg2.jpg" data-gallery="" title="Unsplash images">
+                                        <img src="/app/img/Deal/deal-2.jpg" alt="deal 1" />
+                                    </a>
+                                    <div class="caption panel-amber">
+                                        <h3>Rs. 150</h3>
+                                        <p>
+                                            Deal 2
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="thumbnail">
+                                    <a href="app/img/bg2.jpg" data-gallery="" title="Unsplash images">
+                                        <img src="/app/img/Deal/deal-2.jpg" alt="deal 1" />
+                                    </a>
+                                    <div class="caption panel-amber">
+                                        <h3>Rs. 150</h3>
+                                        <p>
+                                            Deal 2
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+
+
+
+                        <!--<aside class="col-lg-12 fw-boxed">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6 col-xs-6">
+                                    <div ripple="" class="panel panel-default">
+                                        <div ng-class="'bg-' + app.theme.name" class="panel-body bg-success">
+                                            <h1 class="text-thin mt">150</h1>
+                                            <div class="text-right text-sm text-muted">Deal 1</div>
+                                        </div>
+                                        <span class="ripple"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-xs-6">
+                                    <div ripple="" class="panel panel-default">
+                                        <div ng-class="'bg-' + app.theme.name" class="panel-body bg-success">
+                                            <h1 class="text-thin mt">150</h1>
+                                            <div class="text-right text-sm text-muted">Deal 1</div>
+                                        </div>
+                                        <span class="ripple"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-xs-6">
+                                    <div ripple="" class="panel panel-default">
+                                        <div ng-class="'bg-' + app.theme.name" class="panel-body bg-success">
+                                            <h1 class="text-thin mt">150</h1>
+                                            <div class="text-right text-sm text-muted">Deal 1</div>
+                                        </div>
+                                        <span class="ripple"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-xs-6">
+                                    <div ripple="" class="panel panel-default">
+                                        <div ng-class="'bg-' + app.theme.name" class="panel-body bg-success">
+                                            <h1 class="text-thin mt">150</h1>
+                                            <div class="text-right text-sm text-muted">Deal 1</div>
+                                        </div>
+                                        <span class="ripple"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </aside>-->
+
+
+                    </fieldset>
+
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-8">
+            <!-- START panel-->
+            <div class="panel panel-orange">
+
+                <div class="panel-heading clearfix">
+                    <h4 class="panel-title">ITEMS</h4>
+                </div>
+
+
+                <div class="panel-body">
+
+                    <fieldset>
+
+                        <div class="form-group">
+
+                            <div class="input-group">
+                                <input type="text" placeholder="Search Items.." class="form-control input-filter ng-pristine ng-untouched ng-valid">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-info "><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+
+                        <div class="col-sm-5 br">
+                            
+                            <ul class="list-block">
+                                <li class="pv text-muted">CATEGORY</li>
+                                <li class="media pb bb">                                  
+                                    <div class="media-body btn btn-orange">
+                                        <div class="media-heading">
+                                            BBQ
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="media pb bb">
+                                    <div class="media-body btn btn-flat">
+                                        <div class="media-heading">
+                                            BEVERAGES
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="media pb bb">
+                                    <div class="media-body btn btn-flat">
+                                        <div class="media-heading">
+                                            FAST FOOD
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="media pb bb">
+                                    <div class="media-body btn btn-fw">
+                                        <div class="media-heading">
+                                            QORMA
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="media pb bb">
+                                    <div class="media-body btn btn-fw">
+                                        <div class="media-heading">
+                                            RICE
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="media pb bb">
+                                    <div class="media-body btn btn-fw">
+                                        <div class="media-heading">
+                                            ROLLS
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+
+                        </div>
+
+
+                        <div class="col-sm-7">
+
+                            <ul class="list-block">
+                                <li class="pv text-muted">ITEMS</li>
+                               
+                                <li class="media pb bb">
+                                    <div class="pull-left">
+                                        <!-- Contact avatar-->
+                                        <div class="point-pin">
+                                            <img src="app/img/items/CHIKENTIKKA.jpg" alt="Image" class="media-object img-circle thumb40" />
+                                            
+                                        </div>
+                                    </div>
+                                    <!-- Contact info-->
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <a href="">CHIKEN TIKKA</a>
+                                            <br>
+                                            <small class="text-muted">Rs. 50</small>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="media pb bb">
+                                    <div class="pull-left">
+                                        <!-- Contact avatar-->
+                                        <div class="point-pin">
+                                            <img src="app/img/items/CHIKENTIKKA.jpg" alt="Image" class="media-object img-circle thumb40" />
+
+                                        </div>
+                                    </div>
+                                    <!-- Contact info-->
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <a href="">MINERAL WATER 500 ML</a>
+                                            <br>
+                                            <small class="text-muted">Rs. 20</small>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+
+
+
+                            <!--<div class="col-sm-12">
+                                <div class="thumbnail">
+                                    <a href="app/img/bg2.jpg" data-gallery="" title="Unsplash images">
+                                        <img src="/app/img/Deal/Deal-3.jpg" alt="deal 1" />
+                                    </a>
+                                    <div class="caption panel-amber">
+                                        <h5>Rs. 150</h5>
+                                        <p>
+                                            Deal 2
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>-->
+
+                           
+
+
+                         
+                        </div>
+
+
+                      
+
+
+                    </fieldset>
+
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </div>
+
+        <div class="col-lg-4 col-md-5 col-sm-12">
+            <!-- START panel-->
+            <div class="panel panel-success">
+                <div class="panel-heading">
+
+                    <h4 class="panel-title col-sm-8" style="padding-top: 7.5px;">PRICE DETAIL</h4>
+                    <div class="input-group col-sm-4" style="display:inline-flex">
+                        <input type="text" ng-model="search.id" class="form-control input-filter input-sm" autocomplete="off" placeholder="Search Id" />
+                        <button class="btn btn-info pull-right btn-sm " id="btnSearch" type="submit" data-style="expand-right" data-size="s" style="margin-right: 10px;">
+                            <i class="fa fa-search"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+                <div class="panel-body">
+
+                    <!--<div class="row">
+
+                        <div class="col-md-12">
+
+                            <ui-select ng-model="model.testObj" theme="bootstrap" ng-disabled="disabled" class="text-left" ng-change="testChange()">
+                                <ui-select-match placeholder="Select or search a Test in the list...">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="country in testList | filter: $select.search">
+                                    <span ng-bind-html="country.name | highlight: $select.search"></span>
+                                    (<small ng-bind-html="country.code | highlight: $select.search"></small>)
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+                    <br />-->
+
+
+                    <div class="container-fluid">
+
+                        <table class="table table-hover custom-table">
+                            <thead>
+                                <tr style="font-weight: bold">
+                                    <th style="width:5%;">#</th>
+                                    <th style="width:60%;">Product</th>
+                                    <th class="text-right" style="width:15%;">Qty</th>
+                                    <th class="text-right" style="width:10%;" >Price</th>
+                                    <th style="width:20%;"></th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>01</td>
+                                    <td><span>Chiken Tikka</span></td>
+                                    <td class="text-right"><span>1</span></td>
+                                    <td class="text-right"><span>100</span></td>
+                                    <td style="white-space: nowrap">
+
+                                        <div class="buttons text-center">
+
+                                            <button ng-click="remove(t)" title="Plus" class="btn btn-sm btn-success ">
+                                                <em class="fa fa-plus "></em>
+                                            </button>
+                                            <button ng-click="remove(t)" title="Subtract" class="btn btn-sm btn-primary ">
+                                                <em class="fa fa-minus "></em>
+                                            </button>
+
+                                            <button ng-click="remove(t)" title="Delete" class="btn btn-sm btn-danger ">
+                                                <em class="fa fa-remove "></em>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>01</td>
+                                    <td><span>Chiken Tikka</span></td>
+                                    <td class="text-right"><span>1</span></td>
+                                    <td class="text-right"><span>100</span></td>
+                                    <td style="white-space: nowrap">
+
+                                        <div class="buttons text-center">
+
+                                            <button ng-click="remove(t)" title="Plus" class="btn btn-sm btn-success ">
+                                                <em class="fa fa-plus "></em>
+                                            </button>
+                                            <button ng-click="remove(t)" title="Subtract" class="btn btn-sm btn-primary ">
+                                                <em class="fa fa-minus "></em>
+                                            </button>
+
+                                            <button ng-click="remove(t)" title="Delete" class="btn btn-sm btn-danger ">
+                                                <em class="fa fa-remove "></em>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>01</td>
+                                    <td><span>Chiken Tikka</span></td>
+                                    <td class="text-right"><span>1</span></td>
+                                    <td class="text-right"><span>100</span></td>
+                                    <td style="white-space: nowrap">
+
+                                        <div class="buttons text-center">
+
+                                            <button ng-click="remove(t)" title="Plus" class="btn btn-sm btn-success ">
+                                                <em class="fa fa-plus "></em>
+                                            </button>
+                                            <button ng-click="remove(t)" title="Subtract" class="btn btn-sm btn-primary ">
+                                                <em class="fa fa-minus "></em>
+                                            </button>
+
+                                            <button ng-click="remove(t)" title="Delete" class="btn btn-sm btn-danger ">
+                                                <em class="fa fa-remove "></em>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!--<tr ng-repeat="t in testGrid">
+                                    <td>
+                                        {{ t.code}}
+                                    </td>
+
+
+
+                                    <td>
+                                        <span>{{ t.name}}</span>
+                                    </td>
+
+                                    <td>
+                                        <span>{{ t.reportDate}}</span>
+                                    </td>
+
+
+                                    <td class="text-right">
+                                        {{t.saleRate | number:0}}
+                                    </td>
+
+                                    <td style="white-space: nowrap">
+
+                                        <div class="buttons text-center">
+                                            <button ng-click="remove(t)" title="Delete" class="btn btn-sm btn-danger ">
+                                                <em class="fa fa-remove "></em>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>-->
+                            </tbody>
+
+
+
+                        </table>
+
+                    </div>
+                    <hr />
+                    <br />
+                    <div class="col-md-12" style="text-align:right">
+                        <div class="row">
+                            <div class="control-label col-md-4">
+                            </div>
+
+                            <div class="control-label col-md-4 text-sm">
+                                Sub Total
+                            </div>
+
+                            <div class="col-md-3">
+                                <hr>
+                            </div>
+
+                            <div class="control-label col-md-1 text-sm text-right">
+                                {{model.subTotal | number:0}}
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+
+                            <div class="control-label col-md-4">
+                            </div>
+                            <div class="control-label col-md-4 text-sm">
+                                Discount
+                            </div>
+
+                            <div class="col-md-3">
+                                <input type="number" ng-change="calculate()" ng-model="model.discount" class="form-control form-control-rounded input-sm " autocomplete="off" placeholder="E.g. 0.00" required />
+                            </div>
+
+                            <div class="control-label col-md-1 text-sm text-right">
+                                {{model.adjustment | number:0}}
+                            </div>
+
+                        </div>
+
+
+                    
+
+
+
+                        <div class="form-group row">
+
+                            <div class="control-label col-md-4">
+                            </div>
+                            <div class="control-label col-md-4 text-sm">
+                                Total
+                            </div>
+
+                            <div class="col-md-3">
+                                <hr>
+                            </div>
+
+                            <div class="control-label col-md-1 text-sm text-right">
+                                {{model.total | number:0}}
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group row">
+
+                            <div class="control-label col-md-4">
+                            </div>
+                            <div class="control-label col-md-4 text-sm text-success">
+                                Paid
+                            </div>
+
+                            <div class="col-md-3">
+                                <input type="number" ng-change="calculate()" ng-model="model.paid" class="form-control form-control-rounded input-sm" autocomplete="off" placeholder="E.g. 0.00" required />
+                            </div>
+
+                            <div class="control-label col-md-1 text-sm text-right">
+                                {{model.paid | number:0}}
+                            </div>
+                            <hr>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="control-label col-md-4">
+                            </div>
+                            <div class="control-label col-md-4 text-sm text-danger">
+                                Balance
+                            </div>
+
+                            <div class="col-md-3">
+                                <hr>
+                            </div>
+
+                            <div class="control-label col-md-1 text-sm text-danger text-right">
+                                {{model.balance | number:0}}
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+                <div class="panel-footer text-right">
+
+                    <button type="button" class="btn btn-default rounded" ng-click="cancel()">
+                        Cancel
+                    </button>
+
+                    <button type="button" class="btn btn-danger">Save and Print</button>
+
+                    <button type="submit" class="btn btn-default" ng-disabled="customerForm.$invalid">
+                        Save as Draft
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- END pane
+                l-
+                ->
+            <
+                !-- END row-->
+        </div>
+
+
+
+
+
+    </form>
+</div>

@@ -1,0 +1,102 @@
+<div class="app-view-header">
+    Bank
+</div>
+
+<!-- START row-->
+<div ng-controller="bankController" class="row">
+    <div class="col-md-12">
+
+        <form name="bankForm" ng-submit="bankSubmit(bankForm.$valid)">
+            <!-- START panel-->
+            <div class="panel panel-default">
+                
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.name" required="" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Code</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.code" required="" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.address"  class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Contact Person</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.contactPerson"  class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Contact Number</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.contactNo"  class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="model.emailAddress" required="" class="form-control" />
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Country</label>
+                            <div class="col-sm-6">
+
+                                <input type="text" ng-model="model.country" class="form-control" />
+                                
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                </div>
+
+
+                <div class="panel-footer text-center">
+                    <button type="button" class="btn btn-info" ng-click="cancel()">Cancel</button>
+                    <button type="submit" class="btn btn-info" ng-disabled="bankForm.$invalid">Submit</button>
+                </div>
+
+            </div>
+            <!-- END panel-->
+            <!-- END row-->
+        </form>
+
+    </div>
+</div>
